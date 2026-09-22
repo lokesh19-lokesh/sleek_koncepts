@@ -295,14 +295,14 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .navbar-brand img {
-    height: 44px;
+    height: 64px;
     width: auto;
     object-fit: contain;
     transition: var(--transition);
 }
 
 .navbar-sleek.scrolled .navbar-brand img {
-    height: 38px;
+    height: 50px;
 }
 
 /* Navigation Links */
@@ -1198,12 +1198,12 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .footer-logo-img {
-    height: 46px;
+    height: 60px;
     width: auto;
     object-fit: contain;
     margin-bottom: 1.5rem;
     background: rgba(255, 255, 255, 0.95);
-    padding: 6px 14px;
+    padding: 8px 18px;
     border-radius: var(--radius-sm);
 }
 
