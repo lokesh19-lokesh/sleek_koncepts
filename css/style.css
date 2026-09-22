@@ -1406,14 +1406,14 @@ h6, .h6 { font-size: 0.95rem; }
     padding: 140px 0 70px;
     background-size: cover;
     background-position: center;
-    color: var(--white);
+    color: #FFFFFF !important;
     overflow: hidden;
 }
 
 .page-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(28, 43, 86, 0.92) 0%, rgba(40, 65, 128, 0.85) 60%, rgba(18, 24, 38, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(14, 25, 54, 0.94) 0%, rgba(28, 45, 92, 0.88) 60%, rgba(10, 16, 32, 0.96) 100%);
     z-index: 1;
 }
 
@@ -1423,25 +1423,86 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .page-hero .breadcrumb {
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
 .page-hero .breadcrumb a {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    transition: var(--transition-fast);
 }
 
 .page-hero .breadcrumb a:hover {
-    color: var(--white);
+    color: #FFFFFF !important;
+    text-decoration: underline;
 }
 
 .page-hero .breadcrumb-item.active {
-    color: var(--sky-blue);
+    color: #FFFFFF !important;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .page-hero .breadcrumb-item + .breadcrumb-item::before {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.page-hero .section-subtitle,
+.page-hero .section-subtitle.light {
+    color: #FFFFFF !important;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    opacity: 1 !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0.85rem;
+}
+
+.page-hero .section-subtitle::before,
+.page-hero .section-subtitle.light::before {
+    background-color: #E52027 !important;
+    width: 28px;
+    height: 3px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.page-hero .hero-title {
+    color: #FFFFFF !important;
+    font-size: calc(2rem + 1.6vw);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.15rem;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+
+.page-hero .hero-lead {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 1.12rem;
+    font-weight: 400;
+    line-height: 1.75;
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.page-hero .btn-sleek {
+    background-color: #E52027 !important;
+    border-color: #E52027 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 18px rgba(229, 32, 39, 0.45) !important;
+}
+
+.page-hero .btn-sleek:hover {
+    background-color: #C91319 !important;
+    border-color: #C91319 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(229, 32, 39, 0.6) !important;
 }
 
 /* --- 7. SECTION CONTAINERS & WRAPPERS --- */
