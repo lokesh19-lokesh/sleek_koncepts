@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    window.addEventListener('beforeunload', () => {
+        const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+        if (currentFile !== 'index.html' && currentFile !== '') {
+            try {
+                sessionStorage.setItem('sleek_from_internal', '1');
+            } catch(err) {}
+        }
+    });
+
     // --- 1. STICKY NAVBAR ON SCROLL ---
     const navbar = document.querySelector('.navbar-sleek');
     const backToTopBtn = document.querySelector('.back-to-top-btn');
