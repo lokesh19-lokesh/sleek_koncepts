@@ -166,7 +166,30 @@
     }
 
     .hero-badges {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    .hero-badge-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         justify-content: center;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.78rem;
+        line-height: 1.25;
+        gap: 6px;
+        min-width: 0;
+    }
+
+    .hero-badge-item i {
+        font-size: 1.25rem;
+        margin-bottom: 2px;
     }
 
     .hero-interior-designer-card {
@@ -322,6 +345,28 @@
         padding: 8px 10px;
     }
 
+    .hero-badges {
+        gap: 8px;
+        margin-top: 1.4rem;
+    }
+
+    .hero-badge-item {
+        padding: 0.6rem 0.35rem;
+        font-size: 0.72rem;
+        line-height: 1.25;
+        gap: 4px;
+    }
+
+    .hero-badge-item i {
+        font-size: 1.15rem;
+    }
+
+    .hero-badge-item span {
+        display: block;
+        word-break: normal;
+        white-space: normal;
+    }
+
     .section-title {
         font-size: 1.75rem;
     }
@@ -362,5 +407,19 @@
 
     .form-luxury {
         padding: 1.5rem 1rem;
+    }
+
+    .hero-badges {
+        gap: 5px;
+    }
+
+    .hero-badge-item {
+        padding: 0.5rem 0.2rem;
+        font-size: 0.64rem;
+        line-height: 1.2;
+    }
+
+    .hero-badge-item i {
+        font-size: 1rem;
     }
 }
