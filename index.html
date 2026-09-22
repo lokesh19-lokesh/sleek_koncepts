@@ -56,11 +56,202 @@
 </head>
 <body>
 
+    <!-- LUXURY ARCHITECTURAL PRELOADER: BUILDING HOUSE & LOGO -->
+    <div id="preloader" role="status" aria-live="polite" aria-label="Loading Sleek Koncepts">
+        <div class="preloader-blueprint-grid"></div>
+        <div class="preloader-card">
+            <!-- Brand Logo -->
+            <div class="preloader-logo-wrap">
+                <img src="images/logo/logo.png" alt="Sleek Koncepts" class="preloader-logo" width="160" height="48">
+            </div>
+
+            <!-- Architectural House Drawing Construction Animation -->
+            <div class="preloader-house-wrap">
+                <svg class="house-svg" viewBox="0 0 240 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Ground Datum Line -->
+                    <path class="house-path ground" d="M15 155 H225" stroke="#3778B6" stroke-width="2.5" stroke-linecap="round" />
+                    <path class="house-path ground" d="M35 162 H205" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="5 4" stroke-linecap="round" />
+
+                    <!-- Foundation Pillars (Sleek Red) -->
+                    <line class="house-path foundation" x1="45" y1="155" x2="45" y2="148" stroke="#E52027" stroke-width="3" stroke-linecap="round" />
+                    <line class="house-path foundation" x1="120" y1="155" x2="120" y2="148" stroke="#E52027" stroke-width="3" stroke-linecap="round" />
+                    <line class="house-path foundation" x1="195" y1="155" x2="195" y2="148" stroke="#E52027" stroke-width="3" stroke-linecap="round" />
+
+                    <!-- Main Architectural Frame (Pure White) -->
+                    <path class="house-path walls" d="M40 148 V65 H200 V148 H40 Z" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round" />
+
+                    <!-- Cantilever Upper Floor & Pergola Roof (Sky Blue) -->
+                    <path class="house-path cantilever" d="M30 65 H210 V32 H65 L30 65 Z" stroke="#3778B6" stroke-width="2.4" stroke-linejoin="round" />
+                    
+                    <!-- Modern Pitched Roof Accent (Sleek Red) -->
+                    <path class="house-path roof" d="M22 66 L65 26 L218 26 L212 66" stroke="#E52027" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- Floor Divider Beam -->
+                    <line class="house-path walls" x1="40" y1="105" x2="200" y2="105" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-dasharray="4 3" />
+
+                    <!-- Upper Floor Balcony Glass Wall & Mullion -->
+                    <rect class="house-path glass" x="75" y="38" width="80" height="22" rx="2" stroke="#3778B6" stroke-width="1.8" />
+                    <line class="house-path glass" x1="115" y1="38" x2="115" y2="60" stroke="rgba(55,120,182,0.6)" stroke-width="1.2" />
+
+                    <!-- Ground Floor Modern Sliding Glass Doors -->
+                    <rect class="house-path glass" x="50" y="75" width="46" height="73" rx="2" stroke="#FFFFFF" stroke-width="1.8" />
+                    <line class="house-path glass" x1="73" y1="75" x2="73" y2="148" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" />
+
+                    <!-- Main Designer Entrance Door (Sleek Red) -->
+                    <rect class="house-path door" x="108" y="82" width="34" height="66" rx="2" stroke="#E52027" stroke-width="2" />
+                    <circle class="house-path door" cx="134" cy="115" r="1.5" stroke="#E52027" fill="#E52027" />
+
+                    <!-- Picture Window with Interior Warmth -->
+                    <rect class="house-path glass" x="154" y="75" width="36" height="50" rx="2" stroke="#FFFFFF" stroke-width="1.8" />
+                    <line class="house-path glass" x1="154" y1="100" x2="190" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" />
+
+                    <!-- Interior Designer Chandelier / Pendant Light -->
+                    <path class="house-path interior-lamp" d="M125 82 V92 M120 92 H130 L125 97 Z" stroke="#FFD166" stroke-width="1.4" stroke-linejoin="round" />
+                    
+                    <!-- Warm Light Radial Glow when house is built -->
+                    <circle class="interior-glow-circle" cx="125" cy="98" r="18" fill="url(#interiorWarmth)" />
+
+                    <defs>
+                        <radialGradient id="interiorWarmth" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FFD166" stop-opacity="0.85"/>
+                            <stop offset="50%" stop-color="#E52027" stop-opacity="0.3"/>
+                            <stop offset="100%" stop-color="#284180" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Dynamic Tagline & Progress Bar -->
+            <div class="preloader-tagline" id="preloaderStatus">Drafting Architectural Blueprint...</div>
+            <div class="preloader-progress-track">
+                <div class="preloader-progress-fill" id="preloaderProgress"></div>
+            </div>
+            <div class="preloader-meta">
+                <span class="small opacity-75">Sleek Architecture &amp; Interiors</span>
+                <span class="preloader-percent" id="preloaderPercent">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRELOADER LIFECYCLE CONTROLLER (RUNS ONLY ON INITIAL OPEN & RELOAD) -->
+    <script>
+        (function() {
+            var preloader = document.getElementById('preloader');
+            if (!preloader) return;
+
+            // 1. Detect if the page was explicitly reloaded
+            var isReload = false;
+            try {
+                var navEntries = window.performance && performance.getEntriesByType && performance.getEntriesByType('navigation');
+                if (navEntries && navEntries.length > 0) {
+                    isReload = (navEntries[0].type === 'reload');
+                } else if (window.performance && window.performance.navigation) {
+                    isReload = (window.performance.navigation.type === 1);
+                }
+            } catch(e) {}
+
+            // 2. Detect if redirected/navigated from another internal page of the website
+            var fromOtherPage = false;
+            try {
+                var storedFlag = sessionStorage.getItem('sleek_from_internal');
+                if (storedFlag === '1') {
+                    fromOtherPage = true;
+                    sessionStorage.removeItem('sleek_from_internal');
+                }
+                if (!fromOtherPage && document.referrer) {
+                    var ref = document.referrer.toLowerCase();
+                    var internalPages = [
+                        'about.html', 'services.html', 'modular-kitchen.html', 'living-room.html',
+                        'bedroom.html', 'wardrobe.html', 'projects.html', 'project-details.html',
+                        'design-ideas.html', 'process.html', 'contact.html', 'faq.html',
+                        'privacy-policy.html', 'terms.html'
+                    ];
+                    for (var i = 0; i < internalPages.length; i++) {
+                        if (ref.indexOf(internalPages[i]) !== -1) {
+                            fromOtherPage = true;
+                            break;
+                        }
+                    }
+                }
+            } catch(e) {}
+
+            // If coming from another page AND NOT a direct reload: do not show animation
+            if (fromOtherPage && !isReload) {
+                preloader.style.display = 'none';
+                return;
+            }
+
+            // Otherwise (fresh site open OR page reload): Run smooth architectural animation
+            var progressFill = document.getElementById('preloaderProgress');
+            var percentText = document.getElementById('preloaderPercent');
+            var statusText = document.getElementById('preloaderStatus');
+
+            var statusMessages = [
+                { pct: 0, text: 'Drafting Architectural Blueprint...' },
+                { pct: 28, text: 'Constructing Structural Walls...' },
+                { pct: 58, text: 'Curating Luxury Glass & Finishes...' },
+                { pct: 85, text: 'Illuminating Modern Interiors...' },
+                { pct: 100, text: 'Welcome to Sleek Koncepts' }
+            ];
+
+            var duration = 1800; // 1.8 seconds
+            var startTime = null;
+
+            function animatePreloader(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var elapsed = timestamp - startTime;
+                var progress = Math.min(elapsed / duration, 1);
+                var currentPercent = Math.floor(progress * 100);
+
+                if (progressFill) progressFill.style.width = currentPercent + '%';
+                if (percentText) percentText.textContent = currentPercent + '%';
+
+                if (statusText) {
+                    for (var i = statusMessages.length - 1; i >= 0; i--) {
+                        if (currentPercent >= statusMessages[i].pct) {
+                            if (statusText.textContent !== statusMessages[i].text) {
+                                statusText.textContent = statusMessages[i].text;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(animatePreloader);
+                } else {
+                    setTimeout(function() {
+                        preloader.classList.add('preloader-hidden');
+                        setTimeout(function() {
+                            preloader.style.display = 'none';
+                        }, 800);
+                    }, 250);
+                }
+            }
+
+            window.requestAnimationFrame(animatePreloader);
+
+            // Click anywhere to immediately dismiss
+            preloader.addEventListener('click', function() {
+                preloader.classList.add('preloader-hidden');
+                setTimeout(function() { preloader.style.display = 'none'; }, 800);
+            });
+
+            // Safeguard timeout: never block page
+            setTimeout(function() {
+                if (preloader && !preloader.classList.contains('preloader-hidden')) {
+                    preloader.classList.add('preloader-hidden');
+                    setTimeout(function() { preloader.style.display = 'none'; }, 800);
+                }
+            }, 2600);
+        })();
+    </script>
+
     <!-- 1. GLOBAL NAVIGATION -->
     <nav class="navbar navbar-expand-lg navbar-sleek">
         <div class="container container-custom">
             <a class="navbar-brand" href="index.html" aria-label="Sleek Koncepts Home">
-                <img src="images/logo/logo.png" alt="Sleek Koncepts Logo" width="180" height="64">
+                <img src="images/logo/logo.png" alt="Sleek Koncepts Logo" width="160" height="54">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">

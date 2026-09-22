@@ -6,6 +6,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
+    // --- 0. INTERNAL NAVIGATION TRACKER (PREVENTS PRELOADER WHEN NAVIGATING FROM OTHER PAGES) ---
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link && link.getAttribute('href')) {
+            const rawHref = link.getAttribute('href');
+            const cleanHref = rawHref.split('?')[0].split('#')[0];
+            const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+
+            // If user is clicking a link to index.html from ANY other page
+            if ((cleanHref === 'index.html' || cleanHref === './' || cleanHref === '') && currentFile !== 'index.html' && currentFile !== '') {
+                try {
+                    sessionStorage.setItem('sleek_from_internal', '1');
+                } catch(err) {}
+            }
+        }
+    });
+
     // --- 1. STICKY NAVBAR ON SCROLL ---
     const navbar = document.querySelector('.navbar-sleek');
     const backToTopBtn = document.querySelector('.back-to-top-btn');
