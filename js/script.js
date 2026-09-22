@@ -402,4 +402,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         counterElements.forEach(counter => counterObserver.observe(counter));
     }
+
+    // --- 8. "THE BUBBLES MEDIA" INTERACTIVE BUBBLE EMITTER ON HOVER ---
+    const creditLinks = document.querySelectorAll('.footer-credit-link');
+    creditLinks.forEach(link => {
+        let bubbleInterval = null;
+
+        const spawnBubble = () => {
+            const bubble = document.createElement('span');
+            bubble.classList.add('dynamic-bubble');
+
+            const size = Math.floor(Math.random() * 10) + 7; // 7px to 17px
+            const rect = link.getBoundingClientRect();
+            const left = Math.random() * (link.offsetWidth - 8);
+            const drift = (Math.random() - 0.5) * 30; // -15px to +15px horizontal drift
+
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}px`;
+            bubble.style.setProperty('--drift', `${drift}px`);
+
+            link.appendChild(bubble);
+
+            setTimeout(() => {
+                if (bubble.parentNode) {
+                    bubble.remove();
+                }
+            }, 1500);
+        };
+
+        link.addEventListener('mouseenter', () => {
+            // Spawn an initial burst of 3 bubbles
+            spawnBubble();
+            setTimeout(spawnBubble, 100);
+            setTimeout(spawnBubble, 200);
+
+            // Continuously emit bubbles while hovered
+            bubbleInterval = setInterval(spawnBubble, 220);
+        });
+
+        link.addEventListener('mouseleave', () => {
+            if (bubbleInterval) {
+                clearInterval(bubbleInterval);
+                bubbleInterval = null;
+            }
+        });
+    });
 });
