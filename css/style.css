@@ -66,6 +66,27 @@ body {
     overflow-x: hidden;
 }
 
+/* --- CONTAINER CUSTOM ARCHITECTURE --- */
+.container-custom {
+    width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+    .container-custom {
+        max-width: 1240px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container-custom {
+        max-width: 1360px;
+    }
+}
+
 /* --- 3. TYPOGRAPHY (AFICAL NEUE / SYNE DISPLAY + MONTSERRAT BODY) --- */
 h1, h2, h3, h4, h5, h6,
 .font-display,
