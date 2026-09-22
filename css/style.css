@@ -5,11 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
-/* --- 1. CSS VARIABLES (OFFICIAL BRAND PALETTE) --- */
+/* --- 1. CSS VARIABLES (OFFICIAL BRAND PALETTE - RED & BLUE SWITCHED) --- */
 :root {
-    /* Exact Brand Guidelines Colors */
-    --sleek-red: #E52027;
-    --deep-koncept-blue: #284180;
+    /* Switched Brand Colors: Red <-> Blue */
+    --sleek-red: #284180;              /* Primary Action & Accent is now Deep Blue */
+    --deep-koncept-blue: #E52027;      /* Headings & Brand Contrast is now Sleek Red */
     --sky-blue: #3778B6;
     --white: #FFFFFF;
 
@@ -19,9 +19,9 @@
     --text-dark: #121826;
     --text-body: #3E4656;
     --text-muted: #6B7280;
-    --deep-blue-dark: #1A2B56;
+    --deep-blue-dark: #C91319;
     --deep-blue-surface: #F0F4FA;
-    --sleek-red-hover: #C91319;
+    --sleek-red-hover: #1D3162;
     --sky-blue-hover: #2B649A;
     --border-color: rgba(40, 65, 128, 0.12);
     --border-light: rgba(255, 255, 255, 0.15);
@@ -35,7 +35,7 @@
     --shadow-sm: 0 4px 12px rgba(40, 65, 128, 0.05);
     --shadow-md: 0 10px 30px rgba(40, 65, 128, 0.09);
     --shadow-lg: 0 20px 50px rgba(40, 65, 128, 0.14);
-    --shadow-red: 0 8px 24px rgba(229, 32, 39, 0.3);
+    --shadow-red: 0 8px 24px rgba(40, 65, 128, 0.35);
 
     /* Transitions & Curves */
     --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
@@ -896,7 +896,7 @@ h6, .h6 { font-size: 0.95rem; }
 .hud-mode-btn.active {
     color: #ffffff;
     background: var(--sleek-red);
-    box-shadow: 0 2px 8px rgba(229, 32, 39, 0.4);
+    box-shadow: 0 2px 8px rgba(40, 65, 128, 0.4);
 }
 
 /* Scene Viewport */
@@ -985,8 +985,8 @@ h6, .h6 { font-size: 0.95rem; }
     bottom: 0;
     left: -1px;
     width: 3px;
-    background: linear-gradient(180deg, #00e5ff 0%, #ffffff 50%, #e52027 100%);
-    box-shadow: 0 0 12px #00e5ff, 0 0 24px rgba(0, 229, 255, 0.8), 0 0 35px rgba(229, 32, 39, 0.6);
+    background: linear-gradient(180deg, #00e5ff 0%, #ffffff 50%, var(--deep-koncept-blue) 100%);
+    box-shadow: 0 0 12px #00e5ff, 0 0 24px rgba(0, 229, 255, 0.8), 0 0 35px rgba(40, 65, 128, 0.6);
 }
 
 .scan-beam-flare {
@@ -997,7 +997,7 @@ h6, .h6 { font-size: 0.95rem; }
     height: 14px;
     border-radius: 50%;
     background: #ffffff;
-    box-shadow: 0 0 14px #00e5ff, 0 0 20px #e52027;
+    box-shadow: 0 0 14px #00e5ff, 0 0 20px var(--deep-koncept-blue);
 }
 
 .top-flare {
@@ -1360,11 +1360,27 @@ h6, .h6 { font-size: 0.95rem; }
 .bg-deep-blue h2,
 .bg-deep-blue h3,
 .bg-deep-blue h4 {
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 .bg-deep-blue p {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.bg-deep-blue .section-subtitle.light {
+    color: #FFFFFF !important;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    opacity: 1 !important;
+}
+
+.bg-deep-blue .section-subtitle.light::before {
+    background-color: #FFFFFF !important;
+}
+
+.bg-deep-blue .text-white-50 {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 1.05rem;
 }
 
 .section-header {
@@ -1552,49 +1568,57 @@ h6, .h6 { font-size: 0.95rem; }
 
 /* --- 10. WHY SLEEK KONCEPTS / PILLARS --- */
 .pillar-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
     border-radius: var(--radius-md);
     padding: 2.25rem 1.75rem;
     transition: var(--transition);
     height: 100%;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .pillar-card:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.22) !important;
     transform: translateY(-6px);
-    border-color: var(--sky-blue);
+    border-color: #FFFFFF !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
 }
 
 .pillar-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(229, 32, 39, 0.15);
-    border: 1px solid rgba(229, 32, 39, 0.4);
-    border-radius: var(--radius-sm);
+    width: 62px;
+    height: 62px;
+    background: #FFFFFF !important;
+    border: 2px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: var(--sleek-red);
+    font-size: 1.65rem;
+    color: #121826 !important;
     margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     transition: var(--transition);
 }
 
 .pillar-card:hover .pillar-icon {
-    background: var(--sleek-red);
-    color: var(--white);
+    background: #FFFFFF !important;
+    color: var(--sleek-red) !important;
+    transform: scale(1.08);
 }
 
 .pillar-title {
-    font-size: 1.2rem;
-    color: var(--white);
+    font-size: 1.25rem;
+    color: #FFFFFF !important;
+    font-weight: 700;
     margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
 }
 
 .pillar-desc {
-    font-size: 0.925rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.95) !important;
+    line-height: 1.65;
     margin: 0;
 }
 
