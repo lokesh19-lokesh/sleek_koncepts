@@ -29,17 +29,17 @@
     }
 
     .navbar-sleek {
-        padding: 0.65rem 0;
+        padding: 0.95rem 0;
     }
 
     .navbar-brand {
-        margin-right: 1.25rem;
+        margin-right: 1.5rem;
     }
 
     .navbar-brand img {
-        height: 60px;
+        height: 76px;
     }
-
+ 
     .navbar-sleek .nav-link {
         padding: 0.42rem 0.58rem !important;
         font-size: 0.79rem;
@@ -79,7 +79,7 @@
     }
 
     .navbar-brand img {
-        height: 54px;
+        height: 70px;
     }
 
     .navbar-sleek .nav-link {
@@ -93,43 +93,48 @@
         padding: 0.48rem 0.95rem;
         font-size: 0.74rem;
         white-space: nowrap;
-        flex-shrink: 0;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.35rem;
     }
 
     .designer-scene-viewport {
-        height: 310px;
-    }
-
-    .section-padding {
-        padding: 4.5rem 0;
+        height: 300px;
     }
 }
 
 /* --- 992px (Tablets & Mobile Transition) --- */
 @media (max-width: 991.98px) {
     .navbar-sleek {
-        padding: 0.75rem 0;
-        background: var(--white);
+        padding: 0.85rem 0;
+        background: #E52027 !important;
+    }
+
+    .navbar-brand img {
+        height: 62px;
     }
 
     .navbar-collapse {
-        background: var(--white);
+        background: #FFFFFF;
         border-radius: var(--radius-md);
         padding: 1.5rem;
         margin-top: 1rem;
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
         max-height: 80vh;
         overflow-y: auto;
     }
 
-    .navbar-sleek .nav-link {
+    .navbar-collapse .nav-link {
+        color: #121E3A !important;
         padding: 0.75rem 0 !important;
         font-size: 0.9rem;
         border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar-collapse .nav-link:hover,
+    .navbar-collapse .nav-link.active {
+        color: #E52027 !important;
     }
 
     .navbar-sleek .nav-link::after {
@@ -155,7 +160,7 @@
 
     .hero-wrapper {
         min-height: 75vh;
-        padding-top: 110px;
+        padding-top: 130px;
         padding-bottom: 60px;
         text-align: center;
     }
@@ -404,7 +409,7 @@
 /* --- 375px (Compact Phones) --- */
 @media (max-width: 375px) {
     .navbar-brand img {
-        height: 42px;
+        height: 48px;
     }
 
     .hero-title {
