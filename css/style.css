@@ -158,11 +158,15 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .section-subtitle.light {
-    color: var(--sky-blue);
+    color: #FFFFFF !important;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    opacity: 0.95;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .section-subtitle.light::before {
-    background-color: var(--sky-blue);
+    background-color: #FFFFFF !important;
 }
 
 /* --- 4. BUTTONS & CTAS --- */
@@ -2009,23 +2013,77 @@ h6, .h6 { font-size: 0.95rem; }
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 80% 20%, rgba(55, 120, 182, 0.25) 0%, transparent 60%),
-                radial-gradient(circle at 10% 80%, rgba(229, 32, 39, 0.2) 0%, transparent 50%);
+    background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(0, 0, 0, 0.25) 0%, transparent 50%);
     pointer-events: none;
 }
 
+.cta-banner-section .section-subtitle.light {
+    color: #FFFFFF !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    opacity: 1 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.cta-banner-section .section-subtitle.light::before {
+    background-color: #FFFFFF !important;
+    width: 28px;
+    height: 2px;
+}
+
 .cta-title {
-    color: var(--white);
-    font-size: calc(2rem + 1.2vw);
+    color: #FFFFFF !important;
+    font-size: calc(2.1rem + 1.2vw);
     font-weight: 800;
     margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
 }
 
 .cta-subtitle {
     font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.88);
-    max-width: 600px;
+    font-weight: 400;
+    color: #FFFFFF !important;
+    max-width: 650px;
     margin: 0 auto 2.5rem;
+    line-height: 1.7;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+    opacity: 0.95;
+}
+
+.cta-banner-section .btn-sleek {
+    background-color: #FFFFFF !important;
+    color: #121826 !important;
+    border: 2px solid #FFFFFF !important;
+    font-weight: 750;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.cta-banner-section .btn-sleek:hover {
+    background-color: #F0F4FA !important;
+    color: var(--sleek-red) !important;
+    border-color: #F0F4FA !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.cta-banner-section .btn-outline-white {
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-weight: 700;
+}
+
+.cta-banner-section .btn-outline-white:hover {
+    background-color: #FFFFFF !important;
+    color: var(--deep-blue-dark) !important;
+    border-color: #FFFFFF !important;
+    transform: translateY(-2px);
 }
 
 /* --- 17. GLOBAL FOOTER --- */
