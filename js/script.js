@@ -448,4 +448,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- 9. HERO 3D INTERIOR DESIGN STUDIO INTERACTION ---
+    const heroDesignerCard = document.getElementById('heroDesignerCard');
+    if (heroDesignerCard) {
+        const modeButtons = heroDesignerCard.querySelectorAll('.hud-mode-btn');
+
+        modeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const mode = btn.getAttribute('data-mode');
+                heroDesignerCard.classList.remove('mode-render', 'mode-cad');
+
+                if (mode === 'render') {
+                    heroDesignerCard.classList.add('mode-render');
+                } else if (mode === 'cad') {
+                    heroDesignerCard.classList.add('mode-cad');
+                }
+                // 'auto' mode leaves both classes off, letting CSS keyframe animations sweep continuously
+            });
+        });
+
+        // Mobile tap and click toggle support for hotspots
+        const hotspots = heroDesignerCard.querySelectorAll('.design-hotspot');
+        hotspots.forEach(spot => {
+            const pin = spot.querySelector('.hotspot-pin');
+            if (pin) {
+                pin.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const wasActive = spot.classList.contains('active');
+                    hotspots.forEach(s => s.classList.remove('active'));
+                    if (!wasActive) {
+                        spot.classList.add('active');
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!heroDesignerCard.contains(e.target)) {
+                hotspots.forEach(s => s.classList.remove('active'));
+            }
+        });
+    }
 });

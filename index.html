@@ -310,8 +310,9 @@
     <header class="hero-wrapper" style="background-image: url('images/hero/hero-home.jpg');">
         <div class="hero-overlay"></div>
         <div class="container container-custom hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-9 col-xl-8">
+            <div class="row align-items-center g-4 g-xl-5">
+                <!-- Left Column: Hero Copy & Actions -->
+                <div class="col-lg-6 col-xl-6 pe-xl-3">
                     <span class="section-subtitle light reveal-fade-up">Where Style Meets Smart Living</span>
                     <h1 class="hero-title reveal-fade-up">
                         DESIGN YOUR <br><span class="text-highlight">DREAM HOME</span>
@@ -336,6 +337,194 @@
                         <div class="hero-badge-item">
                             <i class="bi bi-clock-history"></i>
                             <span>On-Time Handover</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive 3D Interior Design Studio Card -->
+                <div class="col-lg-6 col-xl-6 mt-4 mt-lg-0 reveal-fade-up">
+                    <div class="hero-interior-designer-card" id="heroDesignerCard">
+                        <!-- HUD Header -->
+                        <div class="designer-card-header">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="hud-live-beacon"></span>
+                                <span class="hud-studio-title">3D INTERIOR DESIGN STUDIO</span>
+                            </div>
+                            <div class="hud-mode-group" role="group" aria-label="3D Viewport Mode">
+                                <button type="button" class="hud-mode-btn active" data-mode="auto" title="Continuous CAD-to-Reality scan">
+                                    <i class="bi bi-arrow-repeat"></i> <span>Auto Scan</span>
+                                </button>
+                                <button type="button" class="hud-mode-btn" data-mode="render" title="View Photorealistic 3D Render">
+                                    <i class="bi bi-box"></i> <span>3D Render</span>
+                                </button>
+                                <button type="button" class="hud-mode-btn" data-mode="cad" title="View 2D CAD Blueprint">
+                                    <i class="bi bi-grid-3x3"></i> <span>Blueprint</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Scene Viewport -->
+                        <div class="designer-scene-viewport" id="designerSceneViewport">
+                            <!-- Layer 1: Photoreal 3D Render -->
+                            <div class="scene-render-layer" style="background-image: url('images/services/service-complete-home.jpg');"></div>
+
+                            <!-- Layer 2: CAD Blueprint Layer with SVG Architectural Geometry -->
+                            <div class="scene-blueprint-layer" id="sceneBlueprintLayer">
+                                <svg class="blueprint-cad-svg" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="cadGridSmall" width="20" height="20" patternUnits="userSpaceOnUse">
+                                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0, 229, 255, 0.12)" stroke-width="0.75"/>
+                                        </pattern>
+                                        <pattern id="cadGridMajor" width="100" height="100" patternUnits="userSpaceOnUse">
+                                            <rect width="100" height="100" fill="url(#cadGridSmall)"/>
+                                            <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0, 229, 255, 0.28)" stroke-width="1.2"/>
+                                        </pattern>
+                                    </defs>
+
+                                    <!-- Grid Backdrop -->
+                                    <rect width="100%" height="100%" fill="#0a152e"/>
+                                    <rect width="100%" height="100%" fill="url(#cadGridMajor)"/>
+
+                                    <!-- Architectural Room Perspective Lines -->
+                                    <!-- Back Wall Bounds -->
+                                    <polygon points="120,70 480,70 480,310 120,310" fill="rgba(8, 26, 64, 0.45)" stroke="#00e5ff" stroke-width="1.6" stroke-dasharray="8,4"/>
+                                    
+                                    <!-- Corner Perspective Edges to Room Boundary -->
+                                    <line x1="0" y1="0" x2="120" y2="70" stroke="#00e5ff" stroke-width="1.6"/>
+                                    <line x1="600" y1="0" x2="480" y2="70" stroke="#00e5ff" stroke-width="1.6"/>
+                                    <line x1="0" y1="400" x2="120" y2="310" stroke="#00e5ff" stroke-width="1.6"/>
+                                    <line x1="600" y1="400" x2="480" y2="310" stroke="#00e5ff" stroke-width="1.6"/>
+
+                                    <!-- Architectural Dimension Lines & Ticks -->
+                                    <!-- Horizontal Width -->
+                                    <line x1="120" y1="330" x2="480" y2="330" stroke="#3778b6" stroke-width="1.5"/>
+                                    <line x1="120" y1="322" x2="120" y2="338" stroke="#3778b6" stroke-width="1.5"/>
+                                    <line x1="480" y1="322" x2="480" y2="338" stroke="#3778b6" stroke-width="1.5"/>
+                                    <text x="300" y="346" fill="#00e5ff" font-family="'Courier New', monospace" font-size="11" font-weight="bold" text-anchor="middle" letter-spacing="1">DIM: 5800 mm [LIVING ZONE]</text>
+
+                                    <!-- Vertical Height Dimension -->
+                                    <line x1="100" y1="70" x2="100" y2="310" stroke="#3778b6" stroke-width="1.5"/>
+                                    <line x1="92" y1="70" x2="108" y2="70" stroke="#3778b6" stroke-width="1.5"/>
+                                    <line x1="92" y1="310" x2="108" y2="310" stroke="#3778b6" stroke-width="1.5"/>
+                                    <text x="88" y="195" fill="#00e5ff" font-family="'Courier New', monospace" font-size="10" font-weight="bold" text-anchor="middle" transform="rotate(-90 88 195)" letter-spacing="1">H: 2850 mm</text>
+
+                                    <!-- Architectural Ceiling Track & Cove Details -->
+                                    <path d="M 150,90 L 450,90" stroke="#00e5ff" stroke-width="2" stroke-dasharray="4,4"/>
+                                    <circle cx="200" cy="90" r="4" fill="#00e5ff"/>
+                                    <circle cx="270" cy="90" r="4" fill="#00e5ff"/>
+                                    <circle cx="340" cy="90" r="4" fill="#00e5ff"/>
+                                    <circle cx="410" cy="90" r="4" fill="#00e5ff"/>
+                                    <text x="300" y="110" fill="rgba(255,255,255,0.7)" font-family="'Courier New', monospace" font-size="9" text-anchor="middle">CONCEALED COVE LED (2700K WARM)</text>
+
+                                    <!-- Architectural Media Wall / TV Unit Outline -->
+                                    <rect x="350" y="130" width="115" height="150" fill="rgba(0, 229, 255, 0.06)" stroke="#00e5ff" stroke-width="1.5"/>
+                                    <!-- TV screen boundary -->
+                                    <rect x="365" y="150" width="85" height="52" fill="none" stroke="#e52027" stroke-width="1.4"/>
+                                    <text x="407" y="180" fill="#e52027" font-family="'Courier New', monospace" font-size="8" font-weight="bold" text-anchor="middle">75" OLED DISPLAY</text>
+                                    <!-- Floating console ledge -->
+                                    <polygon points="340,240 475,240 460,256 325,256" fill="rgba(55, 120, 182, 0.25)" stroke="#00e5ff" stroke-width="1.2"/>
+                                    <text x="400" y="272" fill="#00e5ff" font-family="'Courier New', monospace" font-size="8" text-anchor="middle">CALACATTA FLOATING LEDGE</text>
+
+                                    <!-- Architectural Sofa & Lounge Wireframe -->
+                                    <polygon points="140,230 290,230 270,305 105,305" fill="rgba(0, 229, 255, 0.08)" stroke="#00e5ff" stroke-width="1.6"/>
+                                    <polygon points="140,210 290,210 290,230 140,230" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
+                                    <line x1="215" y1="210" x2="190" y2="305" stroke="#00e5ff" stroke-width="1" stroke-dasharray="3,3"/>
+                                    <!-- Coffee Table wireframe -->
+                                    <ellipse cx="250" cy="275" rx="35" ry="18" fill="rgba(229, 32, 39, 0.1)" stroke="#e52027" stroke-width="1.3"/>
+                                    <text x="250" y="278" fill="#ffffff" font-family="'Courier New', monospace" font-size="7" font-weight="bold" text-anchor="middle">ROUND OAK TABLE</text>
+
+                                    <!-- Studio Project Stamp & Technical Callouts -->
+                                    <rect x="15" y="15" width="180" height="42" fill="rgba(10, 21, 46, 0.85)" stroke="rgba(0, 229, 255, 0.3)" stroke-width="1"/>
+                                    <text x="25" y="30" fill="#00e5ff" font-family="'Courier New', monospace" font-size="9" font-weight="bold" letter-spacing="1">SLEEK KONCEPTS CAD</text>
+                                    <text x="25" y="44" fill="rgba(255, 255, 255, 0.75)" font-family="'Courier New', monospace" font-size="8">SPEC: RESIDENTIAL INTERIORS</text>
+                                </svg>
+                            </div>
+
+                            <!-- Layer 3: Synchronized Laser Scanner Beam -->
+                            <div class="designer-scan-beam" id="designerScanBeam">
+                                <div class="scan-beam-line"></div>
+                                <div class="scan-beam-flare top-flare"></div>
+                                <div class="scan-beam-flare bottom-flare"></div>
+                                <div class="scan-beam-tag">
+                                    <span class="tag-pulse"></span>
+                                    <span>DESIGN SCAN</span>
+                                </div>
+                            </div>
+
+                            <!-- Layer 4: Interactive Design Hotspots -->
+                            <!-- Hotspot 1: Sofa -->
+                            <div class="design-hotspot hotspot-sofa" style="top: 68%; left: 34%;">
+                                <button class="hotspot-pin" type="button" aria-label="Sofa Design Details">
+                                    <span class="pin-ring"></span>
+                                    <span class="pin-dot"></span>
+                                </button>
+                                <div class="hotspot-card">
+                                    <div class="hotspot-badge">FURNITURE SPECS</div>
+                                    <div class="hotspot-title">Custom Velvet Sectional</div>
+                                    <div class="hotspot-desc">High-resilience ergonomic foam with stain-resistant Italian textured upholstery.</div>
+                                    <div class="hotspot-meta"><i class="bi bi-arrows-fullscreen"></i> L: 2800 mm × D: 1050 mm</div>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 2: Media Wall -->
+                            <div class="design-hotspot hotspot-tv" style="top: 46%; left: 78%;">
+                                <button class="hotspot-pin" type="button" aria-label="TV Wall Design Details">
+                                    <span class="pin-ring"></span>
+                                    <span class="pin-dot"></span>
+                                </button>
+                                <div class="hotspot-card">
+                                    <div class="hotspot-badge">WALL ARCHITECTURE</div>
+                                    <div class="hotspot-title">Smoked Oak Fluted Wall</div>
+                                    <div class="hotspot-desc">Calacatta marble floating ledge with integrated cable concealment.</div>
+                                    <div class="hotspot-meta"><i class="bi bi-gem"></i> Natural Italian Marble + Oak</div>
+                                </div>
+                            </div>
+
+                            <!-- Hotspot 3: Cove Lighting -->
+                            <div class="design-hotspot hotspot-ceiling" style="top: 20%; left: 52%;">
+                                <button class="hotspot-pin" type="button" aria-label="Ceiling Lighting Details">
+                                    <span class="pin-ring"></span>
+                                    <span class="pin-dot"></span>
+                                </button>
+                                <div class="hotspot-card">
+                                    <div class="hotspot-badge">AMBIENT LIGHTING</div>
+                                    <div class="hotspot-title">Concealed Cove &amp; Tracks</div>
+                                    <div class="hotspot-desc">2700K warm ambient LED profile with magnetic anti-glare spots.</div>
+                                    <div class="hotspot-meta"><i class="bi bi-brightness-high"></i> Dimmable Dual Circuit</div>
+                                </div>
+                            </div>
+
+                            <!-- Layer 5: Floating Material Palette Swatches -->
+                            <div class="designer-material-palette">
+                                <div class="swatch-chip" title="Italian Calacatta Gold">
+                                    <span class="swatch-dot swatch-marble"></span>
+                                    <span class="swatch-label">Calacatta</span>
+                                </div>
+                                <div class="swatch-chip" title="Smoked Walnut Veneer">
+                                    <span class="swatch-dot swatch-wood"></span>
+                                    <span class="swatch-label">Smoked Oak</span>
+                                </div>
+                                <div class="swatch-chip" title="Brushed Champagne Brass">
+                                    <span class="swatch-dot swatch-brass"></span>
+                                    <span class="swatch-label">Brushed Brass</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer: Precision Specs & Live Metrics -->
+                        <div class="designer-card-footer">
+                            <div class="designer-metric">
+                                <i class="bi bi-rulers"></i>
+                                <span>1:1 Precision CAD</span>
+                            </div>
+                            <div class="designer-metric">
+                                <i class="bi bi-eye"></i>
+                                <span>Photoreal 3D Pre-View</span>
+                            </div>
+                            <div class="designer-metric">
+                                <i class="bi bi-shield-check"></i>
+                                <span>45-Day Turnkey</span>
+                            </div>
                         </div>
                     </div>
                 </div>

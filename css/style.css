@@ -759,6 +759,494 @@ h6, .h6 { font-size: 0.95rem; }
     font-size: 1.1rem;
 }
 
+/* --- 6.1 HERO INTERIOR DESIGN STUDIO ANIMATION CARD --- */
+.hero-interior-designer-card {
+    position: relative;
+    background: rgba(13, 23, 49, 0.76);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(55, 120, 182, 0.2);
+    border-radius: 16px;
+    padding: 14px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.hero-interior-designer-card:hover {
+    border-color: rgba(0, 229, 255, 0.35);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 229, 255, 0.18);
+}
+
+.designer-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 4px 6px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 12px;
+}
+
+.hud-live-beacon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00e5ff;
+    box-shadow: 0 0 8px #00e5ff;
+    display: inline-block;
+    animation: beaconPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes beaconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 6px #00e5ff;
+    }
+    50% {
+        transform: scale(1.35);
+        opacity: 0.6;
+        box-shadow: 0 0 16px #00e5ff;
+    }
+}
+
+.hud-studio-title {
+    font-family: var(--font-heading);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+}
+
+.hud-mode-group {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    padding: 3px;
+    gap: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hud-mode-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.hud-mode-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hud-mode-btn.active {
+    color: #ffffff;
+    background: var(--sleek-red);
+    box-shadow: 0 2px 8px rgba(229, 32, 39, 0.4);
+}
+
+/* Scene Viewport */
+.designer-scene-viewport {
+    position: relative;
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #091224;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.scene-render-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.scene-blueprint-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #0a152e;
+    animation: blueprintWipe 8s ease-in-out infinite alternate;
+    will-change: clip-path;
+}
+
+.blueprint-cad-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Laser Scanner Beam & Keyframes */
+@keyframes blueprintWipe {
+    0%, 8% {
+        clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+    }
+    46%, 54% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    92%, 100% {
+        clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+    }
+}
+
+.designer-scan-beam {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    z-index: 5;
+    pointer-events: none;
+    animation: scannerSweep 8s ease-in-out infinite alternate;
+    will-change: left;
+}
+
+@keyframes scannerSweep {
+    0%, 8% {
+        left: 0%;
+        opacity: 0;
+    }
+    12% {
+        opacity: 1;
+    }
+    46%, 54% {
+        left: 100%;
+        opacity: 1;
+    }
+    88% {
+        opacity: 1;
+    }
+    92%, 100% {
+        left: 0%;
+        opacity: 0;
+    }
+}
+
+.scan-beam-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1px;
+    width: 3px;
+    background: linear-gradient(180deg, #00e5ff 0%, #ffffff 50%, #e52027 100%);
+    box-shadow: 0 0 12px #00e5ff, 0 0 24px rgba(0, 229, 255, 0.8), 0 0 35px rgba(229, 32, 39, 0.6);
+}
+
+.scan-beam-flare {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 14px #00e5ff, 0 0 20px #e52027;
+}
+
+.top-flare {
+    top: -4px;
+}
+
+.bottom-flare {
+    bottom: -4px;
+}
+
+.scan-beam-tag {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    background: rgba(10, 21, 46, 0.9);
+    border: 1px solid #00e5ff;
+    color: #00e5ff;
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 7px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.tag-pulse {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00e5ff;
+    animation: beaconPulse 1s infinite;
+}
+
+/* Manual Mode Overrides */
+.hero-interior-designer-card.mode-render .scene-blueprint-layer {
+    animation: none !important;
+    clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%) !important;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.hero-interior-designer-card.mode-render .designer-scan-beam {
+    animation: none !important;
+    opacity: 0 !important;
+}
+
+.hero-interior-designer-card.mode-cad .scene-blueprint-layer {
+    animation: none !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.hero-interior-designer-card.mode-cad .designer-scan-beam {
+    animation: none !important;
+    opacity: 0 !important;
+}
+
+/* Interactive Design Hotspots */
+.design-hotspot {
+    position: absolute;
+    z-index: 6;
+    transform: translate(-50%, -50%);
+}
+
+.hotspot-pin {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pin-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sleek-red);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(229, 32, 39, 0.8);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.25s ease;
+}
+
+.pin-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--sleek-red);
+    animation: hotspotRipple 2s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+}
+
+@keyframes hotspotRipple {
+    0% {
+        transform: scale(0.6);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.2);
+        opacity: 0;
+    }
+}
+
+.design-hotspot:hover .pin-dot,
+.design-hotspot.active .pin-dot {
+    transform: scale(1.35);
+    background: #00e5ff;
+    box-shadow: 0 0 14px #00e5ff;
+}
+
+.design-hotspot:hover .pin-ring,
+.design-hotspot.active .pin-ring {
+    border-color: #00e5ff;
+}
+
+/* Hotspot Card Tooltip */
+.hotspot-card {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(12, 22, 48, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    border-left: 3px solid var(--sleek-red);
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 220px;
+    max-width: 260px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 255, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20;
+}
+
+.hotspot-card::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(12, 22, 48, 0.94) transparent transparent transparent;
+}
+
+.design-hotspot:hover .hotspot-card,
+.design-hotspot.active .hotspot-card {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.hotspot-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #00e5ff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.hotspot-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+    font-family: var(--font-heading);
+}
+
+.hotspot-desc {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.hotspot-meta {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.65);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 5px;
+}
+
+.hotspot-meta i {
+    color: var(--sky-blue);
+}
+
+/* Floating Material Palette Swatches */
+.designer-material-palette {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 6;
+}
+
+.swatch-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(10, 21, 46, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 4px 10px 4px 5px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.swatch-chip:hover {
+    transform: translateX(-4px);
+    border-color: #00e5ff;
+}
+
+.swatch-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.swatch-marble {
+    background: linear-gradient(135deg, #f8f9fa 0%, #cfd4dc 50%, #eef1f6 100%);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.swatch-wood {
+    background: linear-gradient(135deg, #5a3825 0%, #321c10 100%);
+}
+
+.swatch-brass {
+    background: linear-gradient(135deg, #e5c158 0%, #b8861e 100%);
+}
+
+.swatch-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+/* Card Footer: Metrics & Specs */
+.designer-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 6px 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 12px;
+}
+
+.designer-metric {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.designer-metric i {
+    color: #00e5ff;
+    font-size: 0.85rem;
+}
+
 /* Inner Page Hero (Standardized Subpage Hero) */
 .page-hero {
     position: relative;
