@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Completed Projects | Sleek Koncepts Karimnagar</title>
+    <meta name="description" content="Explore residential interior projects by Sleek Koncepts: luxury villas, modular kitchens, contemporary living spaces, and bespoke wardrobes across Telangana.">
+    <link rel="canonical" href="https://www.sleekkoncepts.com/projects.html">
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Completed Projects Portfolio | Sleek Koncepts">
+    <meta property="og:description" content="Browse our luxury interior design case studies and architectural transformations.">
+    <meta property="og:image" content="images/hero/hero-projects.jpg">
+    <meta property="og:url" content="https://www.sleekkoncepts.com/projects.html">
+
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Brand Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-sleek">
+        <div class="container container-custom">
+            <a class="navbar-brand" href="index.html" aria-label="Sleek Koncepts Home">
+                <img src="images/logo/logo.png" alt="Sleek Koncepts Logo" width="180" height="64">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="services.html" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="services.html"><i class="bi bi-grid-1x2"></i> All Services Catalogue</a></li>
+                            <li><hr class="dropdown-divider my-1"></li>
+                            <li><a class="dropdown-item" href="services.html#complete-home"><i class="bi bi-house-door"></i> Complete Home Interiors</a></li>
+                            <li><a class="dropdown-item" href="modular-kitchen.html"><i class="bi bi-cup-hot"></i> Modular Kitchen</a></li>
+                            <li><a class="dropdown-item" href="living-room.html"><i class="bi bi-tv"></i> Living Room Interiors</a></li>
+                            <li><a class="dropdown-item" href="bedroom.html"><i class="bi bi-lamp"></i> Bedroom Interiors</a></li>
+                            <li><a class="dropdown-item" href="wardrobe.html"><i class="bi bi-door-closed"></i> Wardrobes & Closets</a></li>
+                            <li><a class="dropdown-item" href="services.html#tv-units"><i class="bi bi-display"></i> TV & Media Units</a></li>
+                            <li><a class="dropdown-item" href="services.html#pooja-room"><i class="bi bi-sun"></i> Pooja Room</a></li>
+                            <li><a class="dropdown-item" href="services.html#storage"><i class="bi bi-archive"></i> Storage Solutions</a></li>
+                            <li><a class="dropdown-item" href="services.html#ceiling"><i class="bi bi-border-style"></i> False Ceiling</a></li>
+                            <li><a class="dropdown-item" href="services.html#lighting"><i class="bi bi-lightbulb"></i> Lighting Design</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="design-ideas.html">Design Ideas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="process.html">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <a href="contact.html" class="btn-sleek nav-cta-btn">Get Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <header class="page-hero" style="background-image: url('images/hero/hero-projects.jpg');">
+        <div class="page-hero-overlay"></div>
+        <div class="container container-custom page-hero-content text-center">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                </ol>
+            </nav>
+            <span class="section-subtitle light">Living Spaces Realized</span>
+            <h1 class="hero-title mb-3">OUR PROJECTS</h1>
+            <p class="hero-lead mx-auto">
+                Explore our portfolio of thoughtfully designed residential interiors, bespoke modular kitchens, and private sanctuaries across Telangana.
+            </p>
+        </div>
+    </header>
+
+    <!-- PORTFOLIO GRID & INTERACTIVE FILTERS -->
+    <section class="section-padding bg-light-custom">
+        <div class="container container-custom">
+
+            <!-- Filter Controls -->
+            <div class="portfolio-filters">
+                <button type="button" class="filter-btn active" data-filter="all">All Projects</button>
+                <button type="button" class="filter-btn" data-filter="full-home">Full Home</button>
+                <button type="button" class="filter-btn" data-filter="living-room">Living Room</button>
+                <button type="button" class="filter-btn" data-filter="kitchen">Kitchen</button>
+                <button type="button" class="filter-btn" data-filter="bedroom">Bedroom</button>
+                <button type="button" class="filter-btn" data-filter="wardrobe">Wardrobe</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="row g-4" id="portfolioGrid">
+
+                <!-- 1. Emerald Villa -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="full-home living-room kitchen bedroom wardrobe">
+                    <a href="project-details.html?project=emerald-villa" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/projects/project-emerald-villa.jpg" alt="The Emerald Villa Interior" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Full Home Interior</span>
+                                <h3 class="project-title">THE EMERALD VILLA</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Karimnagar, Telangana</span>
+                                    <span>•</span>
+                                    <span>Modern Contemporary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 2. Sky View Penthouse -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="full-home living-room wardrobe">
+                    <a href="project-details.html?project=sky-penthouse" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/projects/project-sky-penthouse.jpg" alt="Sky View Penthouse" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Penthouse Luxury</span>
+                                <h3 class="project-title">SKY VIEW PENTHOUSE</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Telangana</span>
+                                    <span>•</span>
+                                    <span>Minimalist Luxury</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 3. Urban Minimalist -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="full-home kitchen living-room">
+                    <a href="project-details.html?project=minimal-apartment" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/projects/project-minimal-apartment.jpg" alt="Urban Minimalist Apartment" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Apartment Interior</span>
+                                <h3 class="project-title">URBAN MINIMALIST</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Chaitanyapuri, Karimnagar</span>
+                                    <span>•</span>
+                                    <span>Scandinavian Modern</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 4. Serene Oak -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="full-home living-room bedroom">
+                    <a href="project-details.html?project=serene-oak" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/projects/project-serene-oak.jpg" alt="Serene Oak Residence" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Duplex Villa</span>
+                                <h3 class="project-title">SERENE OAK RESIDENCE</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Karimnagar</span>
+                                    <span>•</span>
+                                    <span>Warm Contemporary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 5. Nordic Haven -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="full-home bedroom wardrobe">
+                    <a href="project-details.html?project=nordic-haven" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/projects/project-nordic-haven.jpg" alt="Nordic Haven Living" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Modular Villa</span>
+                                <h3 class="project-title">NORDIC HAVEN</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Telangana</span>
+                                    <span>•</span>
+                                    <span>Nordic Minimalist</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 6. Contemporary Duplex -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="full-home living-room kitchen">
+                    <a href="project-details.html?project=contemporary-duplex" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/projects/project-contemporary-duplex.jpg" alt="Contemporary Duplex" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Duplex Residence</span>
+                                <h3 class="project-title">CONTEMPORARY DUPLEX</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Karimnagar</span>
+                                    <span>•</span>
+                                    <span>Architectural Luxury</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 7. Kitchen Showcase -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="kitchen">
+                    <a href="project-details.html?project=emerald-villa" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/kitchens/kitchen-island.jpg" alt="Waterfall Quartz Kitchen" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Modular Kitchen</span>
+                                <h3 class="project-title">QUARTZ ISLAND CHEF KITCHEN</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Karimnagar</span>
+                                    <span>•</span>
+                                    <span>Modern Minimal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 8. Living Room Showcase -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="living-room">
+                    <a href="project-details.html?project=contemporary-duplex" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/living-room/living-modern.jpg" alt="Architectural Media Lounge" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Living Room</span>
+                                <h3 class="project-title">FLUTED LOUNGE WITH TV CREDENZA</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Telangana</span>
+                                    <span>•</span>
+                                    <span>Contemporary</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 9. Wardrobe Showcase -->
+                <div class="col-md-6 col-lg-4 project-grid-item" data-category="wardrobe">
+                    <a href="project-details.html?project=emerald-villa" class="project-card d-block text-decoration-none">
+                        <div class="project-img-wrap">
+                            <img src="images/wardrobes/wardrobe-glass.jpg" alt="Smoked Glass Walk-in Dressing" loading="lazy">
+                            <div class="project-overlay">
+                                <span class="project-category">Wardrobe System</span>
+                                <h3 class="project-title">SMOKED GLASS WALK-IN DRESSER</h3>
+                                <div class="project-meta">
+                                    <span><i class="bi bi-geo-alt"></i> Karimnagar</span>
+                                    <span>•</span>
+                                    <span>Luxury Boutique</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA BANNER -->
+    <section class="cta-banner-section text-center">
+        <div class="container container-custom position-relative" style="z-index: 2;">
+            <span class="section-subtitle light reveal-fade-up">Let's Create Your Masterpiece</span>
+            <h2 class="cta-title reveal-fade-up">INSPIRED BY OUR COMPLETED HOMES?</h2>
+            <p class="cta-subtitle reveal-fade-up">
+                Book a design consultation with our senior architects and let us draft a personalized 3D layout for your floor plan.
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3 reveal-fade-up">
+                <a href="contact.html" class="btn-sleek">Start Your Project</a>
+                <a href="tel:+918143965633" class="btn-outline-white"><i class="bi bi-telephone me-2"></i> +91 8143965633</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="footer-sleek">
+        <div class="container container-custom">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <img src="images/logo/logo.png" alt="Sleek Koncepts Logo" class="footer-logo-img">
+                    <p class="footer-lead">
+                        "Thoughtfully designed interiors for modern living." Bringing together refined aesthetics, smart space planning, and quality craftsmanship.
+                    </p>
+                    <div class="footer-social-links">
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
+                        <li><a href="services.html"><i class="bi bi-chevron-right"></i> Services</a></li>
+                        <li><a href="projects.html"><i class="bi bi-chevron-right"></i> Projects</a></li>
+                        <li><a href="design-ideas.html"><i class="bi bi-chevron-right"></i> Design Ideas</a></li>
+                        <li><a href="process.html"><i class="bi bi-chevron-right"></i> Our Process</a></li>
+                        <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#complete-home"><i class="bi bi-chevron-right"></i> Complete Home</a></li>
+                        <li><a href="modular-kitchen.html"><i class="bi bi-chevron-right"></i> Modular Kitchens</a></li>
+                        <li><a href="living-room.html"><i class="bi bi-chevron-right"></i> Living Rooms</a></li>
+                        <li><a href="bedroom.html"><i class="bi bi-chevron-right"></i> Luxury Bedrooms</a></li>
+                        <li><a href="wardrobe.html"><i class="bi bi-chevron-right"></i> Wardrobe Systems</a></li>
+                        <li><a href="services.html#storage"><i class="bi bi-chevron-right"></i> Smart Storage</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="footer-title">Studio & Contact</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar, Telangana 505001</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel:+918143965633">+91 8143965633</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:kondapalkulasairam@gmail.com">kondapalkulasairam@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-whatsapp"></i>
+                        <a href="https://wa.me/918143965633?text=Hello%20Sleek%20Koncepts%2C%20I%20would%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener">Chat on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container container-custom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="mb-0">&copy; 2026 Sleek Koncepts. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms &amp; Conditions</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GLOBAL FLOATING BUTTONS -->
+    <div class="floating-actions-container">
+        <a href="https://wa.me/918143965633?text=Hello%20Sleek%20Koncepts%2C%20I%20would%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener" class="floating-btn floating-whatsapp" aria-label="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="tel:+918143965633" class="floating-btn floating-call" aria-label="Call Sleek Koncepts">
+            <i class="bi bi-telephone-fill"></i>
+        </a>
+    </div>
+
+    <!-- Back to top button -->
+    <button type="button" class="back-to-top-btn" aria-label="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

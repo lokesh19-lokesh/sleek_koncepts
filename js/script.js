@@ -1,0 +1,379 @@
+/**
+ * SLEEK KONCEPTS — MASTER JAVASCRIPT
+ * High-End Interior Architecture & Design Website
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    'use strict';
+
+    // --- 1. STICKY NAVBAR ON SCROLL ---
+    const navbar = document.querySelector('.navbar-sleek');
+    const backToTopBtn = document.querySelector('.back-to-top-btn');
+
+    const handleScroll = () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        if (navbar) {
+            if (scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        if (backToTopBtn) {
+            if (scrollY > 350) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    // Back to top action
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // --- 2. ACTIVE NAVIGATION ITEM DETECTION ---
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.navbar-sleek .nav-link, .navbar-sleek .dropdown-item');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+            link.classList.add('active');
+            const parentDropdown = link.closest('.nav-item.dropdown');
+            if (parentDropdown) {
+                const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
+                if (dropdownToggle) dropdownToggle.classList.add('active');
+            }
+        }
+    });
+
+    // --- 3. SCROLL REVEAL OBSERVER ---
+    const revealElements = document.querySelectorAll('.reveal-fade-up');
+    if ('IntersectionObserver' in window && revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('active'));
+    }
+
+    // --- 4. PORTFOLIO FILTERING (projects.html) ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-grid-item');
+
+    if (filterButtons.length > 0 && projectItems.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filterValue = this.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue || category.includes(filterValue)) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(15px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+
+    // --- 5. DYNAMIC CASE STUDY LOADER (project-details.html) ---
+    const projectDetailContainer = document.getElementById('project-detail-container');
+    if (projectDetailContainer) {
+        const projectsData = {
+            'emerald-villa': {
+                name: 'The Emerald Villa',
+                location: 'Karimnagar, Telangana',
+                type: 'Complete 4BHK Residential Villa',
+                style: 'Modern Contemporary Luxury',
+                client: 'Private Residence',
+                year: '2026',
+                heroImg: 'images/projects/project-emerald-villa.jpg',
+                description: 'A 4,200 sq.ft contemporary home characterized by seamless spatial transitions, bespoke fluted acoustic paneling, and warm architectural cove lighting. Our objective was to balance timeless elegance with pragmatic space utilization.',
+                spaces: [
+                    { title: 'Living Lounge', desc: 'Custom floating Italian marble TV credenza paired with fluted acoustic backing and concealed indirect LED cove lighting.', img: 'images/living-room/living-modern.jpg' },
+                    { title: 'Modular Chef Kitchen', desc: 'Island kitchen with matte slate-grey acrylic finishes, quartz countertop, and soft-close Blum lift-up wall cabinets.', img: 'images/kitchens/kitchen-island.jpg' },
+                    { title: 'Master Retreat', desc: 'Floor-to-ceiling upholstered velvet headboard wall with integrated bedside floating ledges and warm reading lamps.', img: 'images/bedrooms/bedroom-master.jpg' },
+                    { title: 'Walk-In Wardrobe', desc: 'Tinted glass sliding wardrobe system with internal aluminum profiles, dedicated accessory drawers, and auto-sensor illumination.', img: 'images/wardrobes/wardrobe-glass.jpg' }
+                ],
+                palette: ['#284180', '#E52027', '#E5DFD7', '#2A2E39'],
+                materials: ['Matte Acrylic Cabinets', 'Quartz Countertop', 'Natural Oak Veneer', 'Fluted Charcoal Louvers', 'Hafele Soft-Close Hardware']
+            },
+            'sky-penthouse': {
+                name: 'Sky View Penthouse',
+                location: 'Telangana',
+                type: 'Luxury Penthouse Suite',
+                style: 'Minimalist Architectural Luxury',
+                client: 'Modern Executive Family',
+                year: '2025 - 2026',
+                heroImg: 'images/projects/project-sky-penthouse.jpg',
+                description: 'An expansive penthouse designed around panoramic natural light and minimalist luxury. The design integrates frameless floor-to-ceiling doors, concealed storage partitions, and a serene monochromatic palette.',
+                spaces: [
+                    { title: 'Open-Plan Living', desc: 'Double-height volume with acoustic micro-slat paneling, integrated home theater acoustic walls, and plush low-profile seating.', img: 'images/living-room/living-luxury.jpg' },
+                    { title: 'Minimalist Linear Kitchen', desc: 'Streamlined handle-less cabinetry with integrated appliances, anti-fingerprint surfaces, and seamless island breakfast bar.', img: 'images/kitchens/kitchen-minimal.jpg' },
+                    { title: 'Executive Master Suite', desc: 'Warm oak timber flooring, custom wooden wall cladding, and walk-through dressing area.', img: 'images/bedrooms/bedroom-luxury.jpg' },
+                    { title: 'Sliding Mirror Wardrobe', desc: 'Floor-to-ceiling sliding wardrobe in bronze tinted mirror and dark walnut carcass.', img: 'images/wardrobes/wardrobe-sliding.jpg' }
+                ],
+                palette: ['#1C2E5C', '#3778B6', '#F5F5F7', '#8C92A4'],
+                materials: ['Anti-Fingerprint Laminate', 'Italian Statuario Marble', 'Fluted Glass', 'Bronze Anodized Aluminum', 'Smart Automation Hub']
+            },
+            'minimal-apartment': {
+                name: 'Urban Minimalist Apartment',
+                location: 'Chaitanyapuri, Karimnagar',
+                type: '3BHK Premium Apartment',
+                style: 'Scandinavian Functional Modern',
+                client: 'Young Working Couple',
+                year: '2026',
+                heroImg: 'images/projects/project-minimal-apartment.jpg',
+                description: 'A study in space optimization for modern urban living. Every square foot was engineered with multi-functional modular furniture, hidden utility alcoves, and a clean Scandinavian aesthetic.',
+                spaces: [
+                    { title: 'Functional Living Room', desc: 'Space-saving modular entertainment center with concealed cord conduits and floating display shelves.', img: 'images/living-room/living-minimal.jpg' },
+                    { title: 'Parallel Modular Kitchen', desc: 'High-efficiency parallel layout maximizing the golden kitchen triangle, complete with spice pull-outs and tandem drawers.', img: 'images/kitchens/kitchen-parallel.jpg' },
+                    { title: 'Serene Bedroom', desc: 'Minimalist platform bed with hydraulic under-bed storage and integrated study desk nook.', img: 'images/bedrooms/bedroom-minimal.jpg' },
+                    { title: 'Hinged Loft Wardrobe', desc: 'Floor-to-ceiling hinged wardrobe with integrated overhead lofts for seasonal luggage storage.', img: 'images/wardrobes/wardrobe-hinged.jpg' }
+                ],
+                palette: ['#284180', '#E52027', '#F2EFE9', '#5B6272'],
+                materials: ['BWR Marine Grade Plywood', 'Soft-Matte Laminates', 'Brushed Brass Knobs', 'German Drawer Slides']
+            },
+            'serene-oak': {
+                name: 'Serene Oak Residence',
+                location: 'Karimnagar, Telangana',
+                type: 'Duplex Residential Project',
+                style: 'Warm Contemporary & Natural Wood',
+                client: 'Multi-Generational Family',
+                year: '2025',
+                heroImg: 'images/projects/project-serene-oak.jpg',
+                description: 'Designed around warmth, family comfort, and durability. Natural wood grains, fluted surfaces, and earthy neutral tones combine to create an inviting, timeless home atmosphere.',
+                spaces: [
+                    { title: 'Family Gathering Living', desc: 'Expansive family seating zone with custom wooden divider screen separating the pooja alcove.', img: 'images/living-room/living-tv-unit.jpg' },
+                    { title: 'L-Shaped Family Kitchen', desc: 'Durable acrylic shutters with wicker basket units, chimney enclosure, and breakfast counter.', img: 'images/kitchens/kitchen-lshape.jpg' },
+                    { title: 'Guest Bedroom', desc: 'Soothing beige tones, upholstered headboard, and compact 3-door wardrobe with vanity mirror.', img: 'images/bedrooms/bedroom-kids.jpg' },
+                    { title: 'Master Walk-In Closet', desc: 'Organized walk-in closet with modular open shelving, shoe carousel, and jewelry tray organizers.', img: 'images/wardrobes/wardrobe-walkin.jpg' }
+                ],
+                palette: ['#284180', '#A87D56', '#FAF8F5', '#3D414D'],
+                materials: ['Natural Oak Veneer', 'High-Gloss Acrylic', 'Durable Quartz Surfaces', 'Telescopic Soft-Close Channels']
+            },
+            'nordic-haven': {
+                name: 'Nordic Haven Living',
+                location: 'Telangana',
+                type: '3BHK Contemporary Villa',
+                style: 'Nordic Minimalist Architecture',
+                client: 'Doctor & Architect Duo',
+                year: '2026',
+                heroImg: 'images/projects/project-nordic-haven.jpg',
+                description: 'A tranquil home flooded with daylight, pale oak woodwork, and pristine white surfaces that create an airy sanctuary away from urban hustle.',
+                spaces: [
+                    { title: 'Sunlit Living Room', desc: 'Clean lines, recessed track lights, and low-profile textured boucle sofa framing the garden view.', img: 'images/living-room/living-lighting.jpg' },
+                    { title: 'All-White Modular Kitchen', desc: 'Seamless white PU lacquer cabinets with brushed nickel handles and Calacatta quartz splashback.', img: 'images/kitchens/kitchen-matte.jpg' },
+                    { title: 'Tranquil Master Suite', desc: 'Minimalist platform bed with ribbed wooden paneling and ambient bedside sconces.', img: 'images/bedrooms/bedroom-headboard.jpg' },
+                    { title: 'Internal Organizer Wardrobe', desc: 'Smart pull-out organizers, illuminated clothing rails, and built-in laundry hamper.', img: 'images/wardrobes/wardrobe-internal.jpg' }
+                ],
+                palette: ['#284180', '#3778B6', '#FFFFFF', '#4A5568'],
+                materials: ['White PU Polish', 'Calacatta Quartz', 'Light Oak Slats', 'Hettich Sensys Hinges']
+            },
+            'contemporary-duplex': {
+                name: 'Contemporary Duplex',
+                location: 'Chaitanyapuri, Karimnagar',
+                type: '4BHK Duplex Residence',
+                style: 'Bold Modern Luxury',
+                client: 'Entrepreneur Family',
+                year: '2026',
+                heroImg: 'images/projects/project-contemporary-duplex.jpg',
+                description: 'A striking residence showcasing bold contrasts, rich stone textures, customized ceiling profiles, and intelligent modular utility throughout.',
+                spaces: [
+                    { title: 'Grand Double-Height Living', desc: 'Book-matched marble feature wall with floating fireplace credenza and dramatic pendant lighting.', img: 'images/living-room/living-modern.jpg' },
+                    { title: 'Luxury Island Kitchen', desc: 'Island counter with breakfast bar seating, wine rack storage, and premium Blum Aventos lift systems.', img: 'images/kitchens/kitchen-luxury.jpg' },
+                    { title: 'Master Bed Suite', desc: 'Acoustic padded wall panels, floating side tables, and integrated study console.', img: 'images/bedrooms/bedroom-master.jpg' },
+                    { title: 'Tinted Glass Wardrobe', desc: 'Walk-in dressing zone with smoked glass shutters, brass trim, and velvet-lined jewelry drawers.', img: 'images/wardrobes/wardrobe-glass.jpg' }
+                ],
+                palette: ['#284180', '#E52027', '#1F2937', '#E2E8F0'],
+                materials: ['Smoked Glass & Aluminum', 'High-Pressure Laminate', 'Keva Italian Hinges', 'Kalinga Stone Quartz']
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectKey = urlParams.get('project') || 'emerald-villa';
+        const project = projectsData[projectKey] || projectsData['emerald-villa'];
+
+        // Populate Case Study Content
+        document.title = `${project.name} | Sleek Koncepts Portfolio Case Study`;
+
+        const nameEls = document.querySelectorAll('.project-dynamic-name');
+        nameEls.forEach(el => el.textContent = project.name);
+
+        const locEls = document.querySelectorAll('.project-dynamic-location');
+        locEls.forEach(el => el.textContent = project.location);
+
+        const typeEls = document.querySelectorAll('.project-dynamic-type');
+        typeEls.forEach(el => el.textContent = project.type);
+
+        const styleEls = document.querySelectorAll('.project-dynamic-style');
+        styleEls.forEach(el => el.textContent = project.style);
+
+        const descEls = document.querySelectorAll('.project-dynamic-desc');
+        descEls.forEach(el => el.textContent = project.description);
+
+        const heroImg = document.getElementById('project-dynamic-hero');
+        if (heroImg) heroImg.style.backgroundImage = `url('${project.heroImg}')`;
+
+        // Spaces Container
+        const spacesContainer = document.getElementById('project-spaces-container');
+        if (spacesContainer && project.spaces) {
+            spacesContainer.innerHTML = project.spaces.map((sp, idx) => `
+                <div class="col-lg-6 mb-4">
+                    <div class="service-card h-100">
+                        <div class="service-card-img-wrap" style="height: 280px;">
+                            <img src="${sp.img}" alt="${sp.title}" loading="lazy">
+                            <span class="service-badge">Space 0${idx + 1}</span>
+                        </div>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title">${sp.title}</h4>
+                            <p class="service-card-text">${sp.desc}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Palette Container
+        const paletteContainer = document.getElementById('project-palette-container');
+        if (paletteContainer && project.palette) {
+            paletteContainer.innerHTML = project.palette.map(c => `
+                <div class="d-flex align-items-center gap-2 mb-2 me-3">
+                    <span style="width: 28px; height: 28px; border-radius: 4px; background-color: ${c}; display: inline-block; border: 1px solid rgba(0,0,0,0.1);"></span>
+                    <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-dark);">${c}</span>
+                </div>
+            `).join('');
+        }
+
+        // Materials Container
+        const materialsContainer = document.getElementById('project-materials-container');
+        if (materialsContainer && project.materials) {
+            materialsContainer.innerHTML = project.materials.map(m => `
+                <li class="mb-2 d-flex align-items-center gap-2">
+                    <i class="bi bi-check2-circle text-primary" style="color: var(--sky-blue) !important;"></i>
+                    <span>${m}</span>
+                </li>
+            `).join('');
+        }
+    }
+
+    // --- 6. LEAD CONSULTATION FORM VALIDATION & FEEDBACK ---
+    const consultationForms = document.querySelectorAll('.consultation-form-validate');
+
+    consultationForms.forEach(form => {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nameInput = form.querySelector('input[name="fullName"]');
+            const phoneInput = form.querySelector('input[name="phone"]');
+            const emailInput = form.querySelector('input[name="email"]');
+
+            if (!nameInput || !phoneInput) return;
+
+            if (nameInput.value.trim().length < 2) {
+                alert('Please enter your full name.');
+                nameInput.focus();
+                return;
+            }
+
+            if (phoneInput.value.trim().length < 10) {
+                alert('Please enter a valid 10-digit mobile number for design consultation.');
+                phoneInput.focus();
+                return;
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Confirming Appointment...';
+            }
+
+            setTimeout(() => {
+                form.innerHTML = `
+                    <div class="text-center py-5">
+                        <div class="mb-3">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 3.5rem;"></i>
+                        </div>
+                        <h3 class="h3 mb-3" style="color: var(--deep-koncept-blue);">Consultation Booked Successfully!</h3>
+                        <p class="lead mb-4" style="color: var(--text-body); font-size: 1.05rem;">
+                            Thank you, <strong>${nameInput.value.trim()}</strong>! Our Senior Interior Architect has received your request.
+                        </p>
+                        <div class="p-3 mb-4 rounded" style="background-color: var(--deep-blue-surface); border-left: 4px solid var(--sleek-red);">
+                            <p class="mb-1 fw-bold" style="color: var(--deep-koncept-blue);">Next Steps:</p>
+                            <p class="small mb-0" style="color: var(--text-muted);">
+                                We will reach out to <strong>${phoneInput.value.trim()}</strong> within 24 hours to schedule your 1-on-1 space design session.
+                            </p>
+                        </div>
+                        <a href="projects.html" class="btn-sleek">Explore Our Projects</a>
+                    </div>
+                `;
+            }, 1200);
+        });
+    });
+
+    // --- 7. NUMBER COUNTER ANIMATION ---
+    const counterElements = document.querySelectorAll('.stat-counter');
+    if ('IntersectionObserver' in window && counterElements.length > 0) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const endVal = parseInt(target.getAttribute('data-target'), 10);
+                    if (!isNaN(endVal)) {
+                        let current = 0;
+                        const step = Math.ceil(endVal / 40);
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= endVal) {
+                                target.textContent = endVal + '+';
+                                clearInterval(timer);
+                            } else {
+                                target.textContent = current;
+                            }
+                        }, 30);
+                    }
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterElements.forEach(counter => counterObserver.observe(counter));
+    }
+});
