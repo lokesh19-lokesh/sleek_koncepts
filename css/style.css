@@ -3333,4 +3333,277 @@ h6, .h6 { font-size: 0.95rem; }
     margin: 0 auto;
 }
 
+/* ==========================================================================
+   QUALITY AT EVERY STEP: ICON ANIMATIONS (IDLE & HOVER)
+   ========================================================================== */
+
+/* Subtle staggered floating for the entire icon wrapper */
+.quality-step-item:nth-child(1) .step-icon-wrapper {
+    animation: iconFloatSoft 4.5s ease-in-out infinite 0s;
+}
+.quality-step-item:nth-child(2) .step-icon-wrapper {
+    animation: iconFloatSoft 4.5s ease-in-out infinite 0.75s;
+}
+.quality-step-item:nth-child(3) .step-icon-wrapper {
+    animation: iconFloatSoft 4.5s ease-in-out infinite 1.5s;
+}
+.quality-step-item:nth-child(4) .step-icon-wrapper {
+    animation: iconFloatSoft 4.5s ease-in-out infinite 0.4s;
+}
+.quality-step-item:nth-child(5) .step-icon-wrapper {
+    animation: iconFloatSoft 4.5s ease-in-out infinite 1.15s;
+}
+.quality-step-item:nth-child(6) .step-icon-wrapper {
+    animation: iconFloatSoft 4.5s ease-in-out infinite 1.9s;
+}
+
+@keyframes iconFloatSoft {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* 1. Design Icon: Drafting Pencil & Star Sparkle */
+.anim-pencil {
+    transform-origin: 30px 22px;
+    animation: pencilDraw 3.2s ease-in-out infinite;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pencilDraw {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    30% {
+        transform: translate(-3.5px, 3.5px) rotate(-6deg);
+    }
+    65% {
+        transform: translate(2px, -2px) rotate(4deg);
+    }
+}
+
+.anim-sparkle,
+.anim-sparkle-craft {
+    transform-origin: center;
+    animation: starPulseGleam 2.6s ease-in-out infinite;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+@keyframes starPulseGleam {
+    0%, 100% {
+        transform: scale(0.9) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.22) rotate(15deg);
+        opacity: 1;
+        filter: drop-shadow(0 0 5px rgba(229, 32, 39, 0.65));
+    }
+}
+
+/* 2. 3D Visualization: Isometric Cube Levitation & Viewport Brackets */
+.anim-cube {
+    transform-origin: 32px 29px;
+    animation: cubeFloat3D 3s ease-in-out infinite;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cubeFloat3D {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4.5px) scale(1.06);
+    }
+}
+
+.anim-bracket-tl {
+    animation: bracketPulseTL 3s ease-in-out infinite;
+}
+.anim-bracket-br {
+    animation: bracketPulseBR 3s ease-in-out infinite;
+}
+
+@keyframes bracketPulseTL {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-2px, -2px); }
+}
+
+@keyframes bracketPulseBR {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(2px, 2px); }
+}
+
+/* 3. Craftsmanship: Architectural Layer Glide */
+.anim-layer-top {
+    animation: layerGlide 3.6s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+@keyframes layerGlide {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.anim-layer-mid {
+    animation: layerGlow 3.6s ease-in-out infinite;
+}
+
+@keyframes layerGlow {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 1; filter: drop-shadow(0 0 3px rgba(229, 32, 39, 0.45)); }
+}
+
+/* 4. Quality Checks: Caliper Gauge Slide & Certified Seal Glow */
+.anim-gauge {
+    animation: gaugeSlide 3.4s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+@keyframes gaugeSlide {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(2.5px, 2px);
+    }
+}
+
+.anim-seal {
+    transform-origin: 43px 41px;
+    animation: sealPopGlow 3.2s ease-in-out infinite 0.4s;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes sealPopGlow {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+        filter: drop-shadow(0 2px 7px rgba(229, 32, 39, 0.45));
+    }
+}
+
+.anim-checkmark {
+    animation: checkmarkShine 3.2s ease-in-out infinite 0.4s;
+}
+
+@keyframes checkmarkShine {
+    0%, 70%, 100% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0.7;
+    }
+}
+
+/* 5. Delivery & Installation: Fluid Spirit Bubble & Wrench Motion */
+.anim-bubble {
+    animation: bubbleFloatH 2.8s ease-in-out infinite;
+}
+
+@keyframes bubbleFloatH {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(3.5px);
+    }
+    70% {
+        transform: translateX(-3.5px);
+    }
+}
+
+.anim-wrench {
+    transform-origin: 32px 16px;
+    animation: wrenchRock 3.4s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+@keyframes wrenchRock {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(9deg);
+    }
+    75% {
+        transform: rotate(-9deg);
+    }
+}
+
+/* 6. Guaranteed Durability: Shield Breathing & Ribbon Flutter */
+.anim-shield {
+    transform-origin: 32px 30px;
+    animation: shieldBreathe 4s ease-in-out infinite;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes shieldBreathe {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-3.5px) scale(1.04);
+        filter: drop-shadow(0 4px 10px rgba(40, 65, 128, 0.22));
+    }
+}
+
+.anim-ribbons {
+    transform-origin: 32px 46px;
+    animation: ribbonFlutter 4s ease-in-out infinite;
+}
+
+@keyframes ribbonFlutter {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(3deg) scaleY(1.04);
+    }
+}
+
+/* Interactive Hover Reactions */
+.quality-step-item:hover .anim-pencil {
+    transform: translate(-4px, 4px) rotate(-14deg) scale(1.12);
+}
+
+.quality-step-item:hover .anim-sparkle,
+.quality-step-item:hover .anim-sparkle-craft {
+    transform: scale(1.35) rotate(45deg);
+    filter: drop-shadow(0 0 7px rgba(229, 32, 39, 0.85));
+}
+
+.quality-step-item:hover .anim-cube {
+    transform: translateY(-6px) scale(1.14);
+    filter: drop-shadow(0 4px 10px rgba(229, 32, 39, 0.5));
+}
+
+.quality-step-item:hover .anim-layer-top {
+    transform: translateY(-6px);
+}
+
+.quality-step-item:hover .anim-seal {
+    transform: scale(1.16) rotate(6deg);
+    filter: drop-shadow(0 4px 12px rgba(229, 32, 39, 0.55));
+}
+
+.quality-step-item:hover .anim-wrench {
+    transform: rotate(22deg) scale(1.12);
+}
+
+.quality-step-item:hover .anim-shield {
+    transform: translateY(-6px) scale(1.09);
+    filter: drop-shadow(0 6px 14px rgba(40, 65, 128, 0.28));
+}
+
+
 
