@@ -3112,3 +3112,144 @@ h6, .h6 { font-size: 0.95rem; }
 .modal-header .btn-close {
     filter: invert(1);
 }
+
+/* ==========================================================================
+   WHY CHOOSE US (INFINITE LEFT-TO-RIGHT MARQUEE SCROLL)
+   ========================================================================== */
+.why-choose-us-section {
+    position: relative;
+    padding: 3.5rem 0 3.8rem;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(18, 30, 58, 0.08);
+    border-bottom: 1px solid rgba(18, 30, 58, 0.08);
+    overflow: hidden;
+}
+
+.why-choose-us-section .section-header-compact {
+    text-align: center;
+    margin-bottom: 2.2rem;
+}
+
+.why-choose-us-section .why-choose-main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 2.8vw, 2.35rem);
+    font-weight: 800;
+    color: #121826;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.why-choose-us-section .why-choose-main-title::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: #E52027;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Infinite Marquee Track (Left to Right) */
+.why-choose-marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.75rem 0 1rem;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.why-choose-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLeftToRight 36s linear infinite;
+    will-change: transform;
+}
+
+.why-choose-marquee-wrapper:hover .why-choose-marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes scrollLeftToRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.why-choose-group {
+    display: flex;
+    align-items: stretch;
+    gap: 1.25rem;
+    padding-right: 1.25rem;
+    flex-shrink: 0;
+}
+
+.why-choose-card {
+    width: 185px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 0.85rem 1.35rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(18, 30, 58, 0.08);
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 3px 12px rgba(18, 30, 58, 0.04);
+    position: relative;
+    cursor: pointer;
+}
+
+.why-choose-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(40, 65, 128, 0.12);
+    border-color: rgba(229, 32, 39, 0.35);
+}
+
+.why-choose-card .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.why-choose-card:hover .icon-wrapper {
+    transform: scale(1.1);
+}
+
+.why-choose-card .card-primary-text {
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #121826;
+    line-height: 1.3;
+    margin-bottom: 0;
+}
+
+.why-choose-card .card-primary-text .highlight-stat {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #E52027;
+    margin-bottom: 2px;
+}
+
+.why-choose-card .card-secondary-text {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #64748B;
+    margin-top: 2px;
+    line-height: 1.3;
+}
+
