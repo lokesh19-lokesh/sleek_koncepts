@@ -306,24 +306,28 @@ h6, .h6 { font-size: 0.95rem; }
     left: 0;
     right: 0;
     z-index: 1050;
-    padding: 0.95rem 0;
+    padding: 1.65rem 0;
+    min-height: 94px;
     background: #FFFFFF !important; /* Clean Architectural White */
-    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
 }
 
 .navbar-sleek.scrolled {
-    padding: 0.65rem 0;
+    padding: 1rem 0;
+    min-height: 74px;
     background: #FFFFFF !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Logo Sizing per Brand Guidelines */
+/* Logo Sizing per Brand Guidelines (Kept unchanged at 34px) */
 .navbar-brand {
     padding: 0;
-    margin-right: 1.8rem;
+    margin-right: 2rem;
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
@@ -341,7 +345,7 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .navbar-sleek.scrolled .navbar-brand img {
-    height: 28px;
+    height: 32px;
     padding: 0;
 }
 
@@ -1020,7 +1024,7 @@ h6, .h6 { font-size: 0.95rem; }
 .hero-slide-content {
     position: relative;
     z-index: 3;
-    padding-top: 130px;
+    padding-top: 155px;
     padding-bottom: 110px;
 }
 
@@ -1794,7 +1798,7 @@ h6, .h6 { font-size: 0.95rem; }
 /* Inner Page Hero (Standardized Subpage Hero) */
 .page-hero {
     position: relative;
-    padding: 140px 0 70px;
+    padding: 165px 0 75px;
     background-size: cover;
     background-position: center;
     color: #FFFFFF !important;
