@@ -649,4 +649,114 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlide(0);
         animationFrameId = requestAnimationFrame(tick);
     }
+
+    // --- 11. FROM DESIGN TO DELIVERY: 6-STEP WORKFLOW STEPPER ---
+    const deliverySection = document.getElementById('designToDelivery');
+    if (deliverySection) {
+        const stepBtns = deliverySection.querySelectorAll('.step-bullet-btn');
+        const slides = deliverySection.querySelectorAll('.process-slide');
+        const progressBar = document.getElementById('processProgressBar');
+        const prevBtn = document.getElementById('processPrevBtn');
+        const nextBtn = document.getElementById('processNextBtn');
+        const sliderWrapper = deliverySection.querySelector('.process-slider-wrapper');
+        const totalSteps = stepBtns.length; // 6
+        let currentStep = 0;
+
+        function goToStep(index) {
+            if (index < 0) index = totalSteps - 1;
+            if (index >= totalSteps) index = 0;
+            currentStep = index;
+
+            // Update Bullets
+            stepBtns.forEach((btn, idx) => {
+                btn.classList.remove('active', 'completed');
+                if (idx === currentStep) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-current', 'step');
+                } else if (idx < currentStep) {
+                    btn.classList.add('completed');
+                    btn.removeAttribute('aria-current');
+                } else {
+                    btn.removeAttribute('aria-current');
+                }
+            });
+
+            // Update Progress Line Fill
+            if (progressBar && totalSteps > 1) {
+                const percentage = (currentStep / (totalSteps - 1)) * 100;
+                progressBar.style.width = `${percentage}%`;
+            }
+
+            // Update Active Slide
+            slides.forEach((slide, idx) => {
+                if (idx === currentStep) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
+
+        // Click on bullet numbers
+        stepBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const stepIdx = parseInt(btn.getAttribute('data-step'), 10);
+                if (!isNaN(stepIdx)) {
+                    goToStep(stepIdx);
+                }
+            });
+        });
+
+        // Click next / prev chevrons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                goToStep(currentStep - 1);
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                goToStep(currentStep + 1);
+            });
+        }
+
+        // Mobile touch swipe gestures
+        if (sliderWrapper) {
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            sliderWrapper.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            sliderWrapper.addEventListener('touchend', (e) => {
+                const deltaX = e.changedTouches[0].screenX - touchStartX;
+                const deltaY = e.changedTouches[0].screenY - touchStartY;
+
+                if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                    if (deltaX < 0) {
+                        goToStep(currentStep + 1);
+                    } else {
+                        goToStep(currentStep - 1);
+                    }
+                }
+            }, { passive: true });
+        }
+
+        // Keyboard arrow navigation when section is in view
+        document.addEventListener('keydown', (e) => {
+            const rect = deliverySection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.75 && rect.bottom >= window.innerHeight * 0.25) {
+                if (e.key === 'ArrowRight') {
+                    goToStep(currentStep + 1);
+                } else if (e.key === 'ArrowLeft') {
+                    goToStep(currentStep - 1);
+                }
+            }
+        });
+
+        // Initialize at Step 0
+        goToStep(0);
+    }
 });
+

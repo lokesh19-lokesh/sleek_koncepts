@@ -3878,6 +3878,508 @@ h6, .h6 { font-size: 0.95rem; }
     filter: drop-shadow(0 0 8px #E52027);
 }
 
+/* ==========================================================================
+   10.1 FROM DESIGN TO DELIVERY (6-STEP INTERACTIVE WORKFLOW)
+   ========================================================================== */
+
+.design-to-delivery-section {
+    padding: 6.5rem 0 6rem;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.design-to-delivery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1400px;
+    height: 100%;
+    background: radial-gradient(circle at 50% 15%, rgba(229, 32, 39, 0.03) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.delivery-process-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.02em;
+    margin-top: 0.35rem;
+}
+
+.delivery-process-title strong {
+    color: var(--accent-color);
+    font-weight: 800;
+}
+
+/* --- STEPPER PROGRESS TRACKER --- */
+.process-stepper-container {
+    max-width: 760px;
+    margin: 2.75rem auto 3.5rem;
+    padding: 0 1.5rem;
+    position: relative;
+}
+
+.process-stepper-track {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.process-track-bg {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: #E2E8F0;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.process-progress-bar {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    height: 3px;
+    background: var(--accent-color);
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 4px;
+    width: 0%;
+    transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step-bullet-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #E2E8F0;
+    color: #64748B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    outline: none;
+    padding: 0;
+}
+
+.step-bullet-btn:hover {
+    background: #CBD5E1;
+    color: #1E293B;
+    transform: scale(1.08);
+}
+
+.step-bullet-btn.completed {
+    background: #FEE2E2;
+    color: var(--accent-color);
+}
+
+.step-bullet-btn.active {
+    background: var(--accent-color);
+    color: #FFFFFF;
+    transform: scale(1.15);
+    box-shadow: 0 4px 14px rgba(229, 32, 39, 0.38), 0 0 0 6px rgba(229, 32, 39, 0.15);
+}
+
+/* --- SLIDER STAGE & NAV BUTTONS --- */
+.process-slider-wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 4.5rem;
+    min-height: 360px;
+}
+
+.process-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid #E2E8F0;
+    background: #FFFFFF;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    outline: none;
+}
+
+.process-nav-arrow:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #FFFFFF;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 18px rgba(229, 32, 39, 0.28);
+}
+
+.process-prev-btn {
+    left: 0;
+}
+
+.process-next-btn {
+    right: 0;
+}
+
+.process-slides-container {
+    position: relative;
+    width: 100%;
+    min-height: 320px;
+}
+
+.process-slide {
+    display: none;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.process-slide.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: processSlideIn 0.45s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes processSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide Content */
+.step-card-content {
+    padding: 1rem 0;
+}
+
+.step-main-title {
+    font-family: var(--font-heading);
+    font-size: 2.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.015em;
+}
+
+.step-main-desc {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #475569;
+    margin-bottom: 0;
+    max-width: 480px;
+}
+
+/* Slide Illustration Box */
+.step-illustration-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.process-svg {
+    width: 100%;
+    max-width: 490px;
+    height: auto;
+    filter: drop-shadow(0 8px 24px rgba(18, 30, 58, 0.04));
+    overflow: visible;
+}
+
+/* Bottom CTA button */
+.btn-process-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 6px 20px rgba(229, 32, 39, 0.28);
+    transition: all 0.3s ease;
+}
+
+.btn-process-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(229, 32, 39, 0.38);
+}
+
+/* ==========================================================================
+   SCENE SVG KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+/* Scene 1: Meet Your Designer */
+.anim-lamp-shade {
+    transform-origin: 220px 60px;
+    animation: lampPendantSwing 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes lampPendantSwing {
+    0% { transform: rotate(-3.5deg); }
+    100% { transform: rotate(3.5deg); }
+}
+
+.anim-light-beam {
+    transform-origin: 220px 92px;
+    animation: lightBeamBreathe 3s ease-in-out infinite alternate;
+}
+
+@keyframes lightBeamBreathe {
+    0% { opacity: 0.35; transform: scaleX(0.96); }
+    100% { opacity: 0.6; transform: scaleX(1.04); }
+}
+
+.anim-gesture-arm {
+    transform-origin: 268px 155px;
+    animation: armExplain 3.2s ease-in-out infinite;
+}
+
+@keyframes armExplain {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-6deg) translateY(-2px); }
+}
+
+.anim-laptop-glow circle {
+    animation: logoGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    0% { filter: drop-shadow(0 0 2px rgba(229, 32, 39, 0.3)); }
+    100% { filter: drop-shadow(0 0 8px rgba(229, 32, 39, 0.8)); }
+}
+
+.anim-succulent {
+    transform-origin: 420px 205px;
+    animation: plantGentleSway 4s ease-in-out infinite alternate;
+}
+
+@keyframes plantGentleSway {
+    0% { transform: rotate(-2deg); }
+    100% { transform: rotate(3deg); }
+}
+
+/* Scene 2: Book Your Order */
+.anim-room-iso {
+    animation: isoRoomFloat 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes isoRoomFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+}
+
+.anim-quote-card {
+    transition: transform 0.3s ease;
+}
+
+.step-illustration-box:hover .anim-quote-card {
+    transform: translateY(-3px);
+}
+
+.anim-cursor-click {
+    transform-origin: 340px 214px;
+    animation: cursorClickTap 2.6s ease-in-out infinite;
+}
+
+@keyframes cursorClickTap {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(-3px, -3px) scale(0.92); }
+    48% { transform: translate(-3px, -3px) scale(0.85); }
+    56% { transform: translate(-3px, -3px) scale(0.95); }
+    70% { transform: translate(0, 0) scale(1); }
+}
+
+.anim-click-ripple {
+    transform-origin: 340px 214px;
+    animation: ripplePulse 2.6s ease-out infinite;
+}
+
+@keyframes ripplePulse {
+    0%, 45% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 0.9; transform: scale(0.6); }
+    75% { opacity: 0; transform: scale(2.4); }
+    100% { opacity: 0; transform: scale(2.4); }
+}
+
+/* Scene 3: Finalise Your Design */
+.anim-measure-arm {
+    transform-origin: 318px 125px;
+    animation: measureArmNudge 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes measureArmNudge {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+.anim-laser-beam {
+    animation: laserScanDown 3s ease-in-out infinite alternate;
+}
+
+@keyframes laserScanDown {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: translateY(120px); opacity: 0.8; }
+}
+
+/* Scene 4: Send Designs to Factory */
+.anim-cad-laptop {
+    transform-origin: 250px 180px;
+    animation: cadFloating 4s ease-in-out infinite alternate;
+}
+
+@keyframes cadFloating {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-4px); }
+}
+
+.anim-pulse-ring {
+    transform-origin: 250px 175px;
+    animation: radarRadarWave 2.8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+@keyframes radarRadarWave {
+    0% { transform: scale(0.7); opacity: 0.85; }
+    70% { transform: scale(1.35); opacity: 0.15; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.anim-steam {
+    animation: steamRiseDrift 2.8s ease-in-out infinite;
+}
+
+.anim-steam:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+@keyframes steamRiseDrift {
+    0% { opacity: 0; transform: translateY(0) scaleY(0.7); }
+    50% { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(-10px) scaleY(1.2); }
+}
+
+/* Scene 5: Kick Off Dispatch */
+.anim-conveyor-rollers circle {
+    transform-origin: center;
+    animation: rollerRotation 3.5s linear infinite;
+}
+
+@keyframes rollerRotation {
+    0% { stroke-dasharray: 4 2; stroke-dashoffset: 0; }
+    100% { stroke-dasharray: 4 2; stroke-dashoffset: 20; }
+}
+
+.anim-dispatch-technician {
+    transform-origin: 230px 245px;
+    animation: trolleyStep 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes trolleyStep {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(8px); }
+}
+
+/* Scene 6: Move In & Celebrate */
+.anim-keys-swing {
+    transform-origin: 288px 150px;
+    animation: keysJingleSwing 3s ease-in-out infinite alternate;
+}
+
+@keyframes keysJingleSwing {
+    0% { transform: rotate(-8deg); }
+    100% { transform: rotate(10deg); }
+}
+
+.anim-warranty-plaque {
+    transform-origin: 372px 140px;
+    animation: plaqueFloatGentle 4s ease-in-out infinite alternate;
+}
+
+@keyframes plaqueFloatGentle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+.anim-celeb-star1 {
+    transform-origin: 305px 83px;
+    animation: starCelebration 2s ease-in-out infinite;
+}
+
+.anim-celeb-star2 {
+    transform-origin: 260px 101.5px;
+    animation: starCelebration 2s ease-in-out infinite 0.6s;
+}
+
+.anim-celeb-star3 {
+    transform-origin: 400px 70.5px;
+    animation: starCelebration 2s ease-in-out infinite 1.2s;
+}
+
+@keyframes starCelebration {
+    0%, 100% { transform: scale(0.7) rotate(0deg); opacity: 0.4; }
+    50% { transform: scale(1.3) rotate(45deg); opacity: 1; filter: drop-shadow(0 0 5px #E52027); }
+}
+
+.anim-plant-leaf-1 {
+    transform-origin: 113px 205px;
+    animation: plantSway1 3.5s ease-in-out infinite alternate;
+}
+
+.anim-plant-leaf-2 {
+    transform-origin: 113px 205px;
+    animation: plantSway2 3.8s ease-in-out infinite alternate;
+}
+
+.anim-plant-leaf-3 {
+    transform-origin: 113px 185px;
+    animation: plantSway3 4.2s ease-in-out infinite alternate;
+}
+
+@keyframes plantSway1 {
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
+}
+
+@keyframes plantSway2 {
+    0% { transform: rotate(2deg); }
+    100% { transform: rotate(-3deg); }
+}
+
+@keyframes plantSway3 {
+    0% { transform: rotate(-4deg); }
+    100% { transform: rotate(4deg); }
+}
+
+
 
 
 
