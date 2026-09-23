@@ -37,7 +37,7 @@
     }
 
     .navbar-brand img {
-        height: 76px;
+        height: 32px;
     }
  
     .navbar-sleek .nav-link {
@@ -79,7 +79,7 @@
     }
 
     .navbar-brand img {
-        height: 70px;
+        height: 30px;
     }
 
     .navbar-sleek .nav-link {
@@ -107,12 +107,14 @@
 /* --- 992px (Tablets & Mobile Transition) --- */
 @media (max-width: 991.98px) {
     .navbar-sleek {
-        padding: 0.85rem 0;
-        background: #E52027 !important;
+        padding: 0.75rem 0;
+        background: #FFFFFF !important;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .navbar-brand img {
-        height: 62px;
+        height: 28px;
     }
 
     .navbar-collapse {
@@ -409,7 +411,7 @@
 /* --- 375px (Compact Phones) --- */
 @media (max-width: 375px) {
     .navbar-brand img {
-        height: 48px;
+        height: 24px;
     }
 
     .hero-title {

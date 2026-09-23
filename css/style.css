@@ -306,17 +306,18 @@ h6, .h6 { font-size: 0.95rem; }
     left: 0;
     right: 0;
     z-index: 1050;
-    padding: 1.15rem 0;
-    background: #E52027 !important; /* Brand Sleek Red */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.16);
-    border-bottom: none;
+    padding: 0.95rem 0;
+    background: #FFFFFF !important; /* Clean Architectural White */
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     transition: var(--transition);
 }
 
 .navbar-sleek.scrolled {
-    padding: 0.7rem 0;
-    background: #D91A21 !important; /* Slightly deeper red on scroll */
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.24);
+    padding: 0.65rem 0;
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Logo Sizing per Brand Guidelines */
@@ -329,19 +330,19 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .navbar-brand img {
-    height: 84px;
+    height: 34px;
     width: auto;
     object-fit: contain;
-    background: #FFFFFF;
-    padding: 8px 22px;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
     transition: var(--transition);
 }
 
 .navbar-sleek.scrolled .navbar-brand img {
-    height: 64px;
-    padding: 6px 16px;
+    height: 28px;
+    padding: 0;
 }
 
 /* Navigation Links */
@@ -351,14 +352,14 @@ h6, .h6 { font-size: 0.95rem; }
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: #FFFFFF !important;
+    color: #121826 !important;
     padding: 0.55rem 0.85rem !important;
     position: relative;
     white-space: nowrap;
     transition: var(--transition);
 }
 
-/* White underline indicator on hover/active using ::before (preserves ::after for dropdown caret) */
+/* Red underline indicator on hover/active using ::before (preserves ::after for dropdown caret) */
 .navbar-sleek .nav-link::before {
     content: '';
     position: absolute;
@@ -366,7 +367,7 @@ h6, .h6 { font-size: 0.95rem; }
     left: 50%;
     width: 0;
     height: 2.5px;
-    background-color: #FFFFFF !important;
+    background-color: #E52027 !important;
     transition: var(--transition);
     transform: translateX(-50%);
     border-radius: 2px;
@@ -374,7 +375,7 @@ h6, .h6 { font-size: 0.95rem; }
 
 .navbar-sleek .nav-link:hover,
 .navbar-sleek .nav-link.active {
-    color: #FFFFFF !important;
+    color: #E52027 !important;
     opacity: 1;
 }
 
@@ -389,11 +390,17 @@ h6, .h6 { font-size: 0.95rem; }
     margin-left: 0.32rem;
     vertical-align: 0.16em;
     content: "";
-    border-top: 0.3em solid #FFFFFF;
+    border-top: 0.3em solid #121826;
     border-right: 0.26em solid transparent;
     border-bottom: 0;
     border-left: 0.26em solid transparent;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, border-top-color 0.2s ease;
+}
+
+.navbar-sleek .dropdown-toggle:hover::after,
+.navbar-sleek .dropdown-toggle.active::after,
+.navbar-sleek .dropdown-toggle[aria-expanded="true"]::after {
+    border-top-color: #E52027;
 }
 
 .navbar-sleek .dropdown-toggle[aria-expanded="true"]::after {
@@ -501,37 +508,38 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .navbar-sleek .nav-cta-btn {
-    background: #C7141A !important;
+    background: #E52027 !important;
     color: #FFFFFF !important;
-    border: 2px solid #FFFFFF !important;
+    border: 2px solid #E52027 !important;
     font-weight: 700 !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 4px 14px rgba(229, 32, 39, 0.28) !important;
     padding: 0.65rem 1.35rem;
+    border-radius: var(--radius-sm);
     transition: all 0.25s ease;
 }
 
 .navbar-sleek .nav-cta-btn:hover {
-    background: #FFFFFF !important;
-    color: #E52027 !important;
-    border-color: #FFFFFF !important;
+    background: #284180 !important;
+    color: #FFFFFF !important;
+    border-color: #284180 !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28) !important;
+    box-shadow: 0 6px 20px rgba(40, 65, 128, 0.3) !important;
 }
 
 /* Mobile Toggler */
 .navbar-toggler {
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border: 1px solid rgba(18, 24, 38, 0.2) !important;
     padding: 0.4rem;
-    color: #FFFFFF !important;
+    color: #121826 !important;
     font-size: 1.5rem;
 }
 
 .navbar-toggler .navbar-toggler-icon {
-    filter: brightness(0) invert(1);
+    filter: none;
 }
 
 .navbar-toggler:focus {
-    box-shadow: none;
+    box-shadow: 0 0 0 0.2rem rgba(229, 32, 39, 0.25);
 }
 
 /* --- LUXURY ARCHITECTURAL PRELOADER --- */
@@ -609,7 +617,7 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .preloader-logo {
-    height: 48px;
+    height: 28px;
     width: auto;
     display: block;
 }
@@ -2262,12 +2270,12 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .footer-logo-img {
-    height: 60px;
+    height: 38px;
     width: auto;
     object-fit: contain;
     margin-bottom: 1.5rem;
-    background: rgba(255, 255, 255, 0.98);
-    padding: 8px 18px;
+    background: #FFFFFF;
+    padding: 6px 16px;
     border-radius: var(--radius-sm);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
