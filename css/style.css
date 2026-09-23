@@ -923,7 +923,7 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 /* ==========================================================================
-   6.2 LUXURY 3-SLIDE HERO CAROUSEL
+   6.2 LUXURY 3-SLIDE HERO CAROUSEL (LIGHT ARCHITECTURAL CANVAS)
    ========================================================================== */
 .hero-slider-section {
     position: relative;
@@ -931,7 +931,7 @@ h6, .h6 { font-size: 0.95rem; }
     min-height: 90vh;
     height: 90vh;
     max-height: 980px;
-    background-color: #070D1A;
+    background-color: #FFFFFF;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -951,15 +951,15 @@ h6, .h6 { font-size: 0.95rem; }
     left: 0;
     width: 100%;
     height: 4px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.08);
     z-index: 25;
 }
 
 .hero-progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #E52027 0%, #3778B6 100%);
-    box-shadow: 0 0 10px rgba(229, 32, 39, 0.8);
+    background: linear-gradient(90deg, #E52027 0%, #284180 100%);
+    box-shadow: 0 0 10px rgba(229, 32, 39, 0.6);
     transition: width 0.1s linear;
 }
 
@@ -997,6 +997,7 @@ h6, .h6 { font-size: 0.95rem; }
     background-size: cover;
     background-position: center center;
     transform: scale(1.08);
+    filter: brightness(1.08) contrast(1.02);
     transition: transform 6.5s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 1;
     will-change: transform;
@@ -1010,8 +1011,8 @@ h6, .h6 { font-size: 0.95rem; }
     position: absolute;
     inset: 0;
     background: 
-        linear-gradient(90deg, rgba(7, 13, 26, 0.92) 0%, rgba(7, 13, 26, 0.78) 50%, rgba(7, 13, 26, 0.35) 100%),
-        linear-gradient(180deg, rgba(7, 13, 26, 0.45) 0%, transparent 40%, rgba(7, 13, 26, 0.75) 100%);
+        linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 40%, rgba(255, 255, 255, 0.45) 64%, rgba(255, 255, 255, 0.12) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, transparent 35%, rgba(255, 255, 255, 0.6) 100%);
     z-index: 2;
 }
 
@@ -1028,19 +1029,19 @@ h6, .h6 { font-size: 0.95rem; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(40, 65, 128, 0.16);
     padding: 6px 16px;
     border-radius: 50px;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #FFFFFF;
+    color: #121E3A;
     text-transform: uppercase;
     margin-bottom: 1.15rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 16px rgba(18, 30, 58, 0.08);
     opacity: 0;
     transform: translateY(-15px);
     transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
@@ -1057,10 +1058,10 @@ h6, .h6 { font-size: 0.95rem; }
 
 /* Subtitle & Headings */
 .hero-slide .section-subtitle.light {
-    color: #F8FAFC !important;
+    color: #284180 !important;
     font-size: 0.92rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-weight: 700;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -1081,14 +1082,14 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .hero-slide .hero-title.light {
-    color: #FFFFFF !important;
+    color: #121826 !important;
     font-family: var(--font-heading);
     font-size: clamp(2.4rem, 4.2vw, 4rem);
     font-weight: 800;
     line-height: 1.12;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     margin-bottom: 1.25rem;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    text-shadow: none !important;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.65s ease 0.35s, transform 0.65s ease 0.35s;
@@ -1098,18 +1099,18 @@ h6, .h6 { font-size: 0.95rem; }
     color: #E52027 !important;
     border-bottom: 4px solid #E52027 !important;
     display: inline-block;
-    text-shadow: 0 0 25px rgba(229, 32, 39, 0.3);
+    text-shadow: none !important;
 }
 
 .hero-slide .hero-lead.light {
     font-family: var(--font-body);
     font-size: clamp(1rem, 1.2vw, 1.15rem);
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.92) !important;
+    color: #3E4656 !important;
     margin-bottom: 2rem;
     max-width: 680px;
     line-height: 1.75;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    text-shadow: none !important;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.65s ease 0.45s, transform 0.65s ease 0.45s;
@@ -1122,18 +1123,18 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .hero-slide .btn-outline-sleek.light {
-    border: 2px solid rgba(255, 255, 255, 0.8) !important;
-    color: #FFFFFF !important;
-    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #121826 !important;
+    color: #121826 !important;
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
 }
 
 .hero-slide .btn-outline-sleek.light:hover {
-    background: #FFFFFF !important;
-    color: #121826 !important;
-    border-color: #FFFFFF !important;
+    background: #121826 !important;
+    color: #FFFFFF !important;
+    border-color: #121826 !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 8px 24px rgba(18, 24, 38, 0.25) !important;
 }
 
 /* Badges */
@@ -1153,14 +1154,12 @@ h6, .h6 { font-size: 0.95rem; }
     gap: 8px;
     font-size: 0.82rem;
     font-weight: 600;
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.09);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #121826;
+    background: #FFFFFF;
+    border: 1px solid rgba(18, 30, 58, 0.12);
     padding: 7px 16px;
     border-radius: 30px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 14px rgba(18, 30, 58, 0.07);
 }
 
 .hero-badges.light .hero-badge-item i {
@@ -1187,8 +1186,8 @@ h6, .h6 { font-size: 0.95rem; }
     right: 0;
     z-index: 20;
     padding: 1.25rem 0 1.6rem;
-    background: linear-gradient(180deg, transparent 0%, rgba(7, 13, 26, 0.75) 50%, rgba(7, 13, 26, 0.95) 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.85) 45%, rgba(255, 255, 255, 0.98) 100%);
+    border-top: 1px solid rgba(18, 30, 58, 0.08);
 }
 
 .hero-indicators {
@@ -1198,11 +1197,11 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .indicator-pill {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(18, 30, 58, 0.15);
     border-radius: 8px;
     padding: 9px 18px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #475569;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1211,12 +1210,13 @@ h6, .h6 { font-size: 0.95rem; }
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .indicator-pill:hover {
-    background: rgba(255, 255, 255, 0.16);
-    color: #FFFFFF;
-    border-color: rgba(255, 255, 255, 0.35);
+    background: #FFFFFF;
+    color: #121826;
+    border-color: rgba(40, 65, 128, 0.35);
 }
 
 .indicator-num {
@@ -1245,17 +1245,17 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .indicator-pill.active {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(229, 32, 39, 0.6);
-    color: #FFFFFF;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    background: #FFFFFF;
+    border-color: #E52027;
+    color: #121826;
+    box-shadow: 0 4px 16px rgba(229, 32, 39, 0.2);
 }
 
 .hero-slide-counter {
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 700;
-    color: #FFFFFF;
+    color: #64748B;
     display: flex;
     align-items: baseline;
     gap: 3px;
@@ -1280,9 +1280,9 @@ h6, .h6 { font-size: 0.95rem; }
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: #FFFFFF;
+    background: #FFFFFF;
+    border: 1px solid rgba(18, 30, 58, 0.16);
+    color: #121826;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1290,6 +1290,7 @@ h6, .h6 { font-size: 0.95rem; }
     cursor: pointer;
     transition: all 0.25s ease;
     backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
 }
 
 .hero-nav-btn:hover {
