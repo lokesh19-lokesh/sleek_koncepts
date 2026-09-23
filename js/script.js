@@ -493,4 +493,160 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 10. LUXURY 4-SECOND 3-SLIDE HERO CAROUSEL ---
+    const heroSlider = document.getElementById('heroSliderSection');
+    if (heroSlider) {
+        const slides = heroSlider.querySelectorAll('.hero-slide');
+        const indicators = heroSlider.querySelectorAll('.indicator-pill');
+        const progressBar = document.getElementById('heroProgressBar');
+        const currentCounter = document.getElementById('currentSlideNum');
+        const prevBtn = document.getElementById('heroPrevBtn');
+        const nextBtn = document.getElementById('heroNextBtn');
+
+        const SLIDE_DURATION = 4000; // 4 seconds per slide
+        let currentSlide = 0;
+        let isPaused = false;
+        let startTime = Date.now();
+        let animationFrameId = null;
+        let elapsedBeforePause = 0;
+
+        const updateSlide = (index) => {
+            currentSlide = (index + slides.length) % slides.length;
+
+            // Update slide classes
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+
+            // Update indicators
+            indicators.forEach((ind, i) => {
+                ind.classList.toggle('active', i === currentSlide);
+                const bar = ind.querySelector('.indicator-bar');
+                if (bar) bar.style.width = '0%';
+            });
+
+            // Update counter
+            if (currentCounter) {
+                currentCounter.textContent = String(currentSlide + 1).padStart(2, '0');
+            }
+
+            // Reset timers
+            startTime = Date.now();
+            elapsedBeforePause = 0;
+            if (progressBar) progressBar.style.width = '0%';
+        };
+
+        const tick = () => {
+            if (!isPaused) {
+                const now = Date.now();
+                const elapsed = (now - startTime) + elapsedBeforePause;
+                const progress = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
+
+                // Update active indicator bar as well
+                const activeIndicator = indicators[currentSlide];
+                if (activeIndicator) {
+                    const activeBar = activeIndicator.querySelector('.indicator-bar');
+                    if (activeBar) {
+                        activeBar.style.width = `${progress}%`;
+                    }
+                }
+
+                if (elapsed >= SLIDE_DURATION) {
+                    updateSlide(currentSlide + 1);
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(tick);
+        };
+
+        // Navigation button listeners
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                updateSlide(currentSlide + 1);
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                updateSlide(currentSlide - 1);
+            });
+        }
+
+        // Direct indicator pill click listeners
+        indicators.forEach((pill, idx) => {
+            pill.addEventListener('click', () => {
+                updateSlide(idx);
+            });
+        });
+
+        // Pause on mouse hover (desktop)
+        heroSlider.addEventListener('mouseenter', () => {
+            if (!isPaused) {
+                elapsedBeforePause += Date.now() - startTime;
+                isPaused = true;
+            }
+        });
+
+        heroSlider.addEventListener('mouseleave', () => {
+            if (isPaused) {
+                startTime = Date.now();
+                isPaused = false;
+            }
+        });
+
+        // Mobile touch swipe gesture support
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        heroSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            if (!isPaused) {
+                elapsedBeforePause += Date.now() - startTime;
+                isPaused = true;
+            }
+        }, { passive: true });
+
+        heroSlider.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const touchEndY = e.changedTouches[0].screenY;
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            // Only trigger if horizontal swipe is prominent
+            if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX < 0) {
+                    // Swiped Left -> Next Slide
+                    updateSlide(currentSlide + 1);
+                } else {
+                    // Swiped Right -> Prev Slide
+                    updateSlide(currentSlide - 1);
+                }
+            }
+
+            startTime = Date.now();
+            isPaused = false;
+        }, { passive: true });
+
+        // Keyboard arrow navigation
+        document.addEventListener('keydown', (e) => {
+            const rect = heroSlider.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (e.key === 'ArrowRight') {
+                    updateSlide(currentSlide + 1);
+                } else if (e.key === 'ArrowLeft') {
+                    updateSlide(currentSlide - 1);
+                }
+            }
+        });
+
+        // Initialize slider
+        updateSlide(0);
+        animationFrameId = requestAnimationFrame(tick);
+    }
 });

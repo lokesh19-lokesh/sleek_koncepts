@@ -922,6 +922,388 @@ h6, .h6 { font-size: 0.95rem; }
     }
 }
 
+/* ==========================================================================
+   6.2 LUXURY 3-SLIDE HERO CAROUSEL
+   ========================================================================== */
+.hero-slider-section {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    height: 90vh;
+    max-height: 980px;
+    background-color: #070D1A;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 992px) {
+    .hero-slider-section {
+        min-height: 92vh;
+        height: 92vh;
+    }
+}
+
+/* 4-Second Auto-Slide Progress Bar */
+.hero-progress-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.12);
+    z-index: 25;
+}
+
+.hero-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #E52027 0%, #3778B6 100%);
+    box-shadow: 0 0 10px rgba(229, 32, 39, 0.8);
+    transition: width 0.1s linear;
+}
+
+/* Slides Wrapper */
+.hero-slides-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.85s;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.hero-slide-bg {
+    position: absolute;
+    inset: -20px;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(1.08);
+    transition: transform 6.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+    will-change: transform;
+}
+
+.hero-slide.active .hero-slide-bg {
+    transform: scale(1.0);
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(90deg, rgba(7, 13, 26, 0.92) 0%, rgba(7, 13, 26, 0.78) 50%, rgba(7, 13, 26, 0.35) 100%),
+        linear-gradient(180deg, rgba(7, 13, 26, 0.45) 0%, transparent 40%, rgba(7, 13, 26, 0.75) 100%);
+    z-index: 2;
+}
+
+/* Slide Content */
+.hero-slide-content {
+    position: relative;
+    z-index: 3;
+    padding-top: 130px;
+    padding-bottom: 110px;
+}
+
+/* Slide Badge Pill */
+.slide-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 1.15rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+}
+
+.slide-badge-pill .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #E52027;
+    box-shadow: 0 0 10px #E52027;
+    animation: beaconPulse 1.8s infinite;
+}
+
+/* Subtitle & Headings */
+.hero-slide .section-subtitle.light {
+    color: #F8FAFC !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.85rem;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease 0.25s, transform 0.6s ease 0.25s;
+}
+
+.hero-slide .section-subtitle.light::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 3px;
+    background-color: #E52027;
+    border-radius: 2px;
+}
+
+.hero-slide .hero-title.light {
+    color: #FFFFFF !important;
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4.2vw, 4rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease 0.35s, transform 0.65s ease 0.35s;
+}
+
+.hero-slide .hero-title.light span.text-highlight {
+    color: #E52027 !important;
+    border-bottom: 4px solid #E52027 !important;
+    display: inline-block;
+    text-shadow: 0 0 25px rgba(229, 32, 39, 0.3);
+}
+
+.hero-slide .hero-lead.light {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.92) !important;
+    margin-bottom: 2rem;
+    max-width: 680px;
+    line-height: 1.75;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease 0.45s, transform 0.65s ease 0.45s;
+}
+
+.hero-slide .hero-buttons {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease 0.55s, transform 0.65s ease 0.55s;
+}
+
+.hero-slide .btn-outline-sleek.light {
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+}
+
+.hero-slide .btn-outline-sleek.light:hover {
+    background: #FFFFFF !important;
+    color: #121826 !important;
+    border-color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Badges */
+.hero-badges.light {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s ease 0.65s, transform 0.65s ease 0.65s;
+}
+
+.hero-badges.light .hero-badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 7px 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hero-badges.light .hero-badge-item i {
+    color: #E52027;
+    font-size: 1rem;
+}
+
+/* Trigger Entrance Animation when Slide is Active */
+.hero-slide.active .slide-badge-pill,
+.hero-slide.active .section-subtitle.light,
+.hero-slide.active .hero-title.light,
+.hero-slide.active .hero-lead.light,
+.hero-slide.active .hero-buttons,
+.hero-slide.active .hero-badges.light {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slider Bottom HUD */
+.hero-slider-hud {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 1.25rem 0 1.6rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(7, 13, 26, 0.75) 50%, rgba(7, 13, 26, 0.95) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-indicators {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.indicator-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    padding: 9px 18px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.indicator-pill:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.indicator-num {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #E52027;
+}
+
+.indicator-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.indicator-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #E52027;
+    transition: width 0.1s linear;
+}
+
+.indicator-pill.active {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(229, 32, 39, 0.6);
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.hero-slide-counter {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.hero-slide-counter .current-slide {
+    font-size: 1.3rem;
+    color: #E52027;
+}
+
+.hero-slide-counter .counter-divider {
+    opacity: 0.45;
+    margin: 0 2px;
+}
+
+.hero-slide-counter .total-slides {
+    opacity: 0.65;
+    font-size: 0.85rem;
+}
+
+.hero-nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(10px);
+}
+
+.hero-nav-btn:hover {
+    background: #E52027;
+    border-color: #E52027;
+    color: #FFFFFF;
+    transform: scale(1.08);
+    box-shadow: 0 4px 18px rgba(229, 32, 39, 0.45);
+}
+
+.hero-nav-btn:active {
+    transform: scale(0.96);
+}
+
 /* --- 6.1 HERO INTERIOR DESIGN STUDIO ANIMATION CARD --- */
 .hero-interior-designer-card {
     position: relative;
