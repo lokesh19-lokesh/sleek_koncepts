@@ -1,0 +1,92 @@
+# ==============================================================================
+# Sleek Koncepts - Robots.txt
+# Domain: https://sleekkoncepts.com
+# Purpose: Search Engine, Answer Engine (AEO) & LLM Bot Directives
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.kilo/
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /README.md
+
+# ------------------------------------------------------------------------------
+# Explicitly Permit AI & Answer Engine (AEO / LLM) Crawlers
+# ------------------------------------------------------------------------------
+# OpenAI (ChatGPT, GPT-4, SearchGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI (Answer Engine)
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic (Claude & Claude Search)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Google Gemini & Extended AI Training / SGE
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence & Siri
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+User-agent: FacebookBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Common Crawl (Foundation model training)
+User-agent: CCBot
+Allow: /
+
+# ------------------------------------------------------------------------------
+# Major Search Engine Crawlers
+# ------------------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# ------------------------------------------------------------------------------
+# Block Aggressive Scrapers & Spambots
+# ------------------------------------------------------------------------------
+User-agent: PetalBot
+Disallow: /
+
+# ------------------------------------------------------------------------------
+# Sitemaps & Host Directives
+# ------------------------------------------------------------------------------
+Sitemap: https://sleekkoncepts.com/sitemap.xml
+Host: https://sleekkoncepts.com

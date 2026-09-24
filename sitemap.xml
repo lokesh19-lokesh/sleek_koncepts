@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <!-- 1. Homepage -->
+    <url>
+        <loc>https://sleekkoncepts.com/</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-home.jpg</image:loc>
+            <image:title>Sleek Koncepts Luxury Interior Design Karimnagar</image:title>
+            <image:caption>Modern luxury architectural interiors and bespoke modular living spaces</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/logo/logo.png</image:loc>
+            <image:title>Sleek Koncepts Brand Logo</image:title>
+        </image:image>
+    </url>
+
+    <!-- 2. Modular Kitchens -->
+    <url>
+        <loc>https://sleekkoncepts.com/modular-kitchen.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-kitchen.jpg</image:loc>
+            <image:title>Custom Modular Kitchen Design Karimnagar</image:title>
+            <image:caption>Ergonomic island, parallel, and L-shaped modular kitchens with BWP 710 marine ply</image:caption>
+        </image:image>
+    </url>
+
+    <!-- 3. Living Room Interiors -->
+    <url>
+        <loc>https://sleekkoncepts.com/living-room.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-living.jpg</image:loc>
+            <image:title>Contemporary Living Room Interiors</image:title>
+            <image:caption>Luxury TV feature walls, acoustic fluted panels, and modern lounge design</image:caption>
+        </image:image>
+    </url>
+
+    <!-- 4. Bedroom Interiors -->
+    <url>
+        <loc>https://sleekkoncepts.com/bedroom.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-bedroom.jpg</image:loc>
+            <image:title>Luxury Bedroom Interior Design</image:title>
+            <image:caption>Master suites, upholstered headboard paneling, and hydraulic storage beds</image:caption>
+        </image:image>
+    </url>
+
+    <!-- 5. Wardrobes & Closets -->
+    <url>
+        <loc>https://sleekkoncepts.com/wardrobe.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-wardrobe.jpg</image:loc>
+            <image:title>Bespoke Modular Wardrobes and Walk-in Closets</image:title>
+            <image:caption>Sliding tinted glass wardrobes, hinged loft units, and internal organizers</image:caption>
+        </image:image>
+    </url>
+
+    <!-- 6. All Services Catalogue -->
+    <url>
+        <loc>https://sleekkoncepts.com/services.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-services.jpg</image:loc>
+            <image:title>Residential Interior Design Services Catalogue</image:title>
+            <image:caption>Complete turnkey interior design and modular architecture services in Telangana</image:caption>
+        </image:image>
+    </url>
+
+    <!-- 7. Projects Portfolio -->
+    <url>
+        <loc>https://sleekkoncepts.com/projects.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-projects.jpg</image:loc>
+            <image:title>Completed Interior Design Projects Portfolio</image:title>
+            <image:caption>Turnkey residential villas and premium apartment transformations</image:caption>
+        </image:image>
+    </url>
+
+    <!-- 8. Project Details / Case Studies -->
+    <url>
+        <loc>https://sleekkoncepts.com/project-details.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/projects/project-emerald-villa.jpg</image:loc>
+            <image:title>The Emerald Villa Case Study</image:title>
+        </image:image>
+    </url>
+
+    <!-- 9. Design Ideas & Inspiration -->
+    <url>
+        <loc>https://sleekkoncepts.com/design-ideas.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/blog/blog-kitchen-trends.jpg</image:loc>
+            <image:title>Interior Design Ideas and Trends</image:title>
+        </image:image>
+    </url>
+
+    <!-- 10. Our 9-Step Process -->
+    <url>
+        <loc>https://sleekkoncepts.com/process.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-process.jpg</image:loc>
+            <image:title>Our 9-Step Interior Design &amp; Delivery Methodology</image:title>
+        </image:image>
+    </url>
+
+    <!-- 11. About Us -->
+    <url>
+        <loc>https://sleekkoncepts.com/about.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-about.jpg</image:loc>
+            <image:title>About Sleek Koncepts Interior Design Studio</image:title>
+        </image:image>
+    </url>
+
+    <!-- 12. Contact & Free Consultation -->
+    <url>
+        <loc>https://sleekkoncepts.com/contact.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-contact.jpg</image:loc>
+            <image:title>Contact Sleek Koncepts Studio Karimnagar</image:title>
+        </image:image>
+    </url>
+
+    <!-- 13. Frequently Asked Questions (FAQ) -->
+    <url>
+        <loc>https://sleekkoncepts.com/faq.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sleekkoncepts.com/images/hero/hero-faq.jpg</image:loc>
+            <image:title>Frequently Asked Questions Sleek Koncepts</image:title>
+        </image:image>
+    </url>
+
+    <!-- 14. Privacy Policy -->
+    <url>
+        <loc>https://sleekkoncepts.com/privacy-policy.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <!-- 15. Terms & Conditions -->
+    <url>
+        <loc>https://sleekkoncepts.com/terms.html</loc>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+</urlset>

@@ -1,0 +1,38 @@
+# Sleek Koncepts
+
+> Sleek Koncepts is a premier contemporary residential interior design and modular architecture studio based in Karimnagar, Telangana, India. Specializing in bespoke modular kitchens, luxury living rooms, serene master bedrooms, custom wardrobes, and turnkey full-home transformations.
+
+## Core Brand Information
+- **Brand Name**: Sleek Koncepts
+- **Official Domain**: https://sleekkoncepts.com
+- **Industry**: Interior Design, Modular Kitchens, Residential Architecture
+- **Location**: 2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri, Karimnagar, Telangana 505001, India
+- **Phone / WhatsApp**: +91 8143965633
+- **Email**: kondapalkulasairam@gmail.com
+- **Regions Served**: Karimnagar, Hyderabad, Warangal, Jagtial, Peddapalli, Sircilla, Ramagundam, and across Telangana, India
+- **Operating Hours**: Monday to Saturday, 10:00 AM – 8:00 PM IST (Sunday Closed)
+
+## Key Pages & Documentation
+- [Home](https://sleekkoncepts.com/): Official homepage introducing Sleek Koncepts, signature styles, featured projects, and client testimonials.
+- [Modular Kitchens](https://sleekkoncepts.com/modular-kitchen.html): Custom modular kitchens, 6 layout configurations, BWP 710 marine-grade plywood, acrylic and PU finishes, Blum/Hettich German hardware.
+- [Living Room Interiors](https://sleekkoncepts.com/living-room.html): Modern lounge designs, acoustic fluted feature walls, floating TV media units, architectural lighting.
+- [Bedroom Interiors](https://sleekkoncepts.com/bedroom.html): Master suites, upholstered headboard paneling, hydraulic under-bed storage, space-saving layouts.
+- [Wardrobe Design](https://sleekkoncepts.com/wardrobe.html): Floor-to-ceiling sliding wardrobes, tinted glass walk-in closets, hinged lofts, internal sensor LED organizers.
+- [Services Catalogue](https://sleekkoncepts.com/services.html): Complete breakdown of all 10 residential interior services, false ceiling, lighting, pooja room, and turnkey execution.
+- [Portfolio & Case Studies](https://sleekkoncepts.com/projects.html): Real-world residential project showcases, villa interior transformations, and apartment walkthroughs.
+- [Project Details](https://sleekkoncepts.com/project-details.html): Detailed case study breakdown with material swatches, 3D renderings, and finished photographs.
+- [Design Ideas & Blog](https://sleekkoncepts.com/design-ideas.html): Curated articles on modular kitchen ergonomics, living space planning, and wardrobe storage hacks.
+- [9-Step Process](https://sleekkoncepts.com/process.html): From discovery consultation and laser site measurement to 3D photoreal visualization, factory CNC fabrication, and 45-day handover.
+- [About Us](https://sleekkoncepts.com/about.html): Design philosophy, architectural craftsmanship, brand story, and studio values.
+- [Frequently Asked Questions](https://sleekkoncepts.com/faq.html): Transparent answers on pricing, timelines, warranties, materials, and execution.
+- [Contact & Free Consultation](https://sleekkoncepts.com/contact.html): Lead inquiry form, phone booking, studio location map.
+
+## Material Specifications & Quality Standards
+- **Core Woodwork**: 100% Calibrated BWP (Boiling Water Proof) IS:710 Marine-Grade Plywood for all moisture-prone areas (kitchens, washroom vanities) with borer and termite resistance.
+- **Hardware & Fittings**: Certified German soft-close hinges, heavy-duty tandem boxes, and lift-up systems from Blum, Hettich, and Hafele.
+- **Surface Finishes**: High-gloss Anti-Scratch Acrylic, Ultra-Matte Polyurethane (PU) paint, Textured High-Pressure Laminates (HPL), Natural Wood Veneers.
+- **Turnaround Timelines**: 25–30 days for modular kitchens or wardrobes; 45–60 working days for turnkey 2BHK/3BHK full home interiors.
+- **Pricing Policy**: Transparent itemized Bill of Quantities (BOQ) with fixed square footage pricing and zero hidden fees.
+
+## Full Context File
+- For full knowledge base, complete FAQs, and technical specifications, see [llms-full.txt](https://sleekkoncepts.com/llms-full.txt)

@@ -1,0 +1,211 @@
+# ==============================================================================
+# Sleek Koncepts — Production Apache Configuration (.htaccess)
+# Domain: https://sleekkoncepts.com
+# Engineered for High Performance, Strong Security, and Maximum SEO
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. CHARACTER ENCODING & DEFAULT MIME TYPES
+# ------------------------------------------------------------------------------
+AddDefaultCharset UTF-8
+DefaultLanguage en-IN
+
+<IfModule mod_mime.c>
+    # Modern Web Formats
+    AddType text/html                          .html .htm
+    AddType text/css                           .css
+    AddType application/javascript             .js .mjs
+    AddType application/json                   .json
+    AddType application/ld+json                .jsonld
+    AddType text/xml                           .xml
+    AddType image/svg+xml                      .svg .svgz
+    AddType image/webp                         .webp
+    AddType image/png                          .png
+    AddType image/jpeg                         .jpg .jpeg .jpe
+    AddType image/x-icon                       .ico
+    AddType font/woff2                         .woff2
+    AddType font/woff                          .woff
+    AddType font/ttf                           .ttf
+    AddType font/otf                           .otf
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 2. CANONICAL REDIRECTIONS & REWRITE RULES (SEO OPTIMIZATION)
+# ------------------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Rule A: Enforce HTTPS across all requests
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://sleekkoncepts.com/$1 [R=301,L]
+
+    # Rule B: Enforce Canonical Domain (Redirect www to non-www)
+    RewriteCond %{HTTP_HOST} ^www\.sleekkoncepts\.com$ [NC]
+    RewriteRule ^(.*)$ https://sleekkoncepts.com/$1 [R=301,L]
+
+    # Rule C: Eliminate Duplicate Content (Redirect /index.html to root /)
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/ [NC]
+    RewriteRule ^index\.html$ https://sleekkoncepts.com/ [R=301,L]
+
+    # Rule D: Clean URLs (Allow extensionless URLs e.g., /services -> /services.html)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+    # Rule E: Block access to hidden files and version control directories
+    RewriteRule (^|/)\.(?!well-known) - [F]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 3. GZIP / DEFLATE COMPRESSION (SPEED & CORE WEB VITALS)
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+
+    # Remove browser bugs for ancient user agents
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent env=!dont-vary
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 4. BROWSER LEVERAGE CACHING (EXPIRES HEADERS)
+# ------------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML Documents: 1 hour (Allows fast update propagation while caching)
+    ExpiresByType text/html "access plus 1 hour"
+
+    # Data & XML Feeds
+    ExpiresByType application/json "access plus 1 hour"
+    ExpiresByType application/ld+json "access plus 1 hour"
+    ExpiresByType text/xml "access plus 1 hour"
+    ExpiresByType application/xml "access plus 1 hour"
+
+    # CSS & JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+
+    # Images, Icons & Media: 1 Year (Static assets)
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Web Fonts: 1 Year
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 5. CACHE-CONTROL HEADERS
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # 1 Year Immutable Cache for Static Assets
+    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|svg|woff2|woff|ttf|otf)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+
+    # 1 Month Cache for CSS & JS
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+
+    # HTML Files: Cache with Revalidation
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=3600, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 6. ENTERPRISE SECURITY HEADERS
+# ------------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Clickjacking protection (Sameorigin frames only)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # XSS Filter protection
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Strict Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Feature & Permissions Policy
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+
+    # HTTP Strict Transport Security (HSTS) - 1 Year with Subdomains
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# 7. SECURITY & SENSITIVE FILE PROTECTION
+# ------------------------------------------------------------------------------
+# Disable directory index browsing
+Options -Indexes
+
+# Block access to hidden files, config files, and documentation
+<FilesMatch "(\.(git|gitignore|kilo|env|config|bak|sql|md)|README\.md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Protect .htaccess and .htpasswd
+<Files ~ "^.*\.([Hh][Tt][AaPp])">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</Files>
+
+# ------------------------------------------------------------------------------
+# 8. CUSTOM ERROR PAGES
+# ------------------------------------------------------------------------------
+ErrorDocument 404 /404.html
+ErrorDocument 500 /404.html
