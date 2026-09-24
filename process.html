@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our 9-Step Interior Design Process | Sleek Koncepts</title>
-    <meta name="description" content="Discover the transparent 9-step interior design and execution process by Sleek Koncepts: from initial consultation and 3D visualization to precision factory manufacturing and handover.">
+    <title>Our Process | From Design to Delivery | Sleek Koncepts</title>
+    <meta name="description" content="Discover the transparent 6-step interior design and execution process by Sleek Koncepts: from initial consultation and 3D visualization to precision factory manufacturing and turnkey handover.">
     <link rel="canonical" href="https://www.sleekkoncepts.com/process.html">
     <link rel="icon" type="image/png" href="images/logo/favicon.png">
 
     <!-- Open Graph Metadata -->
-    <meta property="og:title" content="Our 9-Step Interior Design Process | Sleek Koncepts">
+    <meta property="og:title" content="Our Process | From Design to Delivery | Sleek Koncepts">
     <meta property="og:description" content="From idea to your dream home. See how we deliver flawless modular interiors with zero hassle.">
     <meta property="og:image" content="images/hero/hero-process.jpg">
     <meta property="og:url" content="https://www.sleekkoncepts.com/process.html">
@@ -96,229 +96,393 @@
             <span class="section-subtitle light">Engineered Certainty</span>
             <h1 class="hero-title mb-3">FROM IDEA TO YOUR DREAM HOME</h1>
             <p class="hero-lead mx-auto">
-                A structured 9-step methodology engineered for architectural accuracy, factory precision, and an on-time handover.
+                A structured 6-step methodology engineered for architectural accuracy, factory precision, and an on-time handover.
             </p>
         </div>
     </header>
 
-    <!-- TIMELINE SECTION -->
-    <section class="section-padding bg-white">
+    <!-- FROM DESIGN TO DELIVERY (6-STEP INTERACTIVE WORKFLOW) -->
+    <section class="design-to-delivery-section" id="designToDelivery" aria-label="From Design to Delivery">
         <div class="container container-custom">
-            <div class="text-center section-header">
-                <span class="section-subtitle">How We Build Together</span>
-                <h2 class="section-title">THE 9-STEP SLEEK KONCEPTS JOURNEY</h2>
-                <p class="text-muted mx-auto" style="max-width: 650px;">We take the unpredictability out of interior construction with clear milestone sign-offs.</p>
+            <!-- Section Header -->
+            <div class="text-center mb-4 mb-lg-5 reveal-fade-up">
+                <span class="section-subtitle">Our Seamless Process</span>
+                <h2 class="delivery-process-title">From Design to <strong>Delivery</strong></h2>
+                <p class="text-muted mt-2 mb-0">Experience a structured, transparent 6-step journey from initial concept to your turnkey move-in.</p>
             </div>
 
-            <div class="row g-4 justify-content-center">
+            <!-- Stepper Progress Tracker -->
+            <div class="process-stepper-container reveal-fade-up">
+                <div class="process-stepper-track">
+                    <div class="process-track-bg"></div>
+                    <div class="process-progress-bar" id="processProgressBar"></div>
+                    <button type="button" class="step-bullet-btn active" data-step="0" aria-label="Step 1: Meet Your Designer">
+                        <span class="step-num">1</span>
+                    </button>
+                    <button type="button" class="step-bullet-btn" data-step="1" aria-label="Step 2: Transparent Booking">
+                        <span class="step-num">2</span>
+                    </button>
+                    <button type="button" class="step-bullet-btn" data-step="2" aria-label="Step 3: Material & 3D Finalization">
+                        <span class="step-num">3</span>
+                    </button>
+                    <button type="button" class="step-bullet-btn" data-step="3" aria-label="Step 4: Factory Production">
+                        <span class="step-num">4</span>
+                    </button>
+                    <button type="button" class="step-bullet-btn" data-step="4" aria-label="Step 5: Quality Dispatch & Installation">
+                        <span class="step-num">5</span>
+                    </button>
+                    <button type="button" class="step-bullet-btn" data-step="5" aria-label="Step 6: Handover & Move-In">
+                        <span class="step-num">6</span>
+                    </button>
+                </div>
+            </div>
 
-                <!-- Step 01: Consultation -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-light-custom shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-danger mb-0" style="font-size: 3.5rem;">01</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-chat-heart" style="color: var(--sleek-red);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">INITIAL CONSULTATION &amp; DISCOVERY</h3>
+            <!-- Carousel Slider Stage -->
+            <div class="process-slider-wrapper position-relative reveal-fade-up">
+                <!-- Navigation Arrows -->
+                <button type="button" class="process-nav-arrow process-prev-btn" id="processPrevBtn" aria-label="Previous step">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <button type="button" class="process-nav-arrow process-next-btn" id="processNextBtn" aria-label="Next step">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+
+                <!-- 6 Interactive Slides -->
+                <div class="process-slides-container">
+                    <!-- Slide 1: Meet Your Designer -->
+                    <div class="process-slide active" data-slide="0">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5 order-2 order-lg-1">
+                                <div class="step-card-content">
+                                    <h3 class="step-main-title">Meet Your Designer</h3>
+                                    <p class="step-main-desc">
+                                        Share your ideas and floor plan to receive personalized 3D designs and an instant quote. Our senior architects explore your lifestyle, storage requirements, and aesthetics to craft a bespoke design roadmap.
+                                    </p>
                                 </div>
-                                <p class="text-muted mb-0">
-                                    We meet in person at our Karimnagar studio or via virtual walkthrough to review your floor plan, understand your daily family lifestyle, discuss architectural aesthetics, and outline budget parameters.
-                                </p>
                             </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-white text-dark border px-3 py-2 fw-semibold">Milestone 1</span>
+                            <div class="col-lg-7 order-1 order-lg-2">
+                                <div class="step-illustration-box">
+                                    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="process-svg svg-scene-1">
+                                        <rect x="290" y="30" width="46" height="60" rx="3" stroke="#F0B5B7" stroke-width="2.2" fill="#FFF9F9"/>
+                                        <rect x="350" y="24" width="70" height="48" rx="3" stroke="#F0B5B7" stroke-width="2.2" fill="#FFF9F9"/>
+                                        <rect x="345" y="85" width="50" height="66" rx="3" stroke="#F0B5B7" stroke-width="2.2" fill="#FFF9F9"/>
+                                        <line x1="220" y1="0" x2="220" y2="60" stroke="#121E3A" stroke-width="1.8"/>
+                                        <path class="anim-lamp-shade" d="M198 88C198 72 242 72 242 88H198Z" fill="#F8C9CB" stroke="#121E3A" stroke-width="2"/>
+                                        <circle cx="220" cy="90" r="3" fill="#E52027"/>
+                                        <polygon class="anim-light-beam" points="205,92 235,92 265,190 175,190" fill="url(#lightGradient1)" opacity="0.45"/>
+                                        <defs>
+                                             <linearGradient id="lightGradient1" x1="220" y1="92" x2="220" y2="190" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#E52027" stop-opacity="0.25"/>
+                                                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <line x1="160" y1="230" x2="460" y2="230" stroke="#121E3A" stroke-width="2.5" stroke-linecap="round"/>
+                                        <circle cx="255" cy="120" r="16" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <path d="M245 118Q255 125 265 118" stroke="#121E3A" stroke-width="1.8" stroke-linecap="round"/>
+                                        <circle cx="249" cy="115" r="1.5" fill="#121E3A"/>
+                                        <circle cx="261" cy="115" r="1.5" fill="#121E3A"/>
+                                        <path d="M239 122C236 115 240 106 248 104C256 102 266 104 270 110C274 116 270 126 265 128" fill="#121E3A"/>
+                                        <circle cx="236" cy="124" r="7" fill="#121E3A"/>
+                                        <path d="M235 150L242 136H268L275 150V230H235V150Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <rect x="250" y="152" width="12" height="4" rx="1" fill="#E52027"/>
+                                        <path class="anim-gesture-arm" d="M268 155L295 165L315 155" stroke="#121E3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="385" cy="130" r="16" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <path d="M375 128Q385 135 395 128" stroke="#121E3A" stroke-width="1.8" stroke-linecap="round"/>
+                                        <circle cx="379" cy="126" r="1.5" fill="#121E3A"/>
+                                        <circle cx="391" cy="126" r="1.5" fill="#121E3A"/>
+                                        <path d="M369 130C366 120 372 110 384 110C396 110 403 120 401 130C405 134 402 142 396 142C394 146 388 146 384 146C378 146 372 144 370 138" fill="#121E3A"/>
+                                        <path d="M365 160L375 146H395L405 160V230H365V160Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <g class="anim-laptop-glow">
+                                            <path d="M298 230L308 175H352L362 230H298Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                            <line x1="288" y1="230" x2="372" y2="230" stroke="#121E3A" stroke-width="3"/>
+                                            <circle cx="330" cy="202" r="7" fill="#E52027"/>
+                                            <path d="M327 202L330 199L333 202L330 205L327 202Z" fill="#FFFFFF"/>
+                                        </g>
+                                        <path d="M410 230H430L428 205H412L410 230Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                        <path class="anim-succulent" d="M420 185C426 188 428 196 426 205C420 205 414 196 420 185Z" fill="#F0B5B7" stroke="#121E3A" stroke-width="1.8"/>
+                                        <path class="anim-succulent" d="M420 190C412 192 410 200 414 205C420 205 424 198 420 190Z" fill="#F0B5B7" stroke="#121E3A" stroke-width="1.8"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Book Your Order -->
+                    <div class="process-slide" data-slide="1">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5 order-2 order-lg-1">
+                                <div class="step-card-content">
+                                    <h3 class="step-main-title">Book Your Order</h3>
+                                    <p class="step-main-desc">
+                                        Pay 10% of the woodwork and home decor services to book your order. Lock in your dedicated project architect, milestone timeline, and price protection with 100% transparent quotation.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 order-1 order-lg-2">
+                                <div class="step-illustration-box">
+                                    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="process-svg svg-scene-2">
+                                        <rect x="70" y="35" width="340" height="250" rx="16" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.5"/>
+                                        <rect x="85" y="50" width="310" height="220" rx="6" fill="#F8FAFC"/>
+                                        <circle cx="380" cy="160" r="5" fill="#F0B5B7"/>
+                                        <rect x="290" y="65" width="90" height="16" rx="2" fill="#FFFFFF"/>
+                                        <circle cx="298" cy="73" r="4" fill="#E52027"/>
+                                        <text x="306" y="77" font-family="'Outfit', sans-serif" font-size="8" font-weight="800" fill="#121E3A">Sleek Koncepts</text>
+                                        <g class="anim-room-iso">
+                                            <polygon points="105,100 175,65 245,100 175,135" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                            <polygon points="105,100 175,135 175,215 105,180" fill="#F8FAFC" stroke="#121E3A" stroke-width="1.8"/>
+                                            <polygon points="245,100 175,135 175,215 245,180" fill="#EEF2F6" stroke="#121E3A" stroke-width="1.8"/>
+                                            <polygon points="120,115 145,102 145,130 120,143" stroke="#F0B5B7" stroke-width="1.5" fill="#FFFFFF"/>
+                                            <polygon points="205,102 230,115 230,143 205,130" stroke="#121E3A" stroke-width="1.5" fill="#FFFFFF"/>
+                                            <line x1="218" y1="108" x2="218" y2="136" stroke="#121E3A" stroke-width="1"/>
+                                            <polygon points="140,150 175,132 210,150 175,168" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                            <polygon points="140,150 175,168 175,185 140,167" fill="#F8C9CB" stroke="#121E3A" stroke-width="1.8"/>
+                                            <polygon points="210,150 175,168 175,185 210,167" fill="#F0B5B7" stroke="#121E3A" stroke-width="1.8"/>
+                                            <polygon points="152,146 168,138 174,142 158,150" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.2"/>
+                                            <polygon points="176,138 192,146 186,150 170,142" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.2"/>
+                                            <polygon points="125,180 175,155 225,180 175,205" stroke="#F8C9CB" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
+                                        </g>
+                                        <g class="anim-quote-card">
+                                            <rect x="265" y="95" width="115" height="155" rx="6" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                            <rect x="265" y="95" width="115" height="24" rx="6" fill="#EEF2F6"/>
+                                            <text x="322" y="111" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="8.5" font-weight="800" fill="#121E3A" letter-spacing="0.5">INSTANT QUOTE</text>
+                                            <text x="275" y="136" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748B">Modular Woodwork</text>
+                                            <text x="368" y="136" text-anchor="end" font-family="'Outfit', sans-serif" font-size="7.5" font-weight="700" fill="#121E3A">₹4,75,000</text>
+                                            <text x="275" y="152" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748B">Hardware &amp; Finish</text>
+                                            <text x="368" y="152" text-anchor="end" font-family="'Outfit', sans-serif" font-size="7.5" font-weight="700" fill="#121E3A">₹85,000</text>
+                                            <line x1="275" y1="162" x2="368" y2="162" stroke="#E2E8F0" stroke-width="1"/>
+                                            <text x="275" y="176" font-family="'Outfit', sans-serif" font-size="8.5" font-weight="800" fill="#121E3A">Total</text>
+                                            <text x="368" y="176" text-anchor="end" font-family="'Outfit', sans-serif" font-size="9.5" font-weight="800" fill="#E52027">₹5,60,000</text>
+                                            <rect class="anim-quote-btn" x="273" y="195" width="100" height="26" rx="13" fill="#E52027"/>
+                                            <text class="anim-quote-btn" x="323" y="211" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="7.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">BOOK YOUR ORDER</text>
+                                            <g class="anim-cursor-click">
+                                                <path d="M345 215L352 230L348 232L344 224L339 229L339 212L350 223L345 223Z" fill="#121E3A" stroke="#FFFFFF" stroke-width="1.2"/>
+                                                <circle cx="340" cy="214" r="6" stroke="#E52027" stroke-width="1.5" fill="none" opacity="0.8" class="anim-click-ripple"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Finalise Your Design -->
+                    <div class="process-slide" data-slide="2">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5 order-2 order-lg-1">
+                                <div class="step-card-content">
+                                    <h3 class="step-main-title">Finalise Your Design</h3>
+                                    <p class="step-main-desc">
+                                        Choose your materials, finishes and colours. Pay the next 10% of woodwork and home decor services to lock designs and begin on-site laser precision masking and quality benchmark checks.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 order-1 order-lg-2">
+                                <div class="step-illustration-box">
+                                    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="process-svg svg-scene-3">
+                                        <line x1="80" y1="245" x2="420" y2="245" stroke="#121E3A" stroke-width="2.5" stroke-linecap="round"/>
+                                        <rect x="180" y="60" width="140" height="140" fill="#FFF8F8" stroke="#F0B5B7" stroke-width="2.5"/>
+                                        <line x1="226" y1="60" x2="226" y2="200" stroke="#F0B5B7" stroke-width="1.5"/>
+                                        <line x1="273" y1="60" x2="273" y2="200" stroke="#F0B5B7" stroke-width="1.5"/>
+                                        <line x1="180" y1="106" x2="320" y2="106" stroke="#F0B5B7" stroke-width="1.5"/>
+                                        <line x1="180" y1="153" x2="320" y2="153" stroke="#F0B5B7" stroke-width="1.5"/>
+                                        <line x1="195" y1="140" x2="270" y2="75" stroke="#F0B5B7" stroke-width="1.5" stroke-linecap="round"/>
+                                        <line x1="230" y1="185" x2="305" y2="120" stroke="#F0B5B7" stroke-width="1.5" stroke-linecap="round"/>
+                                        <rect x="345" y="145" width="28" height="35" rx="2" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                        <circle cx="352" cy="155" r="1.5" fill="#E52027"/>
+                                        <rect x="357" y="152" width="12" height="6" rx="1" stroke="#284180" stroke-width="1"/>
+                                        <rect x="349" y="165" width="20" height="10" rx="1" stroke="#284180" stroke-width="1"/>
+                                        <polygon points="120,245 138,125 152,125 170,245" fill="none" stroke="#121E3A" stroke-width="2.2"/>
+                                        <line x1="126" y1="210" x2="164" y2="210" stroke="#121E3A" stroke-width="2"/>
+                                        <line x1="130" y1="180" x2="160" y2="180" stroke="#121E3A" stroke-width="2"/>
+                                        <line x1="135" y1="150" x2="155" y2="150" stroke="#121E3A" stroke-width="2"/>
+                                        <circle cx="310" cy="100" r="13" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <path d="M298 96C298 88 304 84 314 84C322 84 326 90 326 98L336 98" stroke="#E52027" stroke-width="3" stroke-linecap="round"/>
+                                        <path d="M298 120L304 112H318L324 120V235L318 245H312L312 185H308L308 245H300L296 235V120Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <line x1="304" y1="120" x2="304" y2="150" stroke="#E52027" stroke-width="1.8"/>
+                                        <line x1="316" y1="120" x2="316" y2="150" stroke="#E52027" stroke-width="1.8"/>
+                                        <path class="anim-measure-arm" d="M318 125L332 105L332 60" stroke="#121E3A" stroke-width="2.2" stroke-linecap="round"/>
+                                        <line x1="332" y1="35" x2="332" y2="245" stroke="#121E3A" stroke-width="2.8"/>
+                                        <line x1="329" y1="60" x2="335" y2="60" stroke="#E52027" stroke-width="1.5"/>
+                                        <line x1="329" y1="90" x2="335" y2="90" stroke="#E52027" stroke-width="1.5"/>
+                                        <line x1="329" y1="120" x2="335" y2="120" stroke="#E52027" stroke-width="1.5"/>
+                                        <line x1="329" y1="150" x2="335" y2="150" stroke="#E52027" stroke-width="1.5"/>
+                                        <line x1="329" y1="180" x2="335" y2="180" stroke="#E52027" stroke-width="1.5"/>
+                                        <line class="anim-laser-beam" x1="180" y1="60" x2="332" y2="60" stroke="#E52027" stroke-width="1.5" stroke-dasharray="4 2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Send Designs to Factory -->
+                    <div class="process-slide" data-slide="3">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5 order-2 order-lg-1">
+                                <div class="step-card-content">
+                                    <h3 class="step-main-title">Send Designs to Factory</h3>
+                                    <p class="step-main-desc">
+                                        Pay 30% of woodwork and 80% of home decor services to begin automated factory production. Your customized modular components are cut, routed, and edge-banded with German CNC precision.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 order-1 order-lg-2">
+                                <div class="step-illustration-box">
+                                    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="process-svg svg-scene-4">
+                                        <line x1="130" y1="105" x2="230" y2="105" stroke="#121E3A" stroke-width="2.5" stroke-linecap="round"/>
+                                        <rect x="145" y="65" width="8" height="40" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                        <rect x="156" y="70" width="8" height="35" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                        <path d="M168 75L178 105H170L162 80Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                        <rect x="195" y="90" width="18" height="15" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                        <path d="M204 72C210 75 212 82 210 90C204 90 200 82 204 72Z" fill="#F0B5B7" stroke="#121E3A" stroke-width="1.5"/>
+                                        <rect x="290" y="55" width="80" height="70" rx="3" stroke="#F0B5B7" stroke-width="2.2" fill="#FFF9F9"/>
+                                        <line x1="60" y1="245" x2="420" y2="245" stroke="#121E3A" stroke-width="2.5" stroke-linecap="round"/>
+                                        <rect x="100" y="200" width="28" height="35" rx="3" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                        <path d="M100 210C92 210 92 225 100 225" stroke="#121E3A" stroke-width="2"/>
+                                        <path class="anim-steam" d="M110 192Q114 185 110 178" stroke="#F0B5B7" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path class="anim-steam" d="M116 190Q120 183 116 176" stroke="#F0B5B7" stroke-width="1.5" stroke-linecap="round"/>
+                                        <g class="anim-cad-laptop">
+                                            <rect x="155" y="115" width="190" height="120" rx="8" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.4"/>
+                                            <circle cx="250" cy="122" r="2" fill="#E52027"/>
+                                            <rect x="165" y="130" width="170" height="95" rx="4" fill="#FFF8F8"/>
+                                            <polygon points="175,185 240,150 305,185 240,220" fill="#FFFFFF" stroke="#F0B5B7" stroke-width="1.2"/>
+                                            <rect x="185" y="175" width="30" height="20" rx="2" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.4"/>
+                                            <polygon points="225,185 255,185 250,195 220,195" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.2"/>
+                                            <rect x="270" y="155" width="18" height="24" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.2"/>
+                                            <line x1="265" y1="185" x2="295" y2="185" stroke="#E52027" stroke-width="2"/>
+                                            <path d="M135 245L155 235H345L365 245H135Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.4"/>
+                                            <rect x="220" y="240" width="60" height="5" rx="1.5" stroke="#121E3A" stroke-width="1.2" fill="#F8FAFC"/>
+                                            <rect x="335" y="238" width="8" height="4" rx="1" fill="#E52027"/>
+                                        </g>
+                                        <circle cx="250" cy="175" r="35" stroke="#E52027" stroke-width="1.5" stroke-dasharray="4 3" fill="none" class="anim-pulse-ring"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Kick Off Dispatch -->
+                    <div class="process-slide" data-slide="4">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5 order-2 order-lg-1">
+                                <div class="step-card-content">
+                                    <h3 class="step-main-title">Kick Off Dispatch</h3>
+                                    <p class="step-main-desc">
+                                        Pay the remaining 50% of woodwork to dispatch your order post-production and begin installation. All items are multi-layer packed, quality-inspected, and delivered safely to your doorstep.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 order-1 order-lg-2">
+                                <div class="step-illustration-box">
+                                    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="process-svg svg-scene-5">
+                                        <line x1="60" y1="245" x2="420" y2="245" stroke="#121E3A" stroke-width="2.5" stroke-linecap="round"/>
+                                        <rect x="150" y="70" width="22" height="150" rx="2" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <circle cx="161" cy="80" r="2.5" fill="#E52027"/>
+                                        <rect x="155" y="110" width="12" height="22" rx="1" stroke="#284180" stroke-width="1.5"/>
+                                        <circle cx="158" cy="116" r="1" fill="#284180"/>
+                                        <circle cx="164" cy="116" r="1" fill="#284180"/>
+                                        <circle cx="158" cy="122" r="1" fill="#284180"/>
+                                        <circle cx="164" cy="122" r="1" fill="#284180"/>
+                                        <path d="M150 100H200V70H150" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <rect x="180" y="130" width="190" height="95" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <rect x="220" y="90" width="110" height="40" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                        <line x1="225" y1="105" x2="325" y2="105" stroke="#284180" stroke-width="1.5"/>
+                                        <g class="anim-conveyor-rollers">
+                                            <circle cx="190" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="205" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="220" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="235" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="250" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="265" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="280" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="295" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="310" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="325" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="340" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                            <circle cx="355" cy="130" r="5" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.6"/>
+                                        </g>
+                                        <circle cx="325" cy="95" r="11" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                        <path d="M314 93C314 85 320 82 328 82C336 82 342 87 342 93" fill="#E52027" stroke="#E52027" stroke-width="2"/>
+                                        <path d="M312 110L318 106H338L344 110V130H312V110Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.8"/>
+                                        <rect x="316" y="112" width="14" height="18" rx="1" fill="#FFFFFF" stroke="#121E3A" stroke-width="1.2"/>
+                                        <line x1="319" y1="117" x2="327" y2="117" stroke="#E52027" stroke-width="1"/>
+                                        <line x1="319" y1="121" x2="327" y2="121" stroke="#121E3A" stroke-width="1"/>
+                                        <g class="anim-dispatch-technician">
+                                            <circle cx="205" cy="115" r="11" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                            <path d="M195 113C195 106 200 102 208 102C216 102 221 107 221 113" fill="#E52027" stroke="#E52027" stroke-width="2"/>
+                                            <path d="M196 130L205 125H215L222 130V185L210 240L195 240L192 185V130Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                            <path d="M216 135L232 145H240" stroke="#121E3A" stroke-width="2.2" stroke-linecap="round"/>
+                                            <rect x="240" y="145" width="45" height="90" rx="3" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                            <circle cx="248" cy="242" r="5" fill="#121E3A"/>
+                                            <circle cx="277" cy="242" r="5" fill="#121E3A"/>
+                                            <rect x="244" y="150" width="37" height="38" rx="2" fill="#F8C9CB" stroke="#121E3A" stroke-width="1.8"/>
+                                            <rect x="244" y="190" width="37" height="40" rx="2" fill="#F0B5B7" stroke="#121E3A" stroke-width="1.8"/>
+                                            <line x1="244" y1="170" x2="281" y2="170" stroke="#E52027" stroke-width="1.2"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6: Move In & Handover -->
+                    <div class="process-slide" data-slide="5">
+                        <div class="row align-items-center g-4 g-lg-5">
+                            <div class="col-lg-5 order-2 order-lg-1">
+                                <div class="step-card-content">
+                                    <h3 class="step-main-title">Move In &amp; Celebrate</h3>
+                                    <p class="step-main-desc">
+                                        Enjoy flawless white-glove installation, a professional post-assembly deep clean, and an exhaustive 50-point quality audit. Receive your certified 10-year warranty document and the keys to your new home!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 order-1 order-lg-2">
+                                <div class="step-illustration-box">
+                                    <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="process-svg svg-scene-6">
+                                        <line x1="60" y1="245" x2="420" y2="245" stroke="#121E3A" stroke-width="2.5" stroke-linecap="round"/>
+                                        <path d="M140 245V130C140 85 240 85 240 130V245" stroke="#F0B5B7" stroke-width="2.2" fill="#FFF9F9"/>
+                                        <line x1="190" y1="85" x2="190" y2="245" stroke="#F0B5B7" stroke-width="1.5"/>
+                                        <line x1="140" y1="160" x2="240" y2="160" stroke="#F0B5B7" stroke-width="1.5"/>
+                                        <rect x="100" y="205" width="26" height="40" rx="3" fill="#FFFFFF" stroke="#121E3A" stroke-width="2"/>
+                                        <path class="anim-plant-leaf-1" d="M113 205C100 185 85 190 95 165C108 180 115 195 113 205Z" fill="#F8C9CB" stroke="#121E3A" stroke-width="1.6"/>
+                                        <path class="anim-plant-leaf-2" d="M113 205C125 180 145 185 135 155C120 175 112 195 113 205Z" fill="#F0B5B7" stroke="#121E3A" stroke-width="1.6"/>
+                                        <path class="anim-plant-leaf-3" d="M113 185C110 160 120 140 115 135C110 145 112 170 113 185Z" fill="#E52027" stroke="#121E3A" stroke-width="1.6"/>
+                                        <circle cx="225" cy="130" r="14" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <path d="M217 128Q225 136 233 128" stroke="#121E3A" stroke-width="1.8" stroke-linecap="round"/>
+                                        <circle cx="220" cy="125" r="1.5" fill="#121E3A"/>
+                                        <circle cx="230" cy="125" r="1.5" fill="#121E3A"/>
+                                        <path d="M210 150L216 142H234L240 150V245H210V150Z" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.2"/>
+                                        <path class="anim-handover-arm" d="M236 155L260 160L285 150" stroke="#121E3A" stroke-width="2.2" stroke-linecap="round"/>
+                                        <g class="anim-keys-swing">
+                                            <circle cx="288" cy="150" r="6" stroke="#121E3A" stroke-width="2" fill="none"/>
+                                            <rect x="286" y="156" width="4" height="25" rx="1" fill="#E52027"/>
+                                            <line x1="288" y1="165" x2="293" y2="165" stroke="#FFFFFF" stroke-width="1.5"/>
+                                            <line x1="288" y1="172" x2="294" y2="172" stroke="#FFFFFF" stroke-width="1.5"/>
+                                            <rect x="278" y="160" width="7" height="15" rx="2" fill="#E52027"/>
+                                            <circle cx="281.5" cy="164" r="1" fill="#FFFFFF"/>
+                                        </g>
+                                        <g class="anim-warranty-plaque">
+                                            <rect x="330" y="85" width="85" height="110" rx="8" fill="#FFFFFF" stroke="#121E3A" stroke-width="2.4"/>
+                                            <circle cx="372" cy="125" r="22" fill="#FFF5F5" stroke="#E52027" stroke-width="2"/>
+                                            <circle cx="372" cy="125" r="16" fill="#E52027"/>
+                                            <text x="372" y="130" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="12" font-weight="900" fill="#FFFFFF">10</text>
+                                            <rect x="352" y="152" width="40" height="10" rx="2" fill="#121E3A"/>
+                                            <text x="372" y="160" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="5.5" font-weight="800" fill="#FFFFFF" letter-spacing="0.8">WARRANTY</text>
+                                            <text x="372" y="178" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="6.5" font-weight="700" fill="#284180">CERTIFIED</text>
+                                        </g>
+                                        <path class="anim-celeb-star1" d="M305 75L307 81L313 83L307 85L305 91L303 85L297 83L303 81L305 75Z" fill="#E52027"/>
+                                        <path class="anim-celeb-star2" d="M260 95L261.5 100L266.5 101.5L261.5 103L260 108L258.5 103L253.5 101.5L258.5 100L260 95Z" fill="#E52027"/>
+                                        <path class="anim-celeb-star3" d="M400 65L401.5 69L405.5 70.5L401.5 72L400 76L398.5 72L394.5 70.5L398.5 69L400 65Z" fill="#E52027"/>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Step 02: Site Measurement -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-white shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-primary mb-0" style="font-size: 3.5rem; color: var(--sky-blue) !important;">02</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-rulers" style="color: var(--sky-blue);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">SITE MEASUREMENT &amp; LASER AUDIT</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    Our technical survey team conducts laser-calibrated on-site scans of every wall, ceiling level, beam drops, plumbing lines, and existing electrical junctions to guarantee zero dimensional discrepancies.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-light text-dark border px-3 py-2 fw-semibold">Milestone 2</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 03: Space Planning -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-light-custom shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-primary mb-0" style="font-size: 3.5rem; color: var(--deep-koncept-blue) !important;">03</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-aspect-ratio" style="color: var(--deep-koncept-blue);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">SPACE PLANNING &amp; 2D SCHEMATICS</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    We draft comprehensive 2D floor plans defining circulation traffic, kitchen triangle ergonomics, wardrobe bay divisions, and custom furniture placements for your review and approval.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-white text-dark border px-3 py-2 fw-semibold">Milestone 3</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 04: Design Concept -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-white shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-danger mb-0" style="font-size: 3.5rem;">04</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-palette" style="color: var(--sleek-red);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">DESIGN CONCEPT &amp; MOODBOARDS</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    Curating the cohesive brand language for your home: tactile material combinations, wall finishes, ceiling drops, acoustic paneling styles, and color harmonies.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-light text-dark border px-3 py-2 fw-semibold">Milestone 4</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 05: 3D Visualization -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-light-custom shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-primary mb-0" style="font-size: 3.5rem; color: var(--sky-blue) !important;">05</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-box" style="color: var(--sky-blue);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">PHOTOREALISTIC 3D VISUALIZATION</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    You don't have to imagine your home. We produce high-resolution 3D renders displaying exact finishes, realistic evening lighting, and textures before manufacturing begins.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-white text-dark border px-3 py-2 fw-semibold">Milestone 5</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 06: Material Selection -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-white shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-primary mb-0" style="font-size: 3.5rem; color: var(--deep-koncept-blue) !important;">06</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-layers" style="color: var(--deep-koncept-blue);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">MATERIAL &amp; HARDWARE SELECTION</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    Feel and inspect physical samples at our showroom: touch genuine acrylics, PU paints, quartz slabs, fluted louvers, and test German soft-close drawer slides first-hand.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-light text-dark border px-3 py-2 fw-semibold">Milestone 6</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 07: Manufacturing -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-light-custom shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-danger mb-0" style="font-size: 3.5rem;">07</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-gear-wide-connected" style="color: var(--sleek-red);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">FACTORY PRECISION MANUFACTURING</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    Approved production drawings are transferred directly to automated CNC routers for millimeter-accurate sizing, grooving, and high-heat PUR edge banding under controlled conditions.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-white text-dark border px-3 py-2 fw-semibold">Milestone 7</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 08: Installation -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-white shadow-sm position-relative overflow-hidden">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-primary mb-0" style="font-size: 3.5rem; color: var(--sky-blue) !important;">08</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-tools" style="color: var(--sky-blue);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">SEAMLESS SITE INSTALLATION</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    Flat-pack modules arrive securely wrapped at your residence. Our trained installation technicians erect, align, and anchor units cleanly with zero messy sawdust or disruption.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-light text-dark border px-3 py-2 fw-semibold">Milestone 8</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 09: Final Handover -->
-                <div class="col-lg-10 reveal-fade-up">
-                    <div class="p-4 p-md-5 rounded border bg-light-custom shadow-sm position-relative overflow-hidden" style="border-left: 6px solid var(--sleek-red) !important;">
-                        <div class="row align-items-center g-4">
-                            <div class="col-md-2 text-center text-md-start">
-                                <div class="step-num text-danger mb-0" style="font-size: 3.5rem;">09</div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <div class="step-icon my-0 flex-shrink-0"><i class="bi bi-key-fill" style="color: var(--sleek-red);"></i></div>
-                                    <h3 class="h4 fw-bold mb-0" style="color: var(--deep-koncept-blue);">QUALITY AUDIT &amp; FINAL HANDOVER</h3>
-                                </div>
-                                <p class="text-muted mb-0">
-                                    Our senior project manager conducts a 120-point quality audit, followed by industrial deep cleaning of all cabinets, keys handover, and delivery of your warranty certificate.
-                                </p>
-                            </div>
-                            <div class="col-md-3 text-md-end">
-                                <span class="badge bg-danger text-white px-3 py-2 fw-semibold">Move In</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- Centered Bottom CTA Button -->
+            <div class="text-center mt-4 mt-lg-5 pt-2 reveal-fade-up">
+                <a href="contact.html" class="btn-sleek btn-process-cta">Book Free Design Session</a>
             </div>
         </div>
     </section>
