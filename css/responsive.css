@@ -579,6 +579,87 @@
     }
 }
 
+/* End-to-End Services In Hyderabad Responsive */
+@media (max-width: 991.98px) {
+    .end-to-end-services-section {
+        padding: 4rem 0 3.75rem;
+    }
+
+    .services-hyd-header {
+        margin-bottom: 2.75rem;
+    }
+
+    .services-hyd-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem 1.25rem;
+    }
+
+    .services-hyd-icon-wrap {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 0.65rem;
+    }
+
+    .hyd-svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .services-hyd-name {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .end-to-end-services-section {
+        padding: 3.5rem 0 3rem;
+    }
+
+    .services-hyd-header {
+        margin-bottom: 2.25rem;
+    }
+
+    .services-hyd-title {
+        font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+    }
+
+    .services-hyd-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem 0.5rem;
+    }
+
+    .services-hyd-card {
+        padding: 0.75rem 0.25rem 0.5rem;
+    }
+
+    .services-hyd-icon-wrap {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 0.5rem;
+    }
+
+    .hyd-svg {
+        width: 42px;
+        height: 42px;
+    }
+
+    .services-hyd-name {
+        font-size: 0.8rem;
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 400px) {
+    .services-hyd-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 0.75rem;
+    }
+
+    .services-hyd-name {
+        font-size: 0.84rem;
+    }
+}
+
 /* How It Works Section Responsive */
 @media (max-width: 991.98px) {
     .how-it-works-section {
