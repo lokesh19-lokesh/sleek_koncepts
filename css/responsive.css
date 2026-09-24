@@ -985,6 +985,179 @@
     }
 }
 
+/* ==========================================================================
+   9.1 HASSLE-FREE PAYMENT EXPERIENCE RESPONSIVE
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .payment-experience-section {
+        padding: 4.5rem 0 4.5rem;
+    }
 
+    .payment-card-stage-container {
+        padding: 2.2rem 1.85rem 1.75rem;
+    }
 
+    .deliverables-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem 1rem;
+    }
 
+    .pane-photo-card {
+        height: 200px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .payment-experience-section {
+        padding: 3.5rem 0 3.75rem;
+    }
+
+    .payment-exp-header {
+        margin-bottom: 2rem;
+    }
+
+    .payment-exp-main-title {
+        font-size: 1.65rem;
+    }
+
+    .payment-exp-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .payment-stepper-container {
+        margin-bottom: 1.75rem;
+    }
+
+    .payment-slider-track-wrap {
+        margin-bottom: 1.4rem;
+    }
+
+    .payment-rail-inner {
+        left: 30px;
+        right: 30px;
+        top: 7px;
+    }
+
+    .payment-slider-thumb {
+        width: 18px;
+        height: 18px;
+    }
+
+    .payment-step-node {
+        width: auto;
+        min-width: 60px;
+    }
+
+    .payment-step-node .node-dot {
+        width: 14px;
+        height: 14px;
+        margin-bottom: 0.55rem;
+    }
+
+    .payment-step-node .node-pay {
+        font-size: 0.8rem;
+    }
+
+    .payment-step-node .node-desc {
+        display: none;
+    }
+
+    .payment-step-node .node-badge {
+        font-size: 0.65rem;
+        padding: 1px 6px;
+        margin-top: 2px;
+    }
+
+    .payment-active-stage-pill {
+        font-size: 0.84rem;
+        padding: 0.45rem 1.25rem;
+    }
+
+    .payment-card-stage-container {
+        border-radius: 16px;
+        padding: 1.5rem 1.15rem 1.25rem;
+        margin-top: 1.5rem;
+    }
+
+    .pane-header {
+        margin-bottom: 1.4rem;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+
+    .pane-stage-title {
+        font-size: 1.35rem;
+    }
+
+    .pane-payment-due-badge {
+        font-size: 0.78rem;
+        padding: 0.35rem 0.95rem;
+    }
+
+    .pane-photos-grid {
+        margin-bottom: 1.4rem;
+    }
+
+    .pane-photo-card {
+        height: 190px;
+    }
+
+    .pane-photo-card .highlight-title {
+        font-size: 0.95rem;
+    }
+
+    .pane-deliverables-wrap {
+        margin-top: 1.25rem;
+        padding-top: 1.2rem;
+    }
+
+    .deliverables-heading {
+        font-size: 0.72rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .deliverables-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+
+    .deliverable-item {
+        padding: 0.7rem 0.85rem;
+    }
+
+    .deliverable-item span {
+        font-size: 0.82rem;
+    }
+
+    .payment-card-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.85rem !important;
+    }
+
+    .payment-guarantee-text {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-rail-inner {
+        left: 25px;
+        right: 25px;
+    }
+
+    .payment-step-node {
+        min-width: 50px;
+    }
+
+    .payment-step-node .node-pay {
+        font-size: 0.72rem;
+    }
+
+    .payment-step-node .node-badge {
+        font-size: 0.58rem;
+        padding: 1px 4px;
+    }
+}

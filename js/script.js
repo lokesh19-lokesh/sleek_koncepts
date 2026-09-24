@@ -731,5 +731,166 @@ document.addEventListener('DOMContentLoaded', () => {
         // Initialize at Step 0
         goToStep(0);
     }
+
+    // =========================================================================
+    // 9.1 HASSLE-FREE PAYMENT EXPERIENCE INTERACTIVE TIMELINE
+    // =========================================================================
+    const paymentSection = document.getElementById('paymentExperience');
+    if (paymentSection) {
+        const stepNodes = paymentSection.querySelectorAll('.payment-step-node');
+        const trackFill = document.getElementById('paymentTrackFill');
+        const sliderThumb = document.getElementById('paymentSliderThumb');
+        const activePill = document.getElementById('paymentActiveStagePill');
+        const stagePanes = paymentSection.querySelectorAll('.payment-stage-pane');
+        const autoplayBtn = document.getElementById('paymentAutoplayBtn');
+        const autoplayIcon = document.getElementById('autoplayIcon');
+        const autoplayText = document.getElementById('autoplayText');
+
+        const stagePillTitles = [
+            'Stage 1: Design & 3D Visualization',
+            'Stage 2: Factory Production & Civil Prep',
+            'Stage 3: Site Delivery & Carcass Assembly',
+            'Stage 4: Finishing, Snag Audit & Handover'
+        ];
+
+        let currentPaymentStage = 0;
+        const totalPaymentStages = stepNodes.length;
+        let paymentAutoplayInterval = null;
+        let isPaymentAutoplayActive = false;
+        const AUTOPLAY_DELAY = 4500;
+
+        function setPaymentStage(stageIndex, triggeredByUser = false) {
+            if (stageIndex < 0) stageIndex = 0;
+            if (stageIndex >= totalPaymentStages) stageIndex = totalPaymentStages - 1;
+            currentPaymentStage = stageIndex;
+
+            // Pause autoplay if user clicks or drags
+            if (triggeredByUser && isPaymentAutoplayActive) {
+                stopPaymentAutoplay();
+            }
+
+            // 1. Update Stepper Node States
+            stepNodes.forEach((node, idx) => {
+                if (idx === currentPaymentStage) {
+                    node.classList.add('active');
+                    node.classList.remove('completed');
+                    node.setAttribute('aria-current', 'step');
+                } else if (idx < currentPaymentStage) {
+                    node.classList.remove('active');
+                    node.classList.add('completed');
+                    node.removeAttribute('aria-current');
+                } else {
+                    node.classList.remove('active');
+                    node.classList.remove('completed');
+                    node.removeAttribute('aria-current');
+                }
+            });
+
+            // 2. Update Track Fill & Slider Thumb
+            const percentage = totalPaymentStages > 1 ? (currentPaymentStage / (totalPaymentStages - 1)) * 100 : 0;
+            if (trackFill) {
+                trackFill.style.width = `${percentage}%`;
+            }
+            if (sliderThumb) {
+                sliderThumb.style.left = `${percentage}%`;
+            }
+
+            // 3. Update Active Stage Pill
+            if (activePill && stagePillTitles[currentPaymentStage]) {
+                activePill.innerHTML = `<span class="pill-dot"></span> ${stagePillTitles[currentPaymentStage]}`;
+            }
+
+            // 4. Update Stage Panes
+            stagePanes.forEach((pane) => {
+                const paneStage = parseInt(pane.getAttribute('data-stage'), 10);
+                if (paneStage === currentPaymentStage) {
+                    pane.classList.add('active');
+                } else {
+                    pane.classList.remove('active');
+                }
+            });
+        }
+
+        // Node Click Events
+        stepNodes.forEach((node) => {
+            node.addEventListener('click', () => {
+                const targetStage = parseInt(node.getAttribute('data-stage'), 10);
+                if (!isNaN(targetStage)) {
+                    setPaymentStage(targetStage, true);
+                }
+            });
+        });
+
+        // Autoplay Logic
+        function startPaymentAutoplay() {
+            isPaymentAutoplayActive = true;
+            if (autoplayBtn) autoplayBtn.classList.add('playing');
+            if (autoplayIcon) {
+                autoplayIcon.classList.remove('bi-play-circle');
+                autoplayIcon.classList.add('bi-pause-circle');
+            }
+            if (autoplayText) autoplayText.textContent = 'Pause Autoplay';
+
+            if (paymentAutoplayInterval) clearInterval(paymentAutoplayInterval);
+            paymentAutoplayInterval = setInterval(() => {
+                const nextStage = (currentPaymentStage + 1) % totalPaymentStages;
+                setPaymentStage(nextStage, false);
+            }, AUTOPLAY_DELAY);
+        }
+
+        function stopPaymentAutoplay() {
+            isPaymentAutoplayActive = false;
+            if (autoplayBtn) autoplayBtn.classList.remove('playing');
+            if (autoplayIcon) {
+                autoplayIcon.classList.remove('bi-pause-circle');
+                autoplayIcon.classList.add('bi-play-circle');
+            }
+            if (autoplayText) autoplayText.textContent = 'Autoplay';
+
+            if (paymentAutoplayInterval) {
+                clearInterval(paymentAutoplayInterval);
+                paymentAutoplayInterval = null;
+            }
+        }
+
+        if (autoplayBtn) {
+            autoplayBtn.addEventListener('click', () => {
+                if (isPaymentAutoplayActive) {
+                    stopPaymentAutoplay();
+                } else {
+                    startPaymentAutoplay();
+                }
+            });
+        }
+
+        // Swipe gestures on stage card container
+        const stageContainer = paymentSection.querySelector('.payment-card-stage-container');
+        if (stageContainer) {
+            let touchStartX = 0;
+            let touchStartY = 0;
+
+            stageContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            stageContainer.addEventListener('touchend', (e) => {
+                const deltaX = e.changedTouches[0].screenX - touchStartX;
+                const deltaY = e.changedTouches[0].screenY - touchStartY;
+
+                if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                    if (deltaX < 0) {
+                        setPaymentStage(currentPaymentStage + 1, true);
+                    } else {
+                        setPaymentStage(currentPaymentStage - 1, true);
+                    }
+                }
+            }, { passive: true });
+        }
+
+        // Initialize Stage 0
+        setPaymentStage(0);
+    }
 });
+
 
