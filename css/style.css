@@ -3093,281 +3093,403 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 /* ==========================================================================
-   QUALITY AT EVERY STEP: HOW WE DO IT (PROCESS GRID)
+   HOW IT WORKS (5-STEP HORIZONTAL INTERACTIVE TIMELINE)
    ========================================================================== */
-.quality-process-section {
+.how-it-works-section {
     position: relative;
     padding: 5rem 0 5.5rem;
     background: #FFFFFF;
     border-bottom: 1px solid rgba(18, 30, 58, 0.08);
+    overflow: hidden;
 }
 
-.quality-process-section .quality-process-header {
+.how-it-works-header {
     text-align: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3.75rem;
 }
 
-.quality-process-section .quality-process-title {
+.how-it-works-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.85rem, 3vw, 2.5rem);
-    font-weight: 300;
-    color: #121826;
-    letter-spacing: -0.015em;
-    margin-bottom: 0;
-}
-
-.quality-process-section .quality-process-title strong {
+    font-size: clamp(2.1rem, 3.5vw, 2.85rem);
     font-weight: 800;
     color: #121826;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+    position: relative;
+    display: inline-block;
 }
 
-.quality-step-item {
-    text-align: center;
-    padding: 1.5rem 1.25rem;
-    border-radius: 16px;
-    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-    background: transparent;
-    height: 100%;
+/* Timeline Wrapper & Connector Track */
+.how-it-works-timeline-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto 3.75rem;
+    padding: 0.5rem 0;
+}
+
+/* Connecting Horizontal Line Behind Circles */
+.how-it-works-connector {
+    position: absolute;
+    top: 44px; /* Exactly vertical center of 86px circle */
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.connector-track-base {
+    position: absolute;
+    inset: 0;
+    background: #E2E8F0;
+    border-radius: 999px;
+}
+
+.connector-track-pulse {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 90, 54, 0.15) 20%, 
+        #FF5A36 50%, 
+        #E52027 80%, 
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: hiwPulseFlow 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    border-radius: 999px;
+}
+
+@keyframes hiwPulseFlow {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Steps Grid */
+.how-it-works-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.how-it-works-step-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.quality-step-item:hover {
+/* Circular Node */
+.step-circle-node {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
     background: #FFFFFF;
-    box-shadow: 0 12px 30px rgba(18, 30, 58, 0.06);
-    transform: translateY(-5px);
-}
-
-.quality-step-item .step-icon-wrapper {
-    width: 76px;
-    height: 76px;
+    border: 2px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 20px rgba(18, 30, 58, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     margin-bottom: 1.35rem;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    outline: none;
+}
+
+.step-circle-node::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: #FFF9F7;
+    z-index: 0;
+    transition: all 0.35s ease;
+}
+
+.step-circle-node svg {
+    position: relative;
+    z-index: 1;
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.quality-step-item:hover .step-icon-wrapper {
-    transform: translateY(-4px) scale(1.08);
+/* Badge Number */
+.step-badge-number {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #121E3A;
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 2px 8px rgba(18, 30, 58, 0.18);
+    z-index: 3;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.quality-step-item .step-title {
+/* Typography Under Circle */
+.step-node-title {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #121826;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
     letter-spacing: -0.01em;
+    transition: color 0.3s ease;
 }
 
-.quality-step-item .step-desc {
+.step-node-subtitle {
     font-family: var(--font-body);
-    font-size: 0.92rem;
-    font-weight: 400;
-    color: #556477;
-    line-height: 1.62;
-    max-width: 320px;
-    margin: 0 auto;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #64748B;
+    line-height: 1.35;
+    margin: 0;
+    max-width: 175px;
+    transition: color 0.3s ease;
+}
+
+/* Card Hover States */
+.how-it-works-step-card:hover {
+    transform: translateY(-4px);
+}
+
+.how-it-works-step-card:hover .step-circle-node {
+    transform: scale(1.1);
+    border-color: #FF5A36;
+    box-shadow: 0 14px 32px rgba(255, 90, 54, 0.25), 0 0 0 5px rgba(255, 90, 54, 0.12);
+}
+
+.how-it-works-step-card:hover .step-circle-node::before {
+    background: #FFF1EC;
+}
+
+.how-it-works-step-card:hover .step-badge-number {
+    background: #FF5A36;
+    transform: scale(1.15);
+}
+
+.how-it-works-step-card:hover .step-node-title {
+    color: #FF5A36;
+}
+
+.how-it-works-step-card:hover .step-node-subtitle {
+    color: #334155;
+}
+
+/* Bottom CTA Button matching reference image */
+.how-it-works-cta-wrap {
+    margin-top: 1rem;
+}
+
+.btn-hiw-consultation {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 2.85rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #FF6B35 0%, #FF5A36 40%, #E52027 100%);
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(255, 90, 54, 0.35);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-hiw-consultation::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: rotate(25deg);
+    animation: hiwBtnShimmer 4s ease-in-out infinite;
+}
+
+@keyframes hiwBtnShimmer {
+    0%, 65% {
+        left: -60%;
+    }
+    100% {
+        left: 140%;
+    }
+}
+
+.btn-hiw-consultation:hover {
+    color: #FFFFFF;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(255, 90, 54, 0.48);
+}
+
+.btn-hiw-consultation:active {
+    transform: translateY(-1px) scale(0.99);
 }
 
 /* ==========================================================================
-   QUALITY AT EVERY STEP: ICON ANIMATIONS (IDLE & HOVER)
+   HOW IT WORKS: ICON IDLE & HOVER ANIMATIONS
    ========================================================================== */
 
-/* Subtle staggered floating for the entire icon wrapper */
-.quality-step-item:nth-child(1) .step-icon-wrapper {
-    animation: iconFloatSoft 4.5s ease-in-out infinite 0s;
+/* Staggered soft float for each circle */
+.how-it-works-step-card:nth-child(1) .step-circle-node svg {
+    animation: hiwFloat 4.2s ease-in-out infinite 0s;
 }
-.quality-step-item:nth-child(2) .step-icon-wrapper {
-    animation: iconFloatSoft 4.5s ease-in-out infinite 0.75s;
+.how-it-works-step-card:nth-child(2) .step-circle-node svg {
+    animation: hiwFloat 4.2s ease-in-out infinite 0.8s;
 }
-.quality-step-item:nth-child(3) .step-icon-wrapper {
-    animation: iconFloatSoft 4.5s ease-in-out infinite 1.5s;
+.how-it-works-step-card:nth-child(3) .step-circle-node svg {
+    animation: hiwFloat 4.2s ease-in-out infinite 1.6s;
 }
-.quality-step-item:nth-child(4) .step-icon-wrapper {
-    animation: iconFloatSoft 4.5s ease-in-out infinite 0.4s;
+.how-it-works-step-card:nth-child(4) .step-circle-node svg {
+    animation: hiwFloat 4.2s ease-in-out infinite 2.4s;
 }
-.quality-step-item:nth-child(5) .step-icon-wrapper {
-    animation: iconFloatSoft 4.5s ease-in-out infinite 1.15s;
-}
-.quality-step-item:nth-child(6) .step-icon-wrapper {
-    animation: iconFloatSoft 4.5s ease-in-out infinite 1.9s;
+.how-it-works-step-card:nth-child(5) .step-circle-node svg {
+    animation: hiwFloat 4.2s ease-in-out infinite 3.2s;
 }
 
-@keyframes iconFloatSoft {
+@keyframes hiwFloat {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-6px);
+        transform: translateY(-3.5px);
     }
 }
 
-/* 1. Design Icon: Drafting Pencil & Star Sparkle */
-.anim-pencil {
-    transform-origin: 30px 22px;
-    animation: pencilDraw 3.2s ease-in-out infinite;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* 1. Meet Designer: Stylus tilt & Sparkle gleam */
+.hiw-anim-stylus {
+    transform-origin: 44px 28px;
+    animation: hiwStylusTilt 3s ease-in-out infinite;
+    transition: transform 0.35s ease;
 }
 
-@keyframes pencilDraw {
+@keyframes hiwStylusTilt {
     0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
+        transform: rotate(0deg);
     }
-    30% {
-        transform: translate(-3.5px, 3.5px) rotate(-6deg);
-    }
-    65% {
-        transform: translate(2px, -2px) rotate(4deg);
+    50% {
+        transform: rotate(-10deg) translate(-1px, 1px);
     }
 }
 
-.anim-sparkle,
-.anim-sparkle-craft {
+.hiw-anim-sparkle,
+.hiw-anim-spark-tool {
     transform-origin: center;
-    animation: starPulseGleam 2.6s ease-in-out infinite;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: hiwSparkPulse 2.8s ease-in-out infinite;
 }
 
-@keyframes starPulseGleam {
+@keyframes hiwSparkPulse {
     0%, 100% {
-        transform: scale(0.9) rotate(0deg);
-        opacity: 0.8;
+        transform: scale(0.85);
+        opacity: 0.6;
     }
     50% {
-        transform: scale(1.22) rotate(15deg);
+        transform: scale(1.2) rotate(15deg);
         opacity: 1;
-        filter: drop-shadow(0 0 5px rgba(229, 32, 39, 0.65));
     }
 }
 
-/* 2. 3D Visualization: Isometric Cube Levitation & Viewport Brackets */
-.anim-cube {
-    transform-origin: 32px 29px;
-    animation: cubeFloat3D 3s ease-in-out infinite;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+.how-it-works-step-card:hover .hiw-anim-stylus {
+    transform: rotate(-18deg) scale(1.15);
 }
 
-@keyframes cubeFloat3D {
+.how-it-works-step-card:hover .hiw-anim-sparkle {
+    transform: scale(1.4) rotate(45deg);
+    filter: drop-shadow(0 0 5px rgba(255, 90, 54, 0.8));
+}
+
+/* 2. 3D Design & Plan: Floating isometric cube & Roof line breathe */
+.hiw-anim-cube {
+    transform-origin: 32px 28px;
+    animation: hiwCubeFloat 3.2s ease-in-out infinite;
+    transition: transform 0.35s ease;
+}
+
+@keyframes hiwCubeFloat {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-4.5px) scale(1.06);
+        transform: translateY(-4px) scale(1.08);
     }
 }
 
-.anim-bracket-tl {
-    animation: bracketPulseTL 3s ease-in-out infinite;
-}
-.anim-bracket-br {
-    animation: bracketPulseBR 3s ease-in-out infinite;
+.how-it-works-step-card:hover .hiw-anim-cube {
+    transform: translateY(-6px) scale(1.18);
+    filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.8));
 }
 
-@keyframes bracketPulseTL {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-2px, -2px); }
+/* 3. Material Sign-Off: Aerodynamic Plane Glide & Checkmark */
+.hiw-anim-plane {
+    transform-origin: 32px 32px;
+    animation: hiwPlaneGlide 3.4s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes bracketPulseBR {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(2px, 2px); }
-}
-
-/* 3. Craftsmanship: Architectural Layer Glide */
-.anim-layer-top {
-    animation: layerGlide 3.6s ease-in-out infinite;
-    transition: transform 0.4s ease;
-}
-
-@keyframes layerGlide {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-.anim-layer-mid {
-    animation: layerGlow 3.6s ease-in-out infinite;
-}
-
-@keyframes layerGlow {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 1; filter: drop-shadow(0 0 3px rgba(229, 32, 39, 0.45)); }
-}
-
-/* 4. Quality Checks: Caliper Gauge Slide & Certified Seal Glow */
-.anim-gauge {
-    animation: gaugeSlide 3.4s ease-in-out infinite;
-    transition: transform 0.4s ease;
-}
-
-@keyframes gaugeSlide {
+@keyframes hiwPlaneGlide {
     0%, 100% {
         transform: translate(0, 0);
     }
     50% {
-        transform: translate(2.5px, 2px);
+        transform: translate(3px, -2px);
     }
 }
 
-.anim-seal {
-    transform-origin: 43px 41px;
-    animation: sealPopGlow 3.2s ease-in-out infinite 0.4s;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+.hiw-anim-check {
+    animation: hiwCheckShine 3s ease-in-out infinite 0.3s;
 }
 
-@keyframes sealPopGlow {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.08);
-        filter: drop-shadow(0 2px 7px rgba(229, 32, 39, 0.45));
-    }
-}
-
-.anim-checkmark {
-    animation: checkmarkShine 3.2s ease-in-out infinite 0.4s;
-}
-
-@keyframes checkmarkShine {
-    0%, 70%, 100% {
+@keyframes hiwCheckShine {
+    0%, 65%, 100% {
         opacity: 1;
     }
-    85% {
-        opacity: 0.7;
+    80% {
+        opacity: 0.5;
     }
 }
 
-/* 5. Delivery & Installation: Fluid Spirit Bubble & Wrench Motion */
-.anim-bubble {
-    animation: bubbleFloatH 2.8s ease-in-out infinite;
+.how-it-works-step-card:hover .hiw-anim-plane {
+    transform: translate(6px, -4px) scale(1.08);
 }
 
-@keyframes bubbleFloatH {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    30% {
-        transform: translateX(3.5px);
-    }
-    70% {
-        transform: translateX(-3.5px);
-    }
+.how-it-works-step-card:hover .hiw-anim-check-dot {
+    transform: scale(1.2);
+    fill: #FF5A36;
 }
 
-.anim-wrench {
-    transform-origin: 32px 16px;
-    animation: wrenchRock 3.4s ease-in-out infinite;
-    transition: transform 0.4s ease;
+/* 4. Precision Installation: Wrench oscillation */
+.hiw-anim-wrench {
+    transform-origin: 32px 32px;
+    animation: hiwWrenchSwing 3.6s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes wrenchRock {
+@keyframes hiwWrenchSwing {
     0%, 100% {
         transform: rotate(0deg);
     }
@@ -3375,73 +3497,73 @@ h6, .h6 { font-size: 0.95rem; }
         transform: rotate(9deg);
     }
     75% {
-        transform: rotate(-9deg);
+        transform: rotate(-6deg);
     }
 }
 
-/* 6. Guaranteed Durability: Shield Breathing & Ribbon Flutter */
-.anim-shield {
-    transform-origin: 32px 30px;
-    animation: shieldBreathe 4s ease-in-out infinite;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+.how-it-works-step-card:hover .hiw-anim-wrench {
+    transform: rotate(20deg) scale(1.12);
 }
 
-@keyframes shieldBreathe {
+.how-it-works-step-card:hover .hiw-anim-spark-tool {
+    transform: scale(1.4) rotate(35deg);
+    filter: drop-shadow(0 0 5px rgba(255, 90, 54, 0.8));
+}
+
+/* 5. Handover & Warranty: Delivery truck suspension & wheel turn */
+.hiw-anim-truck {
+    transform-origin: 32px 35px;
+    animation: hiwTruckDrive 3.2s ease-in-out infinite;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes hiwTruckDrive {
     0%, 100% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-3.5px) scale(1.04);
-        filter: drop-shadow(0 4px 10px rgba(40, 65, 128, 0.22));
+        transform: translateY(-2px);
     }
 }
 
-.anim-ribbons {
-    transform-origin: 32px 46px;
-    animation: ribbonFlutter 4s ease-in-out infinite;
+.hiw-anim-motion-1,
+.hiw-anim-motion-2 {
+    animation: hiwMotionBreathe 2.5s ease-in-out infinite;
 }
 
-@keyframes ribbonFlutter {
+@keyframes hiwMotionBreathe {
     0%, 100% {
+        opacity: 0.3;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+}
+
+.hiw-anim-wheel-1,
+.hiw-anim-wheel-2 {
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.how-it-works-step-card:hover .hiw-anim-truck {
+    transform: translateX(4px) scale(1.05);
+}
+
+.how-it-works-step-card:hover .hiw-anim-wheel-1,
+.how-it-works-step-card:hover .hiw-anim-wheel-2 {
+    animation: hiwSpinWheels 0.8s linear infinite;
+}
+
+@keyframes hiwSpinWheels {
+    from {
         transform: rotate(0deg);
     }
-    50% {
-        transform: rotate(3deg) scaleY(1.04);
+    to {
+        transform: rotate(360deg);
     }
-}
-
-/* Interactive Hover Reactions */
-.quality-step-item:hover .anim-pencil {
-    transform: translate(-4px, 4px) rotate(-14deg) scale(1.12);
-}
-
-.quality-step-item:hover .anim-sparkle,
-.quality-step-item:hover .anim-sparkle-craft {
-    transform: scale(1.35) rotate(45deg);
-    filter: drop-shadow(0 0 7px rgba(229, 32, 39, 0.85));
-}
-
-.quality-step-item:hover .anim-cube {
-    transform: translateY(-6px) scale(1.14);
-    filter: drop-shadow(0 4px 10px rgba(229, 32, 39, 0.5));
-}
-
-.quality-step-item:hover .anim-layer-top {
-    transform: translateY(-6px);
-}
-
-.quality-step-item:hover .anim-seal {
-    transform: scale(1.16) rotate(6deg);
-    filter: drop-shadow(0 4px 12px rgba(229, 32, 39, 0.55));
-}
-
-.quality-step-item:hover .anim-wrench {
-    transform: rotate(22deg) scale(1.12);
-}
-
-.quality-step-item:hover .anim-shield {
-    transform: translateY(-6px) scale(1.09);
-    filter: drop-shadow(0 6px 14px rgba(40, 65, 128, 0.28));
 }
 
 /* ==========================================================================

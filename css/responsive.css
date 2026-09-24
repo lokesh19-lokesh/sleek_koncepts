@@ -579,49 +579,208 @@
     }
 }
 
-/* Quality at Every Step Section Responsive */
+/* How It Works Section Responsive */
 @media (max-width: 991.98px) {
-    .quality-process-section {
+    .how-it-works-section {
         padding: 4rem 0 4.5rem;
     }
 
-    .quality-process-section .quality-process-header {
+    .how-it-works-header {
         margin-bottom: 2.75rem;
+    }
+
+    .how-it-works-timeline-wrapper {
+        margin-bottom: 2.75rem;
+    }
+
+    .how-it-works-connector {
+        top: 38px;
+        left: 8%;
+        right: 8%;
+    }
+
+    .step-circle-node {
+        width: 74px;
+        height: 74px;
+        margin-bottom: 1rem;
+    }
+
+    .step-circle-node svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .step-node-title {
+        font-size: 0.95rem;
+    }
+
+    .step-node-subtitle {
+        font-size: 0.74rem;
+        max-width: 140px;
+    }
+
+    .btn-hiw-consultation {
+        padding: 0.85rem 2.4rem;
+        font-size: 0.98rem;
     }
 }
 
 @media (max-width: 767.98px) {
-    .quality-process-section {
-        padding: 3.25rem 0 3.75rem;
+    .how-it-works-section {
+        padding: 3.5rem 0 4rem;
     }
 
-    .quality-process-section .quality-process-header {
-        margin-bottom: 2.25rem;
+    .how-it-works-header {
+        margin-bottom: 2.5rem;
     }
 
-    .quality-step-item {
-        padding: 1.25rem 0.75rem;
+    .how-it-works-title {
+        font-size: clamp(1.85rem, 6.5vw, 2.35rem);
     }
 
-    .quality-step-item .step-icon-wrapper {
-        width: 66px;
-        height: 66px;
-        margin-bottom: 1.1rem;
+    /* Vertical Timeline Container */
+    .how-it-works-timeline-wrapper {
+        position: relative;
+        max-width: 440px;
+        margin: 0 auto 2.5rem;
+        padding: 0.5rem 1rem;
+        overflow: visible;
     }
 
-    .quality-step-item .step-icon-wrapper svg {
-        width: 58px;
-        height: 58px;
+    /* Continuous Vertical Animated Connector Track */
+    .how-it-works-connector {
+        position: absolute;
+        top: 40px; /* Center of first 64px circle (0.5rem (8px) + 32px) */
+        bottom: 40px; /* Center of last 64px circle */
+        left: 48px; /* Center of column 1 (1rem (16px) + 32px) */
+        transform: translateX(-50%);
+        right: auto;
+        width: 3px;
+        height: auto;
+        border-radius: 999px;
+        z-index: 1;
+        overflow: hidden;
     }
 
-    .quality-step-item .step-title {
-        font-size: 1.15rem;
-        margin-bottom: 0.5rem;
+    .connector-track-base {
+        position: absolute;
+        inset: 0;
+        background: #E2E8F0;
+        border-radius: 999px;
     }
 
-    .quality-step-item .step-desc {
-        font-size: 0.88rem;
-        line-height: 1.55;
+    .connector-track-pulse {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, 
+            transparent 0%, 
+            rgba(255, 90, 54, 0.2) 20%, 
+            #FF5A36 50%, 
+            #E52027 80%, 
+            transparent 100%);
+        background-size: 100% 200%;
+        animation: hiwPulseFlowVertical 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        border-radius: 999px;
+    }
+
+    @keyframes hiwPulseFlowVertical {
+        0% {
+            background-position: 0 -200%;
+        }
+        100% {
+            background-position: 0 200%;
+        }
+    }
+
+    /* Vertical Steps Column */
+    .how-it-works-steps-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Each Step Card in 2-column Grid: Left Circle, Right Text */
+    .how-it-works-step-card {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1.15rem;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .how-it-works-step-card:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Circular Node on Mobile */
+    .step-circle-node {
+        grid-row: 1 / 3;
+        grid-column: 1;
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+        margin-bottom: 0;
+        background: #FFFFFF;
+        box-shadow: 0 4px 16px rgba(18, 30, 58, 0.08);
+        border: 2px solid rgba(226, 232, 240, 0.95);
+    }
+
+    .step-circle-node svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .step-badge-number {
+        width: 20px;
+        height: 20px;
+        font-size: 0.68rem;
+        top: -2px;
+        right: -2px;
+    }
+
+    /* Typography on the Right */
+    .step-node-title {
+        grid-row: 1;
+        grid-column: 2;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #121826;
+        margin-bottom: 0.2rem;
+        line-height: 1.3;
+        align-self: end;
+    }
+
+    .step-node-subtitle {
+        grid-row: 2;
+        grid-column: 2;
+        font-size: 0.82rem;
+        color: #64748B;
+        line-height: 1.4;
+        margin: 0;
+        max-width: 100%;
+        align-self: start;
+    }
+
+    /* CTA Button at Bottom */
+    .how-it-works-cta-wrap {
+        margin-top: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .btn-hiw-consultation {
+        width: 100%;
+        max-width: 340px;
+        padding: 0.95rem 1.85rem;
+        font-size: 1rem;
     }
 }
 
