@@ -2489,7 +2489,7 @@ h6, .h6 { font-size: 0.95rem; }
 
 /* --- 17. GLOBAL FOOTER --- */
 .footer-sleek {
-    background-color: #121E3A;
+    background-color: #2A3A6B;
     color: rgba(255, 255, 255, 0.92);
     padding-top: 5rem;
     border-top: 4px solid var(--deep-koncept-blue);
@@ -2632,7 +2632,7 @@ h6, .h6 { font-size: 0.95rem; }
 }
 
 .footer-bottom {
-    background-color: #070E1E !important;
+    background-color: rgba(0, 0, 0, 0.22) !important;
     padding: 1.85rem 0;
     margin-top: 4rem;
     font-size: 0.95rem;
