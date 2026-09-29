@@ -2,8 +2,9 @@
 
 Domain: https://sleekkoncepts.com
 Organization: Sleek Koncepts
-Location: Karimnagar, Telangana, India
-Address: 2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri, Karimnagar, Telangana 505001, India
+Locations:
+- Karimnagar Studio: 2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri, Karimnagar, Telangana 505001, India
+- Hyderabad Store: 38/C, Road No. 12, MLA Colony, Banjara Hills, Hyderabad, Telangana 500028, India
 Contact Phone/WhatsApp: +91 8143965633
 Email: kondapalkulasairam@gmail.com
 Google Maps Coordinates: 18.4386 N, 79.1288 E
@@ -91,7 +92,9 @@ A: Yes, initial 1-on-1 design consultations are completely free. Clients can boo
 
 ## 5. Contact & Studio Information
 - **Company**: Sleek Koncepts
-- **Studio Address**: 2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri, Karimnagar, Telangana 505001, India
+- **Studio & Store Addresses**: 
+  - *Karimnagar Studio*: 2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri, Karimnagar, Telangana 505001, India
+  - *Hyderabad Store*: 38/C, Road No. 12, MLA Colony, Banjara Hills, Hyderabad, Telangana 500028, India
 - **Phone / WhatsApp**: +91 8143965633
 - **Email**: kondapalkulasairam@gmail.com
 - **Website**: https://sleekkoncepts.com

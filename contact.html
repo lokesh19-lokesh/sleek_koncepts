@@ -70,14 +70,26 @@
           "telephone": "+918143965633",
           "email": "kondapalkulasairam@gmail.com",
           "priceRange": "₹₹₹",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri",
-            "addressLocality": "Karimnagar",
-            "addressRegion": "Telangana",
-            "postalCode": "505001",
-            "addressCountry": "IN"
-          },
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "name": "Karimnagar Studio",
+              "streetAddress": "2-10-1651, Beside Shree Rama Sarees & Boutique, Chaitanyapuri",
+              "addressLocality": "Karimnagar",
+              "addressRegion": "Telangana",
+              "postalCode": "505001",
+              "addressCountry": "IN"
+            },
+            {
+              "@type": "PostalAddress",
+              "name": "Hyderabad Store",
+              "streetAddress": "38/C, Road No. 12, MLA Colony, Banjara Hills",
+              "addressLocality": "Hyderabad",
+              "addressRegion": "Telangana",
+              "postalCode": "500028",
+              "addressCountry": "IN"
+            }
+          ],
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": 18.4386,
@@ -189,7 +201,7 @@
             <span class="section-subtitle light">Connect With Our Studio</span>
             <h1 class="hero-title mb-3">LET'S CREATE YOUR SPACE</h1>
             <p class="hero-lead mx-auto">
-                Schedule a complimentary 1-on-1 space planning consultation with our senior architects in Karimnagar, Telangana.
+                Schedule a complimentary 1-on-1 space planning consultation with our senior architects in Karimnagar &amp; Hyderabad, Telangana.
             </p>
         </div>
     </header>
@@ -230,11 +242,22 @@
 
                 <!-- Studio Address Card -->
                 <div class="col-md-6 col-lg-3 reveal-fade-up">
-                    <div class="contact-card text-center">
-                        <div class="contact-icon mx-auto"><i class="bi bi-geo-alt-fill text-danger"></i></div>
-                        <h4 class="h5 fw-bold mb-2" style="color: var(--deep-koncept-blue);">Experience Studio</h4>
-                        <p class="small text-muted mb-2">2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar, Telangana 505001</p>
-                        <span class="badge bg-light text-muted border">Mon - Sat: 10 AM - 8 PM</span>
+                    <div class="contact-card text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="contact-icon mx-auto"><i class="bi bi-geo-alt-fill text-danger"></i></div>
+                            <h4 class="h5 fw-bold mb-2" style="color: var(--deep-koncept-blue);">Our Locations</h4>
+                            <div class="text-start small mb-2" style="font-size: 0.8rem; line-height: 1.45;">
+                                <div class="mb-2 pb-2 border-bottom">
+                                    <strong class="d-block text-dark"><i class="bi bi-geo-alt text-danger me-1"></i>Karimnagar Studio:</strong>
+                                    <span class="text-muted">2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar 505001</span>
+                                </div>
+                                <div>
+                                    <strong class="d-block text-dark"><i class="bi bi-geo-alt text-danger me-1"></i>Hyderabad Store:</strong>
+                                    <span class="text-muted">38/C, Road No. 12, MLA Colony, Banjara Hills, Hyderabad 500028</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="badge bg-light text-muted border mt-2">Mon - Sat: 10 AM - 8 PM</span>
                     </div>
                 </div>
             </div>
@@ -271,7 +294,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label-custom">Property Location / City *</label>
-                                    <input type="text" name="city" class="form-control form-control-custom" placeholder="e.g. Karimnagar" value="Karimnagar" required>
+                                    <input type="text" name="city" class="form-control form-control-custom" placeholder="e.g. Karimnagar, Hyderabad" value="Karimnagar" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label-custom">Property Configuration</label>
@@ -328,29 +351,86 @@
                 <!-- Google Maps & Studio Highlights -->
                 <div class="col-lg-5 reveal-fade-up">
                     <div class="p-4 rounded border bg-white shadow-sm mb-4">
-                        <h4 class="h5 fw-bold mb-3" style="color: var(--deep-koncept-blue);">STUDIO LOCATION</h4>
-                        <p class="text-muted small mb-3">
-                            <i class="bi bi-geo-alt-fill text-danger me-2"></i>
-                            <strong>Sleek Koncepts Studio</strong><br>
-                            2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar, Telangana 505001
-                        </p>
+                        <h4 class="h5 fw-bold mb-3" style="color: var(--deep-koncept-blue);">STUDIO LOCATIONS</h4>
+                        
+                        <!-- Location Selection Tabs -->
+                        <ul class="nav nav-pills location-nav-tabs nav-fill mb-3" id="studioLocationTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="karimnagar-tab" data-bs-toggle="pill" data-bs-target="#karimnagar-location" type="button" role="tab" aria-controls="karimnagar-location" aria-selected="true">
+                                    <i class="bi bi-geo-alt-fill me-1 text-danger"></i> Karimnagar Studio
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="hyderabad-tab" data-bs-toggle="pill" data-bs-target="#hyderabad-location" type="button" role="tab" aria-controls="hyderabad-location" aria-selected="false">
+                                    <i class="bi bi-geo-alt-fill me-1 text-danger"></i> Hyderabad Store
+                                </button>
+                            </li>
+                        </ul>
 
-                        <!-- Responsive Map Embed -->
-                        <div class="rounded overflow-hidden border mb-3" style="height: 280px;">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3788.625345711681!2d79.124500!3d18.438500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bccd901844b8b6f%3A0x89b0d62c1bc16a22!2sChaitanyapuri%2C%20Karimnagar%2C%20Telangana%20505001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                                width="100%" 
-                                height="100%" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                title="Sleek Koncepts Studio Location">
-                            </iframe>
+                        <div class="tab-content" id="studioLocationTabContent">
+                            <!-- Karimnagar Location Pane -->
+                            <div class="tab-pane fade show active" id="karimnagar-location" role="tabpanel" aria-labelledby="karimnagar-tab">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <strong class="text-dark small"><i class="bi bi-building me-1" style="color: var(--primary-accent);"></i> Experience Studio</strong>
+                                        <span class="badge bg-light text-muted border">Karimnagar</span>
+                                    </div>
+                                    <p class="text-muted small mb-2">
+                                        2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar, Telangana 505001
+                                    </p>
+                                    <a href="https://maps.google.com/?q=2-10-1651,+Beside+Shree+Rama+Sarees+%26+Boutique,+Chaitanyapuri,+Karimnagar,+Telangana+505001" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1 small">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Open in Maps
+                                    </a>
+                                </div>
+
+                                <!-- Responsive Map Embed Karimnagar -->
+                                <div class="rounded overflow-hidden border mb-3" style="height: 250px;">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3788.625345711681!2d79.124500!3d18.438500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bccd901844b8b6f%3A0x89b0d62c1bc16a22!2sChaitanyapuri%2C%20Karimnagar%2C%20Telangana%20505001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        title="Sleek Koncepts Karimnagar Studio Location">
+                                    </iframe>
+                                </div>
+                            </div>
+
+                            <!-- Hyderabad Location Pane -->
+                            <div class="tab-pane fade" id="hyderabad-location" role="tabpanel" aria-labelledby="hyderabad-tab">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <strong class="text-dark small"><i class="bi bi-shop me-1" style="color: var(--primary-accent);"></i> Hyderabad Store</strong>
+                                        <span class="badge bg-light text-muted border">Hyderabad</span>
+                                    </div>
+                                    <p class="text-muted small mb-2">
+                                        38/C, Road No. 12, MLA Colony, Banjara Hills, Hyderabad, Telangana 500028
+                                    </p>
+                                    <a href="https://maps.google.com/?q=38/C,+Road+No.+12,+MLA+Colony,+Banjara+Hills,+Hyderabad,+Telangana+500028" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1 small">
+                                        <i class="bi bi-box-arrow-up-right me-1"></i> Open in Maps
+                                    </a>
+                                </div>
+
+                                <!-- Responsive Map Embed Hyderabad -->
+                                <div class="rounded overflow-hidden border mb-3" style="height: 250px;">
+                                    <iframe 
+                                        src="https://maps.google.com/maps?q=38/C,+Road+No.+12,+MLA+Colony,+Banjara+Hills,+Hyderabad,+Telangana+500028&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        title="Sleek Koncepts Hyderabad Store Location">
+                                    </iframe>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="p-3 rounded bg-light border-start border-4 border-primary" style="border-color: var(--deep-koncept-blue) !important;">
-                            <h6 class="fw-bold mb-1" style="color: var(--deep-koncept-blue);">Visiting Our Studio:</h6>
+                            <h6 class="fw-bold mb-1" style="color: var(--deep-koncept-blue);">Visiting Our Studios:</h6>
                             <p class="small text-muted mb-0">Experience full-scale kitchen mockups, test drawer runners, and review genuine acrylic and stone swatches.</p>
                         </div>
                     </div>
@@ -406,7 +486,17 @@
                     <h4 class="footer-title">Studio & Contact</h4>
                     <div class="footer-contact-item">
                         <i class="bi bi-geo-alt"></i>
-                        <span>2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar, Telangana 505001</span>
+                        <div>
+                            <span class="footer-contact-label">Karimnagar Studio</span>
+                            <span>2-10-1651, Beside Shree Rama Sarees &amp; Boutique, Chaitanyapuri, Karimnagar, Telangana 505001</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div>
+                            <span class="footer-contact-label">Hyderabad Store</span>
+                            <span>38/C, Road No. 12, MLA Colony, Banjara Hills, Hyderabad, Telangana 500028</span>
+                        </div>
                     </div>
                     <div class="footer-contact-item">
                         <i class="bi bi-telephone"></i>
